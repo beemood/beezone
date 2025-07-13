@@ -1,7 +1,7 @@
 import { DynamicModule, Module, Type } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { getClientToken, provideClient } from './provide-client.ts';
-import { getRepositoryToken, provideRepository } from './provide-repository.ts';
+import { getClientToken, provideClient } from './provide-client.js';
+import { getRepositoryToken, provideRepository } from './provide-repository.js';
 
 export type PrismaClientModuleRootOptions = {
   clientClass: Type;

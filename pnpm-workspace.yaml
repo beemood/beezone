@@ -7,3 +7,9 @@ onlyBuiltDependencies:
   - '@beezone/sample-db'
   - '@nestjs/core'
   - '@prisma/client'
+  - '@prisma/engines'
+  - '@scarf/scarf'
+  - '@swc/core'
+  - esbuild
+  - nx
+  - prisma
