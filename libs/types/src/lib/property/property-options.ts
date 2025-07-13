@@ -1,7 +1,15 @@
-import { PropertyType } from './property-type.js';
+import { BooleanPropertyOptions } from './boolean-property-options.js';
+import { IntegerPropertyOptions } from './integer-property-options.js';
+import { NumberPropertyOptions } from './number-property-options.js';
+import { ObjectPropertyOptions } from './object-property-options.js';
 
-export type PropertyOptions = {
-  type: PropertyType;
+import { StringPropertyOptions } from './string-property-options.js';
+import { ArrayPropertyOptions } from './array-property-options.js';
 
-  exclude?: boolean;
-};
+export type PropertyOptions =
+  | StringPropertyOptions
+  | NumberPropertyOptions
+  | IntegerPropertyOptions
+  | BooleanPropertyOptions
+  | ObjectPropertyOptions
+  | ArrayPropertyOptions;

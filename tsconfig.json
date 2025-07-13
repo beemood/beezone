@@ -26,6 +26,9 @@
     },
     {
       "path": "./apps/sample"
+    },
+    {
+      "path": "./libs/bootstrap"
     }
   ]
 }
