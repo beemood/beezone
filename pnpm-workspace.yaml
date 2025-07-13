@@ -1,7 +1,9 @@
 packages:
   - apps/*
   - libs/*
+  - dbs/*
 
 onlyBuiltDependencies:
+  - '@beezone/sample-db'
   - '@nestjs/core'
   - '@prisma/client'

@@ -112,11 +112,17 @@ importers:
   apps/sample:
     dependencies:
       '@beezone/bootstrap':
-        specifier: ^0.1.0
-        version: 0.1.0(@nestjs/platform-express@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+        specifier: ^0.1.1
+        version: 0.1.1(@nestjs/platform-express@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@beezone/nest':
-        specifier: ^0.1.0
-        version: 0.1.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2))
+        specifier: ^0.1.1
+        version: 0.1.1(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2))
+      '@beezone/prisma-client':
+        specifier: ^0.1.1
+        version: 0.1.1(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@beezone/sample-db':
+        specifier: ^0.1.1
+        version: 0.1.1(prisma@6.11.1(typescript@5.8.3))(typescript@5.8.3)
       '@nestjs/common':
         specifier: ^11.1.3
         version: 11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -153,6 +159,19 @@ importers:
       helmet:
         specifier: ^8.1.0
         version: 8.1.0
+    devDependencies:
+      prisma:
+        specifier: ^6.11.1
+        version: 6.11.1(typescript@5.8.3)
+
+  dbs/sample-db:
+    dependencies:
+      '@prisma/client':
+        specifier: ^6.11.1
+        version: 6.11.1(prisma@6.11.1(typescript@5.8.3))(typescript@5.8.3)
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.17
     devDependencies:
       prisma:
         specifier: ^6.11.1
@@ -865,17 +884,23 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@beezone/bootstrap@0.1.0':
-    resolution: {integrity: sha512-MPcKM7YyDd9qsydr2CqG+0gY8j+Dretbfx0iWcXmUrJy8y/rj/UZSA+CboebynbAtYvz09l00rxSwN1u+hj66A==}
+  '@beezone/bootstrap@0.1.1':
+    resolution: {integrity: sha512-orDGfJvgkggfN+Af6BvWQOoxciOqH180VHicMIZwKfVcs58gzWAMZByaj+EZsS6zaY+tyRRKL6Jl69c3R7O84w==}
 
-  '@beezone/names@0.1.0':
-    resolution: {integrity: sha512-KFdks2fO6J2ldLXFIUh4nLKGUxDWyCF3OeJsaLpVLSsBCtkdjRh4pKMk9JpCxRhYUM5oaQCrFVlJsMVDFrCJXQ==}
+  '@beezone/names@0.1.1':
+    resolution: {integrity: sha512-+7NauOpqsLYJlP1gV/ZvbikWdiQzltZK+g0KNuyZq2zM+bPB2mV0QATIPtZ/tojfsQY1sGwhcnbzZqRz01L8Yg==}
 
-  '@beezone/nest@0.1.0':
-    resolution: {integrity: sha512-RJKs3Gc/IbObeW2mkGUcmq+zFtyKzXW/ulyckL/aGU7NpiBeHMWLmJdalUQe3xplY6f1ys1mcC9r0l3RI0mFxQ==}
+  '@beezone/nest@0.1.1':
+    resolution: {integrity: sha512-KMExLSUeFM06jvb/De9iDhv1flYRTU1eYEeunko7aRUtodyltQDLUvec+xfoQWP2j3uQbBmnDTPfVlhnKkz8AA==}
     peerDependencies:
       '@nestjs/common': ^11.1.3
       '@nestjs/swagger': ^11.2.0
+
+  '@beezone/prisma-client@0.1.1':
+    resolution: {integrity: sha512-zMk3/2S7SivtLArdsP9fQPNv6q1JzNR+dXelslcOFCOW46auRHwvTdhYC0bQOmc7hsv6B6xNZXZwTdSVNVoHcw==}
+
+  '@beezone/sample-db@0.1.1':
+    resolution: {integrity: sha512-l1pgB7b8YyPMh8eCnQngm5Gd0cKVGDKYjWSBMPF7/L9Ifqm6thplEEBr9dlwZMB5MTIQSVxs4ITLZ75QTSrgvw==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -5498,7 +5523,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@beezone/bootstrap@0.1.0(@nestjs/platform-express@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)':
+  '@beezone/bootstrap@0.1.1(@nestjs/platform-express@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)':
     dependencies:
       '@nestjs/common': 11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/config': 4.0.2(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -5517,16 +5542,36 @@ snapshots:
       - rxjs
       - supports-color
 
-  '@beezone/names@0.1.0':
+  '@beezone/names@0.1.1':
     dependencies:
       '@swc/helpers': 0.5.17
 
-  '@beezone/nest@0.1.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2))':
+  '@beezone/nest@0.1.1(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2))':
     dependencies:
-      '@beezone/names': 0.1.0
+      '@beezone/names': 0.1.1
       '@nestjs/common': 11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/swagger': 11.2.0(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.3)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
       '@swc/helpers': 0.5.17
+
+  '@beezone/prisma-client@0.1.1(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)':
+    dependencies:
+      '@nestjs/common': 11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/config': 4.0.2(@nestjs/common@11.1.3(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
+      '@swc/helpers': 0.5.17
+    transitivePeerDependencies:
+      - class-transformer
+      - class-validator
+      - reflect-metadata
+      - rxjs
+      - supports-color
+
+  '@beezone/sample-db@0.1.1(prisma@6.11.1(typescript@5.8.3))(typescript@5.8.3)':
+    dependencies:
+      '@prisma/client': 6.11.1(prisma@6.11.1(typescript@5.8.3))(typescript@5.8.3)
+      '@swc/helpers': 0.5.17
+    transitivePeerDependencies:
+      - prisma
+      - typescript
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
