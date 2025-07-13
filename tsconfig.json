@@ -2,5 +2,27 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./libs/property"
+    },
+    {
+      "path": "./libs/fs"
+    },
+    {
+      "path": "./libs/names"
+    },
+    {
+      "path": "./libs/nest"
+    },
+    {
+      "path": "./libs/types"
+    },
+    {
+      "path": "./libs/crypto"
+    },
+    {
+      "path": "./libs/prisma-client"
+    }
+  ]
 }
