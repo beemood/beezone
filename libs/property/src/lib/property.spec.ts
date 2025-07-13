@@ -1,7 +1,9 @@
-import { property } from './property.js';
+import { Property } from './property.js';
 
 describe('property', () => {
   it('should work', () => {
-    expect(property()).toEqual('property');
+    class Sample {
+      @Property({ type: 'string' }) name: string;
+    }
   });
 });

@@ -36,9 +36,14 @@
       }
     }
   },
-  "dependencies": {
-    "@swc/helpers": "~0.5.11",
+  "peerDependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2"
+  },
+  "devDependencies": {
+    "@beezone/types": "workspace:^"
+  },
+  "dependencies": {
+    "@swc/helpers": "~0.5.11"
   }
 }

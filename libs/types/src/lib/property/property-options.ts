@@ -1,1 +1,5 @@
-export type PropertyOptions = any;
+import { PropertyType } from './property-type.js';
+
+export type PropertyOptions = {
+  type: PropertyType;
+};

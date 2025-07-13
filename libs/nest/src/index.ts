@@ -1,1 +1,16 @@
-export * from './lib/nest.js';
+// @index(['./**/*.ts', '!./**/*.{spec,test}.ts'], f => `export * from '${f.path}.js'`)
+export * from './lib/meta/metadata-keys.js';
+export * from './lib/meta/operation.js';
+export * from './lib/meta/operations.js';
+export * from './lib/meta/public.js';
+export * from './lib/meta/resource.js';
+export * from './lib/rest/delete-many.js';
+export * from './lib/rest/delete-one-by-id.js';
+export * from './lib/rest/find-many.js';
+export * from './lib/rest/find-one-by-id.js';
+export * from './lib/rest/pram-keys.js';
+export * from './lib/rest/public-resource-controller.js';
+export * from './lib/rest/resource-controller.js';
+export * from './lib/rest/update-many.js';
+export * from './lib/rest/update-one-by-id.js';
+export * from './lib/utils/get-names.js';
