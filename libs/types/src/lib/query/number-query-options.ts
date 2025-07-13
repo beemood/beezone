@@ -1,1 +1,3 @@
-export type NumberQueryOptions = {};
+export type NumberQueryOptions = {
+    equals?: number;
+};

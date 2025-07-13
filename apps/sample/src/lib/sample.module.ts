@@ -1,0 +1,16 @@
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { FindMany, ResourceController } from '@beezone/nest';
+
+@ResourceController()
+export class SampleController {
+  @FindMany()
+  get() {
+    return { message: 'Updated' };
+  }
+}
+@Module({
+  imports: [ConfigModule.forRoot({})],
+  controllers: [SampleController],
+})
+export class SampleModule {}

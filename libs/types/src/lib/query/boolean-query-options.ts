@@ -1,1 +1,3 @@
-export type BooleanQueryOptions = {};
+export type BooleanQueryOptions = {
+  equals?: boolean;
+};

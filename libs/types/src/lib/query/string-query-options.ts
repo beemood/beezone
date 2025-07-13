@@ -1,1 +1,3 @@
-export type StringQueryOptions = {};
+export type StringQueryOptions = {
+  equals?: string;
+};
