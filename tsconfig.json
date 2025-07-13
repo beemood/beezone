@@ -3,32 +3,14 @@
   "compileOnSave": false,
   "files": [],
   "references": [
-    {
-      "path": "./libs/property"
-    },
-    {
-      "path": "./libs/fs"
-    },
-    {
-      "path": "./libs/names"
-    },
-    {
-      "path": "./libs/nest"
-    },
-    {
-      "path": "./libs/types"
-    },
-    {
-      "path": "./libs/crypto"
-    },
-    {
-      "path": "./libs/prisma-client"
-    },
-    {
-      "path": "./apps/sample"
-    },
-    {
-      "path": "./libs/bootstrap"
-    }
+    { "path": "./apps/sample" },
+    { "path": "./libs/bootstrap" },
+    { "path": "./libs/crypto" },
+    { "path": "./libs/fs" },
+    { "path": "./libs/names" },
+    { "path": "./libs/nest" },
+    { "path": "./libs/prisma-client" },
+    { "path": "./libs/property" },
+    { "path": "./libs/types" }
   ]
 }

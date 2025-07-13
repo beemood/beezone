@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { FindMany, ResourceController } from '@beezone/nest';
-import { PrismaClient } from '@beezone/sample-db';
 
 @ResourceController()
 export class SampleController {
