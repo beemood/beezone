@@ -23,3 +23,62 @@ model Sample {
 
   name String @unique
 }
+
+model Category {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  name String @unique
+
+  Product Product[]
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  name        String  @unique
+  description String?
+
+  price Decimal @default(0)
+  cost  Decimal @default(0)
+
+  category       Category         @relation(fields: [categoryId], references: [id])
+  categoryId     Int
+  ProductVariant ProductVariant[]
+}
+
+model ProductAttribute {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  name        String
+  description String
+
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
+  productVariantId Int
+
+  @@unique([productVariantId, name])
+}
+
+model ProductVariant {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+
+  ProductAttribute ProductAttribute[]
+}
