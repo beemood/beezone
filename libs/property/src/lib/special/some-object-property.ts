@@ -3,6 +3,6 @@ import { Property } from '../property/property.js';
 
 export function SomeObjectProperty(target: () => ClassType): PropertyDecorator {
   return (...args) => {
-    Property({ type: 'object', target })(...args);
+    Property({ type: 'object', target, transform: true })(...args);
   };
 }

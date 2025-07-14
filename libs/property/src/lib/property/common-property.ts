@@ -11,24 +11,26 @@ export function CommonProperty(
   return (...args) => {
     const { required, exclude, transform, defaultValue } = options;
 
-    if (required === true) {
-      IsDefined(valiationOptions)(...args);
-    } else {
-      IsOptional(valiationOptions)(...args);
-    }
+    if (!valiationOptions) {
+      if (required === true) {
+        IsDefined(valiationOptions)(...args);
+      } else {
+        IsOptional(valiationOptions)(...args);
+      }
 
-    if (exclude === true) {
-      Exclude()(...args);
-    } else {
-      Expose()(...args);
-    }
+      if (exclude === true) {
+        Exclude()(...args);
+      } else {
+        Expose()(...args);
+      }
 
-    if (transform) {
-      JsonTransformer()(...args);
-    }
+      if (transform) {
+        JsonTransformer()(...args);
+      }
 
-    if (defaultValue) {
-      DefaultValueTransformer(options.defaultValue)(...args);
+      if (defaultValue) {
+        DefaultValueTransformer(options.defaultValue)(...args);
+      }
     }
   };
 }

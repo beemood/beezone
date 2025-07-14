@@ -9,5 +9,5 @@ export type CommonPropertyOptions = {
   description?: string;
   equalToProperty?: string;
   notEqualToProperty?: string;
-  transform?: string;
+  transform?: boolean;
 };

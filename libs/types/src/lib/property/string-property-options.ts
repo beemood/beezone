@@ -1,6 +1,8 @@
 import { CommonPropertyOptions } from './common-property-options.js';
 import { DefaultValueOptions } from './default-value-options.js';
 
+export type StringFormat = 'password' | 'emai' | 'date';
+
 export type StringPropertyOptions = {
   type: 'string';
 
@@ -23,5 +25,7 @@ export type StringPropertyOptions = {
   notContainsProperty?: string;
 
   trim?: boolean;
+
+  stringFormat?: StringFormat;
 } & CommonPropertyOptions &
   DefaultValueOptions<string>;

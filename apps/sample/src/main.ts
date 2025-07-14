@@ -1,6 +1,6 @@
-import { SampleModule } from './lib/sample.module.js';
+import { AppModule } from './lib/app.module.js';
 import { bootstrap } from '@beezone/bootstrap';
 
 bootstrap({
-  module: SampleModule,
+  module: AppModule,
 });

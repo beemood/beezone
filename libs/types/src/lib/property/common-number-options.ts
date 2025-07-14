@@ -7,4 +7,6 @@ export type CommonNumberOptions = {
 
   moreThanProperty?: string;
   lessThanProperty?: string;
+  isIn?: number[];
+  notIn?: number[];
 };

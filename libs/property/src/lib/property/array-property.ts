@@ -13,7 +13,9 @@ export function ArrayProperty(
 ): PropertyDecorator {
   return (...args) => {
     IsArray(validationOptions)(...args);
+
     CommonProperty(options, validationOptions)(...args);
+
     const { minSize, maxSize } = options;
 
     if (minSize != undefined) {
