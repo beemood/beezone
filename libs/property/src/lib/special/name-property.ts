@@ -9,6 +9,7 @@ export function NameProperty(): PropertyDecorator {
       required: true,
       unique: true,
       trim: true,
+      defaultValue: 'name',
     })(...args);
   };
 }

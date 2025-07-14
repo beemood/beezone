@@ -6,6 +6,7 @@ export function DescriptionProperty(): PropertyDecorator {
       type: 'string',
       maxLength: 1000,
       trim: true,
+      defaultValue: 'Some description',
     })(...args);
   };
 }

@@ -6,6 +6,7 @@ export function SomeNumberProperty(isIn?: number[]): PropertyDecorator {
       type: 'number',
       isIn,
       transform: true,
+      defaultValue: 0,
     })(...args);
   };
 }

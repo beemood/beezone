@@ -6,6 +6,7 @@ export function SomeStringProperty(isIn?: string[]): PropertyDecorator {
       type: 'string',
       isIn,
       transform: true,
+      defaultValue: 'Some string',
     })(...args);
   };
 }
