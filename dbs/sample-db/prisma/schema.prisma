@@ -19,6 +19,18 @@ model Sample {
   name String @unique
 }
 
+model Department {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  name String @unique
+
+  Category Category[]
+}
+
 model Category {
   id Int @id @default(autoincrement())
 
@@ -27,6 +39,9 @@ model Category {
   deletedAt DateTime?
 
   name String @unique
+
+  department   Department? @relation(fields: [departmentId], references: [id])
+  departmentId Int?
 
   Product Product[]
 }
@@ -38,32 +53,19 @@ model Product {
   updatedAt DateTime? @updatedAt
   deletedAt DateTime?
 
-  name        String @unique
-  description String @default("")
+  uuid String @default(uuid())
 
-  price Decimal @default(0)
-  cost  Decimal @default(0)
+  name        String
+  description String @default("Add product description")
+  make        String @default("Unkown")
+  model       String @default("Unkown")
+
+  barcode String
 
   category   Category? @relation(fields: [categoryId], references: [id])
   categoryId Int?
 
   ProductVariant ProductVariant[]
-}
-
-model ProductAttribute {
-  id Int @id @default(autoincrement())
-
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @updatedAt
-  deletedAt DateTime?
-
-  name        String
-  description String
-
-  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
-  productVariantId Int
-
-  @@unique([productVariantId, name])
 }
 
 model ProductVariant {
@@ -76,5 +78,21 @@ model ProductVariant {
   product   Product @relation(fields: [productId], references: [id])
   productId Int
 
-  ProductAttribute ProductAttribute[]
+  attributes ProductAttribute[]
+}
+
+model ProductAttribute {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+
+  key   String
+  value String
+
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
+  productVariantId Int
+
+  @@unique([key, productVariantId])
 }

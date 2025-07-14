@@ -168,6 +168,13 @@
           "command": "npx prisma generate",
           "cwd": "{projectRoot}"
         }
+      },
+      "prisma-migrate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma migrate dev --name update",
+          "cwd": "{projectRoot}"
+        }
       }
     }
   },
