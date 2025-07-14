@@ -1,5 +1,6 @@
-import { IsInt, ValidationOptions } from 'class-validator';
-import { IntegerPropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { IsInt } from 'class-validator';
+import type { IntegerPropertyOptions } from '@beezone/types';
 import { CommonNumberProperty } from './common-number-property.js';
 import { CommonProperty } from './common-property.js';
 

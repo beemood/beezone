@@ -1,4 +1,5 @@
-import { Delete, Type } from '@nestjs/common';
+import type { Type } from '@nestjs/common';
+import { Delete } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { getNames } from '../utils/get-names.js';
 import { ID_PRAM_KEY } from './pram-keys.js';

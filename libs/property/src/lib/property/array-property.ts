@@ -1,10 +1,11 @@
+import type {
+  ValidationOptions} from 'class-validator';
 import {
   ArrayMaxSize,
   ArrayMinSize,
-  IsArray,
-  ValidationOptions,
+  IsArray
 } from 'class-validator';
-import { ArrayPropertyOptions } from '@beezone/types';
+import type { ArrayPropertyOptions } from '@beezone/types';
 import { CommonProperty } from './common-property.js';
 
 export function ArrayProperty(

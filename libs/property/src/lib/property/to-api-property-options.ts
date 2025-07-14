@@ -1,6 +1,6 @@
-import { PropertyOptions } from '@beezone/types';
-import { ApiPropertyOptions } from '@nestjs/swagger';
-import { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface.js';
+import type { PropertyOptions } from '@beezone/types';
+import type { ApiPropertyOptions } from '@nestjs/swagger';
+import type { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface.js';
 
 export function toApiPropertyOptions(
   options: PropertyOptions

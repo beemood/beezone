@@ -1,4 +1,4 @@
-import { PropertyType } from './property-type.js';
+import type { PropertyType } from './property-type.js';
 
 export type CommonPropertyOptions = {
   type: PropertyType;

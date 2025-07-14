@@ -1,5 +1,6 @@
-import { IsNumber, ValidationOptions } from 'class-validator';
-import { NumberPropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { IsNumber } from 'class-validator';
+import type { NumberPropertyOptions } from '@beezone/types';
 import { CommonNumberProperty } from './common-number-property.js';
 import { CommonProperty } from './common-property.js';
 

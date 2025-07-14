@@ -1,4 +1,5 @@
-import { Inject, Provider, Type } from '@nestjs/common';
+import type { Provider, Type } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 export function getClientToken(datasourceName = '') {

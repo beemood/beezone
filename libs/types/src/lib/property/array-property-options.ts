@@ -1,7 +1,7 @@
-import { Any } from '../common/any.js';
-import { CommonPropertyOptions } from './common-property-options.js';
-import { DefaultValueOptions } from './default-value-options.js';
-import { PropertyOptions } from './property-options.js';
+import type { Any } from '../common/any.js';
+import type { CommonPropertyOptions } from './common-property-options.js';
+import type { DefaultValueOptions } from './default-value-options.js';
+import type { PropertyOptions } from './property-options.js';
 
 export type ArrayPropertyOptions = {
   type: 'array';

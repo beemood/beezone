@@ -1,5 +1,6 @@
-import { IsObject, ValidationOptions } from 'class-validator';
-import { ObjectPropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { IsObject } from 'class-validator';
+import type { ObjectPropertyOptions } from '@beezone/types';
 import { CommonProperty } from './common-property.js';
 
 export function ObjectProperty(

@@ -1,4 +1,4 @@
-import { ClassType } from '@beezone/types';
+import type { ClassType } from '@beezone/types';
 import { Property } from '../property/property.js';
 
 export function SomeObjectArrayProperty(

@@ -1,5 +1,6 @@
-import { Max, Min, ValidationOptions } from 'class-validator';
-import { CommonNumberOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { Max, Min } from 'class-validator';
+import type { CommonNumberOptions } from '@beezone/types';
 
 export function CommonNumberProperty(
   options: CommonNumberOptions,

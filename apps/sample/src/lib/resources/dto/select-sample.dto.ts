@@ -1,4 +1,4 @@
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import { BaseSelectDto, Dto, SomeBooleanProperty } from '@beezone/property';
 
 @Dto()

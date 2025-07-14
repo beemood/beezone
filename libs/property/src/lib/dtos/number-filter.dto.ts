@@ -1,4 +1,4 @@
-import { NumberFilter } from '@beezone/types';
+import type { NumberFilter } from '@beezone/types';
 import { Dto } from '../property/dto.js';
 import { SomeNumberProperty } from '../special/some-number-property.js';
 import { SomeArrayNumberProperty } from '../special/some-array-number-property.js';

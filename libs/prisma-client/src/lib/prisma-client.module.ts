@@ -1,4 +1,5 @@
-import { DynamicModule, Module, Type } from '@nestjs/common';
+import type { DynamicModule, Type } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { getClientToken, provideClient } from './provide-client.js';
 import { getRepositoryToken, provideRepository } from './provide-repository.js';

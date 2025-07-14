@@ -9,12 +9,12 @@ import {
   Body,
 } from '@beezone/nest';
 import { InjectRepository } from '@beezone/prisma-client';
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import { QueryManySampleDto } from './dto/query-many-sample.dto.js';
-import { ResponseQuerySampleDto } from './dto/response-query-sample.dto.js';
+import type { ResponseQuerySampleDto } from './dto/response-query-sample.dto.js';
 import { ParamId } from '@beezone/nest';
-import { CreateSampleDto } from './dto/create-sample.dto.js';
-import { UpdateSampleDto } from './dto/update-sample.dto.js';
+import type { CreateSampleDto } from './dto/create-sample.dto.js';
+import type { UpdateSampleDto } from './dto/update-sample.dto.js';
 
 @ResourceController()
 export class SampleController {

@@ -1,11 +1,12 @@
+import type {
+  StringFilterDto} from '@beezone/property';
 import {
   BaseWhereDto,
   Dto,
   SomeObjectArrayProperty,
-  StringFilterDto,
   StringFilterProperty,
 } from '@beezone/property';
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 
 @Dto()
 export class WhereSampleDto

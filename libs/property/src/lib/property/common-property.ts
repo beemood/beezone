@@ -1,5 +1,6 @@
-import { PropertyOptions } from '@beezone/types';
-import { IsDefined, IsOptional, ValidationOptions } from 'class-validator';
+import type { PropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { IsDefined, IsOptional } from 'class-validator';
 import { Exclude, Expose } from 'class-transformer';
 import { JsonTransformer } from '../transformer/json-transformer.js';
 import { DefaultValueTransformer } from '../transformer/default-value-transformer.js';

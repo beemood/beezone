@@ -1,7 +1,7 @@
 import { DateFilterProperty } from '../special/date-filter-property.js';
 import { NumberFilterProperty } from '../special/number-filter-property.js';
-import { DateFilterDto } from './date-filter.dto.js';
-import { NumberFilterDto } from './number-filter.dto.js';
+import type { DateFilterDto } from './date-filter.dto.js';
+import type { NumberFilterDto } from './number-filter.dto.js';
 
 export class BaseWhereDto {
   @NumberFilterProperty() id: NumberFilterDto;

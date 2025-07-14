@@ -1,4 +1,5 @@
-import { Inject, Provider } from '@nestjs/common';
+import type { Provider } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 import { getClientToken } from './provide-client.js';
 
 export function getRepositoryToken(

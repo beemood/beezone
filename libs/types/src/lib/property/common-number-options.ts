@@ -1,4 +1,4 @@
-import { NumberFormat } from './number-format.js';
+import type { NumberFormat } from './number-format.js';
 
 export type CommonNumberOptions = {
   minimum?: number;

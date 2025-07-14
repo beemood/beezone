@@ -1,4 +1,5 @@
-import { Query as __Query, Type } from '@nestjs/common';
+import type { Type } from '@nestjs/common';
+import { Query as __Query } from '@nestjs/common';
 
 export function Query(_dtoClass?: () => Type): ParameterDecorator {
   return (...args) => {

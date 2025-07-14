@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { Logger, Type, ValidationPipe } from '@nestjs/common';
+import type { Type} from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import helmet from 'helmet';
 
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';

@@ -1,10 +1,11 @@
+import type {
+  ValidationOptions} from 'class-validator';
 import {
   IsString,
   MaxLength,
-  MinLength,
-  ValidationOptions,
+  MinLength
 } from 'class-validator';
-import { StringPropertyOptions } from '@beezone/types';
+import type { StringPropertyOptions } from '@beezone/types';
 import { TrimTransformer } from '../transformer/trim-transformer.js';
 
 export function StringProperty(

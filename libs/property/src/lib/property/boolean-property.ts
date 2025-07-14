@@ -1,5 +1,6 @@
-import { IsBoolean, ValidationOptions } from 'class-validator';
-import { BooleanPropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
+import { IsBoolean } from 'class-validator';
+import type { BooleanPropertyOptions } from '@beezone/types';
 import { CommonProperty } from './common-property.js';
 
 export function BooleanProperty(

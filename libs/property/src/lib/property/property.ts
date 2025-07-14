@@ -1,5 +1,5 @@
-import { PropertyOptions } from '@beezone/types';
-import { ValidationOptions } from 'class-validator';
+import type { PropertyOptions } from '@beezone/types';
+import type { ValidationOptions } from 'class-validator';
 import { StringProperty } from './string-property.js';
 import { NumberProperty } from './number-property.js';
 import { BooleanProperty } from './boolean-property.js';

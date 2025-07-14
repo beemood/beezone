@@ -1,4 +1,5 @@
-import { Post, Type } from '@nestjs/common';
+import type { Type } from '@nestjs/common';
+import { Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
 import { getNames } from '../utils/get-names.js';
 import { WriteManyOperation } from '../meta/operation.js';

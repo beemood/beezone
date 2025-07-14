@@ -1,4 +1,5 @@
-import { CustomDecorator, SetMetadata } from '@nestjs/common';
+import type { CustomDecorator} from '@nestjs/common';
+import { SetMetadata } from '@nestjs/common';
 import { RESOURCE_NAME_METADATA_KEY } from './metadata-keys.js';
 
 /**

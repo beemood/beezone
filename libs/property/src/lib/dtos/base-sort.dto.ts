@@ -1,4 +1,4 @@
-import { SortPropertyDto } from './sort-property-dto.js';
+import type { SortPropertyDto } from './sort-property-dto.js';
 import type { Sort } from '@beezone/types';
 import { SomeSortProperty } from '../special/some-sort-property.js';
 import { SortDirProperty } from '../special/sort-dir-property.js';

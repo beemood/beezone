@@ -1,4 +1,4 @@
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import { Dto } from '@beezone/property';
 import { SelectSampleDto } from './select-sample.dto.js';
 

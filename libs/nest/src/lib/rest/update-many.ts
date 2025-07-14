@@ -1,4 +1,5 @@
-import { Put, Type } from '@nestjs/common';
+import type { Type } from '@nestjs/common';
+import { Put } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { getNames } from '../utils/get-names.js';
 import { UdpateManyOperation } from '../meta/operation.js';

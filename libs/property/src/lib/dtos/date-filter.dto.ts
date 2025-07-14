@@ -1,4 +1,4 @@
-import { DateTimeFilter } from '@beezone/types';
+import type { DateTimeFilter } from '@beezone/types';
 import { Dto } from '../property/dto.js';
 import { SomeObjectProperty } from '../special/some-object-property.js';
 import { SomeDateProperty } from '../special/some-date-property.js';
