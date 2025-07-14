@@ -41,7 +41,7 @@
     "@nestjs/swagger": "^11.2.0"
   },
   "dependencies": {
-    "@beezone/names": "workspace:*",
+    "@beezone/names": "workspace:^",
     "@swc/helpers": "~0.5.11"
   }
 }

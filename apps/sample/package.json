@@ -1,6 +1,6 @@
 {
   "name": "@beezone/sample",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "type": "module",
@@ -66,10 +66,10 @@
   "dependencies": {
     "@beezone/bootstrap": "workspace:^",
     "@beezone/nest": "workspace:^",
-    "@beezone/prisma-client": "^0.2.2",
+    "@beezone/prisma-client": "^0.2.1",
     "@beezone/property": "workspace:^",
     "@beezone/sample-db": "workspace:^",
-    "@beezone/types": "workspace:*",
+    "@beezone/types": "workspace:^",
     "@nestjs/common": "^11.1.3",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.1.3",
