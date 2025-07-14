@@ -152,6 +152,9 @@ importers:
         specifier: 6.11.1
         version: 6.11.1(prisma@6.11.1(typescript@5.8.3))(typescript@5.8.3)
     devDependencies:
+      '@nx/devkit':
+        specifier: ^21.2.3
+        version: 21.2.3(nx@21.2.3(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))
       prisma:
         specifier: ^6.11.1
         version: 6.11.1(typescript@5.8.3)
@@ -235,8 +238,8 @@ importers:
         version: 0.14.2
     devDependencies:
       '@beezone/types':
-        specifier: workspace:^
-        version: link:../types
+        specifier: 0.2.4
+        version: 0.2.4
 
   libs/types:
     dependencies:
