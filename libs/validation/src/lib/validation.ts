@@ -13,6 +13,10 @@ export function Validation(
   validationOptions?: ValidationOptions
 ): PropertyDecorator {
   return (...args) => {
+    if (options.noValidation == true) {
+      return;
+    }
+
     if (!validationOptions) {
       __CommonValidation(options, validationOptions)(...args);
     }

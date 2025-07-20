@@ -1,18 +1,21 @@
 {
-  "name": "@beezone/property",
-  "description": "- [ ] add project description",
+  "name": "@beezone/dtos",
+  "description": "Common dto classes",
   "version": "0.0.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "homepage": "https://beemood.github.io/beezone/libs/property",
-  "icon": "https://beemood.github.io/beezone/libs/property/assets/favicon.png",
+  "homepage": "https://beemood.github.io/beezone/libs/dtos",
+  "icon": "https://beemood.github.io/beezone/libs/dtos/assets/favicon.png",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
     "url": "https://beemood.github.io"
   },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
   "keywords": [
     "- [ ] add keywords"
   ],
@@ -34,7 +37,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/property/src",
+    "sourceRoot": "libs/dtos/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -42,23 +45,18 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/property/dist",
-          "main": "libs/property/src/index.ts",
-          "tsConfig": "libs/property/tsconfig.lib.json",
+          "outputPath": "libs/dtos/dist",
+          "main": "libs/dtos/src/index.ts",
+          "tsConfig": "libs/dtos/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }
       }
     }
   },
-  "peerDependencies": {
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.2"
-  },
   "dependencies": {
+    "@beezone/property": "workspace:*",
     "@beezone/types": "workspace:*",
-    "@beezone/validation": "workspace:*",
-    "@nestjs/swagger": "^11.2.0",
     "@swc/helpers": "~0.5.11"
   }
 }

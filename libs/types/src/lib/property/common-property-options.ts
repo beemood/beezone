@@ -3,4 +3,5 @@ export type CommonPropertyOptions = {
   description?: string;
   transform?: boolean;
   required?: boolean;
+  noValidation?: boolean;
 };

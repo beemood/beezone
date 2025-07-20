@@ -1,7 +1,26 @@
 {
   "name": "@beezone/cli",
-  "version": "0.0.1",
-  "private": true,
+  "description": "Project generators, executors, and plugins",
+  "version": "0.0.2",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "homepage": "https://beemood.github.io/beezone/libs/cli",
+  "icon": "https://beemood.github.io/beezone/libs/cli/assets/favicon.png",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://beemood.github.io"
+  },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "keywords": [
+    "generator",
+    "executor",
+    "plugin"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -1,14 +1,14 @@
-Project generators, executors, and plugins
+Common dto classes
 
 ## Install
 
 ```bash
-pnpm add -D @beezone/cli
+pnpm add @beezone/dtos
 ```
 
 ## Funding
 
-Thank you for using `@beezone/cli` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
+Thank you for using `@beezone/dtos` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
 
 [Instant Funding](https://cash.app/$puqlib)
 
