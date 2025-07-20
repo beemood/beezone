@@ -1,9 +1,3 @@
 {
-  "executors": {
-    "doc": {
-      "implementation": "./dist/executors/doc/doc",
-      "schema": "./dist/executors/doc/schema.json",
-      "description": "doc executor"
-    }
-  }
+  "executors": {}
 }

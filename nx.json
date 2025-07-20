@@ -55,6 +55,9 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
+    },
+    {
+      "plugin": "@beezone/cli/doc"
     }
   ],
   "targetDefaults": {
