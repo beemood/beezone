@@ -1,14 +1,14 @@
+import type { Tree } from '@nx/devkit';
 import {
   formatFiles,
   generateFiles,
   names,
   readJsonFile,
-  Tree,
   updateJson,
   workspaceRoot,
 } from '@nx/devkit';
 import * as path from 'path';
-import { ProjectGeneratorSchema } from './schema';
+import type { ProjectGeneratorSchema } from './schema';
 
 export async function projectGenerator(
   tree: Tree,
@@ -18,8 +18,8 @@ export async function projectGenerator(
   const { name: mainProjectName } = mp;
   const __names = names(options.name);
   const __projectName = __names.fileName;
-  const orgnamePrefix = mainProjectName.split('/')[0];
-  const projectName = `${orgnamePrefix}/${__projectName}`;
+  const orgNamePrefix = mainProjectName.split('/')[0];
+  const projectName = `${orgNamePrefix}/${__projectName}`;
 
   const projectRoot =
     options.projectType == 'api'
