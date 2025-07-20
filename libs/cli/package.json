@@ -57,6 +57,8 @@
   "files": [
     "dist",
     "!**/*.tsbuildinfo",
-    "executors.json"
-  ]
+    "executors.json",
+    "generators.json"
+  ],
+  "generators": "./generators.json"
 }

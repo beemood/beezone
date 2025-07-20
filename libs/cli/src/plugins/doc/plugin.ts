@@ -13,7 +13,13 @@ export const createNodesV2: CreateNodesV2<MyPluginOptions> = [
           projects: {
             [root]: {
               targets: {
-                doc: { executor: '@beezone/cli:doc' },
+                doc: {
+                  executor: 'nx:run-commands',
+                  options: {
+                    command:
+                      'npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json',
+                  },
+                },
               },
             },
           },
