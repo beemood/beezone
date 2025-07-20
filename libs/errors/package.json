@@ -1,18 +1,21 @@
 {
-  "name": "@beezone/property",
+  "name": "@beezone/errors",
   "description": "- [ ] add project description",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "homepage": "https://beemood.github.io/beezone/libs/property",
-  "icon": "https://beemood.github.io/beezone/libs/property/assets/favicon.png",
+  "homepage": "https://beemood.github.io/beezone/libs/errors",
+  "icon": "https://beemood.github.io/beezone/libs/errors/assets/favicon.png",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
     "url": "https://beemood.github.io"
   },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
   "keywords": [
     "- [ ] add keywords"
   ],
@@ -34,7 +37,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/property/src",
+    "sourceRoot": "libs/errors/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -42,9 +45,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/property/dist",
-          "main": "libs/property/src/index.ts",
-          "tsConfig": "libs/property/tsconfig.lib.json",
+          "outputPath": "libs/errors/dist",
+          "main": "libs/errors/src/index.ts",
+          "tsConfig": "libs/errors/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }
@@ -53,8 +56,5 @@
   },
   "dependencies": {
     "@swc/helpers": "~0.5.11"
-  },
-  "devDependencies": {
-    "@beezone/types": "workspace:*"
   }
 }

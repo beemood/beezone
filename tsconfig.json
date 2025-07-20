@@ -17,6 +17,12 @@
     },
     {
       "path": "./libs/types"
+    },
+    {
+      "path": "./libs/utils"
+    },
+    {
+      "path": "./libs/errors"
     }
   ]
 }

@@ -5,5 +5,7 @@ export type StringOptions = {
   type: 'string';
   minLength?: number;
   maxLength?: number;
+  notEmpty?: boolean;
+  trim?: boolean;
 } & CommonPropertyOptions &
   ValueOptions<boolean>;
