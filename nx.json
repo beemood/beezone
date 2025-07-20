@@ -70,9 +70,6 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
-    },
-    "doc": {
-      "executor": "@beezone/executors:doc"
     }
   },
   "generators": {

@@ -37,6 +37,9 @@
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }
+      },
+      "doc": {
+        "executor": "@beezone/executors:doc"
       }
     }
   },
