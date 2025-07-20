@@ -3,7 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
     "source.sortImports": "always",
-    "source.removeUnusedImports": "always",
-    "source.addMissingImports.ts": "always"
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "always"
   }
 }

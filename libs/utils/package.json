@@ -56,9 +56,7 @@
   },
   "dependencies": {
     "@beezone/errors": "workspace:*",
-    "@swc/helpers": "~0.5.11"
-  },
-  "devDependencies": {
+    "@swc/helpers": "~0.5.11",
     "@beezone/types": "workspace:*"
   }
 }
