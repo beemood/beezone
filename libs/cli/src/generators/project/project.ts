@@ -10,6 +10,11 @@ import {
 import * as path from 'path';
 import type { ProjectGeneratorSchema } from './schema';
 
+/**
+ * Generate project
+ * @param tree
+ * @param options
+ */
 export async function projectGenerator(
   tree: Tree,
   options: ProjectGeneratorSchema

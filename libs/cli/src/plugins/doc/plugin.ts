@@ -2,9 +2,10 @@ import type { CreateNodesV2 } from '@nx/devkit';
 import { createNodesFromFiles } from '@nx/devkit';
 import { dirname } from 'path';
 
-type MyPluginOptions = { tagName: string };
-
-export const createNodesV2: CreateNodesV2<MyPluginOptions> = [
+/**
+ * create typeDoc plugin
+ */
+export const createNodesV2: CreateNodesV2 = [
   // eslint-disable-next-line spellcheck/spell-checker
   '**/typedoc.json',
   async (configFiles, options, context) => {
