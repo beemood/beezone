@@ -1,7 +1,14 @@
 {
   "name": "@beezone/source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
+  "homepage": "https://beemood.github.io/beezone",
+  "icon": "https://beemood.github.io/beezone/favicon.png",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://beemood.github.io"
+  },
   "scripts": {},
   "private": true,
   "dependencies": {

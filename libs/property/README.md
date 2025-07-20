@@ -1,0 +1,7 @@
+- [ ] add project description
+
+## Install
+
+```bash
+pnpm add @beezone/property
+```

@@ -8,6 +8,12 @@
     },
     {
       "path": "./libs/cli"
+    },
+    {
+      "path": "./libs/property"
+    },
+    {
+      "path": "./libs/property"
     }
   ]
 }

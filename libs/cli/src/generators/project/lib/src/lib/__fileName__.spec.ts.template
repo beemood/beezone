@@ -1,4 +1,5 @@
 import { <%- propertyName %> } from './<%- fileName %>.js';
+
 describe("<%- fileName %>", ()=>{ 
     it('should work', ()=>{ 
         expect( <%- propertyName %> ()).toEqual('<%- fileName %>')
