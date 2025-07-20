@@ -14,6 +14,9 @@
     },
     {
       "path": "./libs/property"
+    },
+    {
+      "path": "./libs/types"
     }
   ]
 }

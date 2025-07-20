@@ -9,6 +9,9 @@
     "name": "Robert Brightline",
     "url": "https://beemood.github.io"
   },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
   "scripts": {},
   "private": true,
   "dependencies": {

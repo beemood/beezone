@@ -1,15 +1,21 @@
 {
-  "name": "<%- projectName %>",
+  "name": "@beezone/types",
   "description": "- [ ] add project description",
-  "version": "<%- mp.version %>",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
-  "homepage": "<%- mp.homepage %>/<%- projectRoot %>",
-  "icon": "<%- mp.homepage %>/<%- projectRoot %>/assets/favicon.png",
-  "author": <%- JSON.stringify(mp.author || {}) %>,
-  "funding":<%- JSON.stringify(mp.funding) %>,
+  "homepage": "https://beemood.github.io/beezone/libs/types",
+  "icon": "https://beemood.github.io/beezone/libs/types/assets/favicon.png",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://beemood.github.io"
+  },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
   "keywords": [
     "- [ ] add keywords"
   ],
@@ -31,7 +37,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "<%- projectRoot %>/src",
+    "sourceRoot": "libs/types/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -39,9 +45,9 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "<%- projectRoot %>/dist",
-          "main": "<%- projectRoot %>/src/index.ts",
-          "tsConfig": "<%- projectRoot %>/tsconfig.lib.json",
+          "outputPath": "libs/types/dist",
+          "main": "libs/types/src/index.ts",
+          "tsConfig": "libs/types/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
         }
