@@ -1,7 +1,7 @@
 {
   "name": "@beezone/utils",
   "description": "- [ ] add project description",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -55,8 +55,8 @@
     }
   },
   "dependencies": {
+    "@beezone/types": "workspace:*",
     "@beezone/errors": "workspace:*",
-    "@swc/helpers": "~0.5.11",
-    "@beezone/types": "workspace:*"
+    "@swc/helpers": "~0.5.11"
   }
 }

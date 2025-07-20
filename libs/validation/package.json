@@ -1,7 +1,7 @@
 {
   "name": "@beezone/validation",
   "description": "Input validation library built on top of `class-validator` and `class-transformer` to implement all validaitons operation with a single decorator `@Valiation({ ...options })`.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
