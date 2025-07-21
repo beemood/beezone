@@ -2,6 +2,10 @@ import type { CreateNodesV2 } from '@nx/devkit';
 import { createNodesFromFiles } from '@nx/devkit';
 import { dirname } from 'path';
 
+/**
+ * Update public content, create or update the `public/content.json` file by adding each project's package.json content.
+ * @group plugin
+ */
 export const createNodesV2: CreateNodesV2 = [
   '**/package.json',
   async (configFiles, options, context) => {

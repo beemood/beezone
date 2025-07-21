@@ -12,6 +12,7 @@ import type { ProjectGeneratorSchema } from './schema';
 
 /**
  * Generate project
+ * @group generator
  * @param tree
  * @param options
  */

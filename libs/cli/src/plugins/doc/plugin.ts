@@ -3,7 +3,8 @@ import { createNodesFromFiles } from '@nx/devkit';
 import { dirname } from 'path';
 
 /**
- * create typeDoc plugin
+ * Generate type-docs
+ * @group plugin
  */
 export const createNodesV2: CreateNodesV2 = [
   // eslint-disable-next-line spellcheck/spell-checker

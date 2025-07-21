@@ -3,6 +3,12 @@ import { type PromiseExecutor } from '@nx/devkit';
 import { join } from 'path';
 import type { UpdateVersionSchema } from './update-version-schema';
 
+/**
+ * Update project versions to the main project version
+ * @group executor
+ * @param options
+ * @returns
+ */
 const runExecutor: PromiseExecutor = async (
   options: UpdateVersionSchema,
   context

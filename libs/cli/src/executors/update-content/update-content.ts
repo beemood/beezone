@@ -5,6 +5,12 @@ import type { PromiseExecutor } from '@nx/devkit';
 import { join } from 'path';
 import type { UpdateContentExecutorSchema } from './schema';
 
+/**
+ * Update public/content.json file by adding each package.json file content to it.
+ * @group executor
+ * @param options
+ * @returns
+ */
 const runExecutor: PromiseExecutor<UpdateContentExecutorSchema> = async (
   options
 ) => {
