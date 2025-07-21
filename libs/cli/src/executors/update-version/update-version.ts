@@ -1,5 +1,6 @@
-import { readJsonFile } from '@beezone/fs';
+import { readJsonFile, updateJsonFile } from '@beezone/fs';
 import { type PromiseExecutor } from '@nx/devkit';
+import { join } from 'path';
 import type { UpdateVersionSchema } from './update-version-schema';
 
 const runExecutor: PromiseExecutor = async (
@@ -13,13 +14,13 @@ const runExecutor: PromiseExecutor = async (
   console.log(
     `Updating ${options.projectRoot} version to ${mainProjectJson.version}`
   );
-  // await updateJsonFile<{ version: string }>(
-  //   join(context.root, 'package.json'),
-  //   (value) => {
-  //     value.version = mainProjectJson.version;
-  //     return value;
-  //   }
-  // );
+  await updateJsonFile<{ version: string }>(
+    join(options.projectRoot, 'package.json'),
+    (value) => {
+      value.version = mainProjectJson.version;
+      return value;
+    }
+  );
 
   return {
     success: true,
