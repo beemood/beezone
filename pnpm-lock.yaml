@@ -141,9 +141,15 @@ importers:
 
   libs/cli:
     dependencies:
+      '@beezone/errors':
+        specifier: workspace:*
+        version: link:../errors
       '@beezone/fs':
         specifier: workspace:*
         version: link:../fs
+      '@beezone/types':
+        specifier: workspace:*
+        version: link:../types
       '@nx/devkit':
         specifier: 21.3.1
         version: 21.3.1(nx@21.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))
@@ -192,9 +198,6 @@ importers:
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
-      class-validator:
-        specifier: ^0.14.2
-        version: 0.14.2
 
   libs/types:
     dependencies:

@@ -1,7 +1,7 @@
 {
   "name": "@beezone/types",
   "description": "Common types",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"

@@ -1,7 +1,7 @@
 {
   "name": "@beezone/validation",
   "description": "Composite property decorator for dto property validation",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"

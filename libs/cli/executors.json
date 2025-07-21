@@ -4,6 +4,11 @@
       "implementation": "./dist/executors/update-version/update-version.js",
       "schema": "./dist/executors/update-version/schema.json",
       "description": "update-version executor"
+    },
+    "update-content": {
+      "implementation": "./dist/executors/update-content/update-content.js",
+      "schema": "./dist/executors/update-content/schema.json",
+      "description": "update-content executor"
     }
   }
 }

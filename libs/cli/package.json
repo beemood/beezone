@@ -1,7 +1,7 @@
 {
   "name": "@beezone/cli",
   "description": "Project generators, executors, and plugins",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -32,7 +32,8 @@
       "default": "./dist/index.js"
     },
     "./doc": "./dist/plugins/doc/plugin.js",
-    "./update-version": "./dist/plugins/update-version/plugin.js"
+    "./update-version": "./dist/plugins/update-version/plugin.js",
+    "./update-content": "./dist/plugins/update-content/plugin.js"
   },
   "nx": {
     "targets": {
@@ -64,7 +65,9 @@
     }
   },
   "dependencies": {
+    "@beezone/errors": "workspace:*",
     "@beezone/fs": "workspace:*",
+    "@beezone/types": "workspace:*",
     "@nx/devkit": "21.3.1",
     "tslib": "^2.3.0"
   },
