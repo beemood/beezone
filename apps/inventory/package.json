@@ -45,5 +45,8 @@
     "@nestjs/swagger": "^11.2.0",
     "@nestjs/throttler": "^6.4.0",
     "@swc/helpers": "~0.5.11"
+  },
+  "nx": {
+    "sourceRoot": "apps/inventory/src"
   }
 }
