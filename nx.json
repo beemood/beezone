@@ -99,5 +99,8 @@
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build"
     }
+  },
+  "sync": {
+    "applyChanges": false
   }
 }
