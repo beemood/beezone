@@ -1,6 +1,6 @@
 {
   "name": "@beezone/inventory",
-  "description": "- [ ] add project description",
+  "description": "Inventory module",
   "version": "0.0.1",
   "publishConfig": {
     "access": "public",
@@ -48,20 +48,20 @@
           "outputPath": "apps/inventory/dist",
           "main": "apps/inventory/src/index.ts",
           "tsConfig": "apps/inventory/tsconfig.lib.json",
-          "skipTypeCheck": true,
+          "skipTypeCheck": false,
           "stripLeadingPaths": true
-        }
-      },
-      "serve": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "nodemon src/main.ts",
-          "cwd": "{projectRoot}"
         }
       }
     }
   },
   "dependencies": {
+    "@nestjs/common": "^11.1.5",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.5",
+    "@nestjs/event-emitter": "^3.0.1",
+    "@nestjs/schedule": "^6.0.0",
+    "@nestjs/swagger": "^11.2.0",
+    "@nestjs/throttler": "^6.4.0",
     "@swc/helpers": "~0.5.11"
   }
 }

@@ -1,5 +1,29 @@
-export function main() {
-  console.log('Hello.....');
+import { Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from './app.module.js';
+
+export async function main() {
+  const app = await NestFactory.create(AppModule, {});
+  const config = app.get(ConfigService);
+  const PORT = config.getOrThrow('PORT');
+  const NAME = config.getOrThrow('NAME', 'Not set');
+  const DESCRIPTION = config.getOrThrow('DESCRIPTION', 'Not set');
+
+  {
+    const swaggerConfig = new DocumentBuilder()
+      .setTitle(NAME)
+      .setDescription(DESCRIPTION)
+      .build();
+
+    const swaggerDoc = SwaggerModule.createDocument(app, swaggerConfig);
+
+    SwaggerModule.setup('api', app, swaggerDoc);
+  }
+
+  await app.listen(PORT);
+  Logger.log(`App is up and running at ${app.getUrl()}`);
 }
 
 main();

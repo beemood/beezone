@@ -33,7 +33,8 @@
     },
     "./doc": "./dist/plugins/doc/plugin.js",
     "./update-version": "./dist/plugins/update-version/plugin.js",
-    "./update-content": "./dist/plugins/update-content/plugin.js"
+    "./update-content": "./dist/plugins/update-content/plugin.js",
+    "./serve": "./dist/plugins/serve/plugin.js"
   },
   "nx": {
     "targets": {

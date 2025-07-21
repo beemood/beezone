@@ -94,4 +94,9 @@ export default [
   'ip',
   'utf',
   'beezone',
+  'ttl',
+  'cron',
+  'typedoc',
+  'swc',
+  'nodemon'
 ];

@@ -1,4 +1,4 @@
-- [ ] add project description
+Inventory module
 
 ## Install
 

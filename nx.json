@@ -64,7 +64,10 @@
     },
     {
       "plugin": "@beezone/cli/update-content"
-    }
+    },
+    {
+      "plugin": "@beezone/cli/serve"
+    },
   ],
   "targetDefaults": {
     "test": {
