@@ -12,7 +12,7 @@ export const createNodesV2: CreateNodesV2 = [
           projects: {
             [root]: {
               targets: {
-                doc: {
+                'update-content': {
                   executor: '@beezone/cli:update-content',
                   options: {
                     projectRoot: '{projectRoot}',

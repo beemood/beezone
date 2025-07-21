@@ -3,11 +3,226 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beezone Doc</title>
+    <title>Beezone</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f0f2f5; /* Light gray background */
+      }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem; /* Space between cards */
+        justify-content: center;
+        padding: 2rem;
+        max-width: 1200px; /* Max width for the container */
+        margin: 0 auto; /* Center the container */
+      }
+      .card {
+        flex: 1 1 calc(33.333% - 1.5rem); /* Default to 3 cards per row on larger screens */
+        max-width: calc(33.333% - 1.5rem); /* Ensure consistent width */
+        min-width: 280px; /* Minimum width for smaller screens */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        display: flex; /* Use flexbox for internal card layout */
+        flex-direction: column; /* Stack content vertically */
+        justify-content: space-between; /* Distribute space vertically */
+        height: auto; /* Allow height to adjust based on content, but try to keep it consistent */
+        min-height: 250px; /* Minimum height to ensure consistency */
+      }
+
+      @media (max-width: 1024px) {
+        .card {
+          flex: 1 1 calc(50% - 1.5rem); /* 2 cards per row on medium screens */
+          max-width: calc(50% - 1.5rem);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          flex: 1 1 calc(100% - 1.5rem); /* 1 card per row on small screens */
+          max-width: calc(100% - 1.5rem);
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div>
-      <h1>Beezone Tools and Libraries</h1>
-    </div>
+  <body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+      <h1 class="text-4xl font-bold text-center">Beezone</h1>
+    </header>
+
+    <main class="py-8">
+      <div id="card-container" class="card-container">
+        <!-- Cards will be dynamically loaded here -->
+        <div class="loading-indicator text-center text-lg text-gray-600">
+          Loading packages...
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        const cardContainer = document.getElementById('card-container');
+
+        // Placeholder content.json for demonstration
+        // In a real scenario, ensure this file is accessible at './content.json'
+        const placeholderContent = [
+          {
+            name: 'beezone-core-utils',
+            description:
+              'A collection of core utility functions for Beezone applications.',
+            version: '1.0.0',
+            icon: 'https://placehold.co/40x40/007bff/ffffff?text=U',
+            homepage: 'https://example.com/beezone-core-utils',
+          },
+          {
+            name: 'beezone-ui-components',
+            description:
+              'Reusable UI components for a consistent Beezone user experience.',
+            version: '2.1.0',
+            icon: 'https://placehold.co/40x40/28a745/ffffff?text=C',
+            homepage: 'https://example.com/beezone-ui-components',
+          },
+          {
+            name: 'beezone-data-service',
+            description:
+              'Service layer for fetching and managing data across Beezone modules.',
+            version: '1.5.3',
+            icon: 'https://placehold.co/40x40/dc3545/ffffff?text=D',
+            homepage: 'https://example.com/beezone-data-service',
+          },
+          {
+            name: 'beezone-auth-module',
+            description:
+              'Authentication and authorization module for Beezone applications.',
+            version: '3.0.0',
+            icon: 'https://placehold.co/40x40/ffc107/333333?text=A',
+            homepage: 'https://example.com/beezone-auth-module',
+          },
+          {
+            name: 'beezone-analytics',
+            description:
+              'Tools and dashboards for tracking Beezone application usage and performance.',
+            version: '0.9.0',
+            icon: 'https://placehold.co/40x40/6f42c1/ffffff?text=N',
+            homepage: 'https://example.com/beezone-analytics',
+          },
+          {
+            name: 'beezone-notifications',
+            description:
+              'System for sending real-time notifications to Beezone users.',
+            version: '1.2.0',
+            icon: 'https://placehold.co/40x40/17a2b8/ffffff?text=N',
+            homepage: 'https://example.com/beezone-notifications',
+          },
+        ];
+
+        try {
+          // Attempt to fetch content.json
+          const response = await fetch('./content.json');
+          let packages;
+          if (response.ok) {
+            packages = await response.json();
+          } else {
+            console.warn(
+              'content.json not found or failed to load, using placeholder data.'
+            );
+            packages = placeholderContent;
+          }
+
+          cardContainer.innerHTML = ''; // Clear loading indicator
+
+          if (packages && packages.length > 0) {
+            packages.forEach((pkg) => {
+              const card = document.createElement('div');
+              card.className =
+                'card bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-300 hover:scale-105 hover:shadow-xl';
+
+              // Icon and Title
+              const header = document.createElement('div');
+              header.className = 'flex items-center mb-4';
+              if (pkg.icon) {
+                const icon = document.createElement('img');
+                icon.src = pkg.icon;
+                icon.alt = `${pkg.name} icon`;
+                icon.className = 'w-10 h-10 rounded-full mr-4 object-cover';
+                icon.onerror = function () {
+                  this.onerror = null; // Prevent infinite loop if fallback also fails
+                  this.src = `https://placehold.co/40x40/cccccc/333333?text=${pkg.name
+                    .charAt(0)
+                    .toUpperCase()}`;
+                };
+                header.appendChild(icon);
+              } else {
+                const fallbackIcon = document.createElement('div');
+                fallbackIcon.className =
+                  'w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-xl font-bold mr-4';
+                fallbackIcon.textContent = pkg.name
+                  ? pkg.name.charAt(0).toUpperCase()
+                  : '?';
+                header.appendChild(fallbackIcon);
+              }
+
+              const titleVersionWrapper = document.createElement('div');
+              const title = document.createElement('h2');
+              title.className = 'text-xl font-semibold text-gray-900 truncate';
+              title.textContent = pkg.name || 'Unnamed Package';
+              titleVersionWrapper.appendChild(title);
+
+              if (pkg.version) {
+                const version = document.createElement('p');
+                version.className = 'text-sm text-gray-500 mt-1';
+                version.textContent = `Version: ${pkg.version}`;
+                titleVersionWrapper.appendChild(version);
+              }
+              header.appendChild(titleVersionWrapper);
+              card.appendChild(header);
+
+              // Description
+              const description = document.createElement('p');
+              description.className =
+                'text-gray-700 text-base mb-4 flex-grow overflow-hidden text-ellipsis';
+              description.style.display = '-webkit-box';
+              description.style.webkitLineClamp = '3'; // Limit to 3 lines
+              description.style.webkitBoxOrient = 'vertical';
+              description.textContent =
+                pkg.description || 'No description available.';
+              card.appendChild(description);
+
+              // Homepage Link
+              if (pkg.homepage) {
+                const homepageLink = document.createElement('a');
+                homepageLink.href = pkg.homepage;
+                homepageLink.target = '_blank'; // Open in new tab
+                homepageLink.rel = 'noopener noreferrer'; // Security best practice
+                homepageLink.className =
+                  'inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mt-auto';
+                homepageLink.innerHTML = `
+                                Learn More
+                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            `;
+                card.appendChild(homepageLink);
+              }
+
+              cardContainer.appendChild(card);
+            });
+          } else {
+            cardContainer.innerHTML =
+              '<p class="text-center text-lg text-gray-600">No packages found.</p>';
+          }
+        } catch (error) {
+          console.error('Error fetching or parsing content.json:', error);
+          cardContainer.innerHTML =
+            '<p class="text-center text-lg text-red-600">Failed to load packages. Please check content.json.</p>';
+        }
+      });
+    </script>
   </body>
 </html>
