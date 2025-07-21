@@ -11,6 +11,11 @@ export const createNodesV2: CreateNodesV2 = [
     return await createNodesFromFiles(
       (configFile) => {
         const root = dirname(configFile);
+
+        if (root.endsWith('source')) {
+          return {};
+        }
+
         return {
           projects: {
             [root]: {

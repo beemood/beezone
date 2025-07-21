@@ -9,10 +9,7 @@ import type { UpdateVersionSchema } from './schema';
  * @param options
  * @returns
  */
-const runExecutor: PromiseExecutor = async (
-  options: UpdateVersionSchema,
-  context
-) => {
+const runExecutor: PromiseExecutor = async (options: UpdateVersionSchema) => {
   const mainProjectJson = await readJsonFile<{ version: string }>(
     'package.json'
   );
