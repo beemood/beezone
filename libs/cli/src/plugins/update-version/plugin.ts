@@ -14,6 +14,9 @@ export const createNodesV2: CreateNodesV2 = [
               targets: {
                 'update-version': {
                   executor: '@beezone/cli:update-version',
+                  options: {
+                    projectRoot: '{projectRoot}',
+                  },
                 },
               },
             },
