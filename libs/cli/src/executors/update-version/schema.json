@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "UpdateVersion executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": ["version"]
+}

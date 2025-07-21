@@ -58,6 +58,9 @@
     },
     {
       "plugin": "@beezone/cli/doc"
+    },
+    {
+      "plugin": "@beezone/cli/update-version"
     }
   ],
   "targetDefaults": {

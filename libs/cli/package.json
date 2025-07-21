@@ -31,7 +31,8 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./doc": "./dist/plugins/doc/index.js"
+    "./doc": "./dist/plugins/doc/plugin.js",
+    "./update-version": "./dist/plugins/update-version/plugin.js"
   },
   "nx": {
     "targets": {

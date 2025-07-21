@@ -26,6 +26,12 @@
     },
     {
       "path": "./libs/dtos"
+    },
+    {
+      "path": "./apps/inventory"
+    },
+    {
+      "path": "./libs/fs"
     }
   ]
 }
