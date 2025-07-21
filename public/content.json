@@ -2,6 +2,94 @@
   {
     "name": "@beezone/cli",
     "description": "Project generators, executors, and plugins",
+    "version": "0.0.3",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/cli",
+    "icon": "https://beemood.github.io/beezone/libs/cli/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": [
+      "https://cash.app/$puqlib"
+    ],
+    "keywords": [
+      "generator",
+      "executor",
+      "plugin"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "./doc": "./dist/plugins/doc/plugin.js",
+      "./update-version": "./dist/plugins/update-version/plugin.js",
+      "./update-content": "./dist/plugins/update-content/plugin.js",
+      "./serve": "./dist/plugins/serve/plugin.js",
+      "./build": "./dist/plugins/build/plugin.js"
+    },
+    "nx": {
+      "targets": {
+        "build": {
+          "executor": "@nx/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/cli/dist",
+            "main": "libs/cli/src/index.ts",
+            "tsConfig": "libs/cli/tsconfig.lib.json",
+            "rootDir": "libs/cli/src",
+            "generatePackageJson": false,
+            "assets": [
+              {
+                "input": "./libs/cli/src",
+                "glob": "**/!(*.ts)",
+                "output": "."
+              },
+              {
+                "input": "./libs/cli/src",
+                "glob": "**/*.d.ts",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "@beezone/errors": "workspace:*",
+      "@beezone/fs": "workspace:*",
+      "@beezone/types": "workspace:*",
+      "@nx/devkit": "21.3.1",
+      "commander": "^14.0.0",
+      "tslib": "^2.3.0"
+    },
+    "bin": {
+      "beezone": "./bin/beezone.mjs"
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo",
+      "executors.json",
+      "generators.json"
+    ],
+    "executors": "./executors.json",
+    "generators": "./generators.json"
+  },
+  {
+    "name": "@beezone/cli",
+    "description": "Project generators, executors, and plugins",
     "version": "0.0.1",
     "publishConfig": {
       "access": "public",
@@ -395,7 +483,8 @@
   },
   {
     "name": "@beezone/source",
-    "version": "0.0.1",
+    "description": "Beezone tools and libraries",
+    "version": "0.0.3",
     "license": "MIT",
     "homepage": "https://beemood.github.io/beezone",
     "icon": "https://beemood.github.io/beezone/favicon.png",
@@ -414,6 +503,7 @@
       "axios": "^1.6.0"
     },
     "devDependencies": {
+      "@beezone/cli": "workspace:*",
       "@eslint/js": "^9.8.0",
       "@nx/eslint": "21.3.1",
       "@nx/eslint-plugin": "21.3.1",
@@ -561,6 +651,101 @@
         "types": "./dist/index.d.ts",
         "import": "./dist/index.js",
         "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/utils/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/utils/dist",
+            "main": "libs/utils/src/index.ts",
+            "tsConfig": "libs/utils/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "@beezone/types": "workspace:*",
+      "@beezone/errors": "workspace:*",
+      "@swc/helpers": "~0.5.11"
+    }
+  },
+  {
+    "name": "@beezone/validation",
+    "description": "Composite property decorator for dto property validation",
+    "version": "0.0.1",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/validation",
+    "icon": "https://beemood.github.io/beezone/libs/validation/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://beemood.github.io",
+      "name": "Robert Brightline"
+    },
+    "keywords": [
+      "dto",
+      "validation"
+    ],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": [
+      "dist",
+      "!**/*.tsbuildinfo"
+    ],
+    "nx": {
+      "sourceRoot": "libs/validation/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "libs/validation/dist",
+            "main": "libs/validation/src/index.ts",
+            "tsConfig": "libs/validation/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true
+          }
+        }
+      }
+    },
+    "peerDependencies": {
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.14.2"
+    },
+    "dependencies": {
+      "@beezone/utils": "workspace:*",
+      "@beezone/types": "workspace:*",
+      "@swc/helpers": "~0.5.11"
+    }
+  }
+]s"
       }
     },
     "files": [

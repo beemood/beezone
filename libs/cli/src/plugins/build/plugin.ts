@@ -16,7 +16,7 @@ export const createNodesV2: CreateNodesV2 = [
         if (
           (root.includes('apps') || root.includes('libs')) &&
           !root.includes('cli')
-        )
+        ) {
           return {
             projects: {
               [root]: {
@@ -48,8 +48,10 @@ export const createNodesV2: CreateNodesV2 = [
               },
             },
           };
-
-        return {};
+        }
+        return {
+          projects: {},
+        };
       },
       configFiles,
       options,

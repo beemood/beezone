@@ -57,6 +57,9 @@
       }
     },
     {
+      "plugin": "@beezone/cli/doc"
+    },
+    {
       "plugin": "@beezone/cli/update-version"
     },
     {
@@ -96,8 +99,5 @@
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build"
     }
-  },
-  "sync": {
-    "applyChanges": true
   }
 }
