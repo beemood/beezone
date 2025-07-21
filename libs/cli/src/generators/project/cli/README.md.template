@@ -3,7 +3,32 @@
 ## Install
 
 ```bash
-pnpm add <%- projectName %>
+pnpm add -D <%- projectName %>
+```
+
+
+## build
+
+```bash
+npx nx build <%- projectName %>
+```
+
+## build-watch
+
+```bash
+npx nx build-watch <%- projectName %>
+```
+
+## test
+
+```bash
+npx nx test <%- projectName %>
+```
+
+## lint
+
+```bash
+npx nx lint <%- projectName %>
 ```
 
 ## Funding

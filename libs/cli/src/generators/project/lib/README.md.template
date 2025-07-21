@@ -6,6 +6,30 @@
 pnpm add <%- projectName %>
 ```
 
+## build
+
+```bash
+npx nx build <%- projectName %>
+```
+
+## build-watch
+
+```bash
+npx nx build-watch <%- projectName %>
+```
+
+## test
+
+```bash
+npx nx test <%- projectName %>
+```
+
+## lint
+
+```bash
+npx nx lint <%- projectName %>
+```
+
 ## Funding
 
 Thank you for using `<%- projectName %>` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

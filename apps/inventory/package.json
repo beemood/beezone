@@ -17,7 +17,7 @@
     "https://cash.app/$puqlib"
   ],
   "keywords": [
-    "- [ ] add keywords"
+    "inventory"
   ],
   "type": "module",
   "main": "./dist/index.js",
@@ -36,9 +36,6 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "nx": {
-    "sourceRoot": "apps/inventory/src"
-  },
   "dependencies": {
     "@nestjs/common": "^11.1.5",
     "@nestjs/config": "^4.0.2",

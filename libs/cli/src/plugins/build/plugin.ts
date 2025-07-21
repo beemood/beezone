@@ -13,7 +13,7 @@ export const createNodesV2: CreateNodesV2 = [
       (configFile) => {
         const root = join(dirname(configFile));
 
-        if (!root.includes('apps') || !root.includes('libs')) {
+        if (!root.includes('apps') && !root.includes('libs')) {
           return {};
         }
         return {

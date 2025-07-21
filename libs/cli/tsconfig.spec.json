@@ -24,8 +24,6 @@
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
     "src/**/*.d.ts",
-    "src/executors/update-content/schema.ts",
-    "src/executors/update-version/schema..ts"
   ],
   "references": [
     {
