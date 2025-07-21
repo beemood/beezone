@@ -6,7 +6,6 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
       "$default": {
         "$source": "argv",
         "index": 0

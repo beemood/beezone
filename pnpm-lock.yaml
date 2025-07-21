@@ -141,6 +141,9 @@ importers:
 
   libs/cli:
     dependencies:
+      '@beezone/fs':
+        specifier: workspace:*
+        version: link:../fs
       '@nx/devkit':
         specifier: 21.3.1
         version: 21.3.1(nx@21.3.1(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))
@@ -161,6 +164,12 @@ importers:
         version: 0.5.17
 
   libs/errors:
+    dependencies:
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.17
+
+  libs/fs:
     dependencies:
       '@swc/helpers':
         specifier: ~0.5.11
