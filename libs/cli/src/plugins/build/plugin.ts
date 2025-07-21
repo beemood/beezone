@@ -13,40 +13,43 @@ export const createNodesV2: CreateNodesV2 = [
       (configFile) => {
         const root = join(dirname(configFile));
 
-        if (!root.includes('apps') && !root.includes('libs')) {
-          return {};
-        }
-        return {
-          projects: {
-            [root]: {
-              targets: {
-                build: {
-                  executor: '@nx/js:swc',
-                  outputs: ['{options.outputPath}'],
-                  options: {
-                    outputPath: '{projectRoot}/dist',
-                    main: '{projectRoot}/src/index.ts',
-                    tsConfig: '{projectRoot}/tsconfig.lib.json',
-                    skipTypeCheck: true,
-                    stripLeadingPaths: true,
+        if (
+          (root.includes('apps') || root.includes('libs')) &&
+          !root.includes('cli')
+        )
+          return {
+            projects: {
+              [root]: {
+                targets: {
+                  build: {
+                    executor: '@nx/js:swc',
+                    outputs: ['{options.outputPath}'],
+                    options: {
+                      outputPath: '{projectRoot}/dist',
+                      main: '{projectRoot}/src/index.ts',
+                      tsConfig: '{projectRoot}/tsconfig.lib.json',
+                      skipTypeCheck: true,
+                      stripLeadingPaths: true,
+                    },
                   },
-                },
-                'build-watch': {
-                  executor: '@nx/js:swc',
-                  outputs: ['{options.outputPath}'],
-                  options: {
-                    outputPath: '{projectRoot}/dist',
-                    main: '{projectRoot}/src/index.ts',
-                    tsConfig: '{projectRoot}/tsconfig.lib.json',
-                    skipTypeCheck: true,
-                    stripLeadingPaths: true,
-                    watch: true,
+                  'build-watch': {
+                    executor: '@nx/js:swc',
+                    outputs: ['{options.outputPath}'],
+                    options: {
+                      outputPath: '{projectRoot}/dist',
+                      main: '{projectRoot}/src/index.ts',
+                      tsConfig: '{projectRoot}/tsconfig.lib.json',
+                      skipTypeCheck: true,
+                      stripLeadingPaths: true,
+                      watch: true,
+                    },
                   },
                 },
               },
             },
-          },
-        };
+          };
+
+        return {};
       },
       configFiles,
       options,

@@ -7,7 +7,6 @@ import { dirname } from 'path';
  * @group plugin
  */
 export const createNodesV2: CreateNodesV2 = [
-  // eslint-disable-next-line spellcheck/spell-checker
   '**/typedoc.json',
   async (configFiles, options, context) => {
     return await createNodesFromFiles(
@@ -21,7 +20,6 @@ export const createNodesV2: CreateNodesV2 = [
                   executor: 'nx:run-commands',
                   options: {
                     command:
-                      // eslint-disable-next-line spellcheck/spell-checker
                       'npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json',
                   },
                 },
