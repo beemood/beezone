@@ -1,7 +1,7 @@
 {
   "executors": {
     "update-version": {
-      "implementation": "./dist/executors/update-version/update-version",
+      "implementation": "./dist/executors/update-version/update-version.js",
       "schema": "./dist/executors/update-version/schema.json",
       "description": "update-version executor"
     }
