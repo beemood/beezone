@@ -73,12 +73,12 @@
     "@nx/devkit": "21.3.1",
     "tslib": "^2.3.0"
   },
-  "executors": "./executors.json",
   "files": [
     "dist",
     "!**/*.tsbuildinfo",
     "executors.json",
     "generators.json"
   ],
+  "executors": "./executors.json",
   "generators": "./generators.json"
 }

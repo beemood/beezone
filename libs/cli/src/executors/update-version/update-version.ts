@@ -1,7 +1,7 @@
 import { readJsonFile, updateJsonFile } from '@beezone/fs';
 import { type PromiseExecutor } from '@nx/devkit';
 import { join } from 'path';
-import type { UpdateVersionSchema } from './update-version-schema';
+import type { UpdateVersionSchema } from './schema';
 
 /**
  * Update project versions to the main project version

@@ -147,9 +147,6 @@ importers:
       '@nestjs/event-emitter':
         specifier: ^3.0.1
         version: 3.0.1(@nestjs/common@11.1.5(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)
-      '@nestjs/platform-express':
-        specifier: ^11.1.5
-        version: 11.1.5(@nestjs/common@11.1.5(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)
       '@nestjs/schedule':
         specifier: ^6.0.0
         version: 6.0.0(@nestjs/common@11.1.5(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)
@@ -162,12 +159,6 @@ importers:
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.17
-      class-transformer:
-        specifier: ^0.5.1
-        version: 0.5.1
-      class-validator:
-        specifier: ^0.14.2
-        version: 0.14.2
 
   libs/cli:
     dependencies:
@@ -6774,6 +6765,7 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@nestjs/schedule@6.0.0(@nestjs/common@11.1.5(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.5)':
     dependencies:
@@ -7865,6 +7857,7 @@ snapshots:
     dependencies:
       mime-types: 3.0.1
       negotiator: 1.0.0
+    optional: true
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
@@ -7923,7 +7916,8 @@ snapshots:
 
   apache-md5@1.1.8: {}
 
-  append-field@1.0.0: {}
+  append-field@1.0.0:
+    optional: true
 
   arch@3.0.0: {}
 
@@ -8139,6 +8133,7 @@ snapshots:
       type-is: 2.0.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   brace-expansion@1.1.12:
     dependencies:
@@ -8191,6 +8186,7 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
+    optional: true
 
   bytes@3.1.2: {}
 
@@ -8336,6 +8332,7 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 3.6.2
       typedarray: 0.0.6
+    optional: true
 
   confusing-browser-globals@1.0.11: {}
 
@@ -8348,6 +8345,7 @@ snapshots:
   content-disposition@1.0.0:
     dependencies:
       safe-buffer: 5.2.1
+    optional: true
 
   content-type@1.0.5: {}
 
@@ -8357,7 +8355,8 @@ snapshots:
 
   cookie-signature@1.0.6: {}
 
-  cookie-signature@1.2.2: {}
+  cookie-signature@1.2.2:
+    optional: true
 
   cookie@0.7.1: {}
 
@@ -8812,6 +8811,7 @@ snapshots:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   ext-list@2.2.2:
     dependencies:
@@ -8922,6 +8922,7 @@ snapshots:
       statuses: 2.0.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   find-up@4.1.0:
     dependencies:
@@ -8970,7 +8971,8 @@ snapshots:
 
   fresh@0.5.2: {}
 
-  fresh@2.0.0: {}
+  fresh@2.0.0:
+    optional: true
 
   front-matter@4.0.2:
     dependencies:
@@ -9282,7 +9284,8 @@ snapshots:
 
   is-promise@2.2.2: {}
 
-  is-promise@4.0.0: {}
+  is-promise@4.0.0:
+    optional: true
 
   is-stream@2.0.1: {}
 
@@ -9907,11 +9910,13 @@ snapshots:
 
   media-typer@0.3.0: {}
 
-  media-typer@1.1.0: {}
+  media-typer@1.1.0:
+    optional: true
 
   merge-descriptors@1.0.3: {}
 
-  merge-descriptors@2.0.0: {}
+  merge-descriptors@2.0.0:
+    optional: true
 
   merge-stream@2.0.0: {}
 
@@ -9926,7 +9931,8 @@ snapshots:
 
   mime-db@1.52.0: {}
 
-  mime-db@1.54.0: {}
+  mime-db@1.54.0:
+    optional: true
 
   mime-types@2.1.35:
     dependencies:
@@ -9935,6 +9941,7 @@ snapshots:
   mime-types@3.0.1:
     dependencies:
       mime-db: 1.54.0
+    optional: true
 
   mime@1.6.0: {}
 
@@ -9981,6 +9988,7 @@ snapshots:
   mkdirp@0.5.6:
     dependencies:
       minimist: 1.2.8
+    optional: true
 
   mkdirp@1.0.4: {}
 
@@ -10001,6 +10009,7 @@ snapshots:
       object-assign: 4.1.1
       type-is: 1.6.18
       xtend: 4.0.2
+    optional: true
 
   nanoid@3.3.11: {}
 
@@ -10012,7 +10021,8 @@ snapshots:
 
   negotiator@0.6.4: {}
 
-  negotiator@1.0.0: {}
+  negotiator@1.0.0:
+    optional: true
 
   neo-async@2.6.2: {}
 
@@ -10384,6 +10394,7 @@ snapshots:
       http-errors: 2.0.0
       iconv-lite: 0.6.3
       unpipe: 1.0.0
+    optional: true
 
   react-is@18.3.1: {}
 
@@ -10510,6 +10521,7 @@ snapshots:
       path-to-regexp: 8.2.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   rrweb-cssom@0.6.0: {}
 
@@ -10582,6 +10594,7 @@ snapshots:
       statuses: 2.0.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   serve-static@1.16.2:
     dependencies:
@@ -10600,6 +10613,7 @@ snapshots:
       send: 1.2.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   setprototypeof@1.2.0: {}
 
@@ -10726,7 +10740,8 @@ snapshots:
 
   stream-shift@1.0.3: {}
 
-  streamsearch@1.1.0: {}
+  streamsearch@1.1.0:
+    optional: true
 
   streamx@2.22.1:
     dependencies:
@@ -11018,8 +11033,10 @@ snapshots:
       content-type: 1.0.5
       media-typer: 1.1.0
       mime-types: 3.0.1
+    optional: true
 
-  typedarray@0.0.6: {}
+  typedarray@0.0.6:
+    optional: true
 
   typedoc@0.28.7(typescript@5.8.3):
     dependencies:

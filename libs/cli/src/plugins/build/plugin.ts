@@ -12,6 +12,9 @@ export const createNodesV2: CreateNodesV2 = [
     return await createNodesFromFiles(
       (configFile) => {
         const root = join(dirname(configFile));
+        if (root.includes('cli')) {
+          return {};
+        }
         return {
           projects: {
             [root]: {

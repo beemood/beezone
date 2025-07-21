@@ -34,24 +34,6 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "nx": {
-    "sourceRoot": "libs/validation/src",
-    "targets": {
-      "build": {
-        "executor": "@nx/js:swc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "libs/validation/dist",
-          "main": "libs/validation/src/index.ts",
-          "tsConfig": "libs/validation/tsconfig.lib.json",
-          "skipTypeCheck": true,
-          "stripLeadingPaths": true
-        }
-      }
-    }
-  },
   "peerDependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2"

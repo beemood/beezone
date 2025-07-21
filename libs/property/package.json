@@ -33,24 +33,6 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "nx": {
-    "sourceRoot": "libs/property/src",
-    "targets": {
-      "build": {
-        "executor": "@nx/js:swc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "libs/property/dist",
-          "main": "libs/property/src/index.ts",
-          "tsConfig": "libs/property/tsconfig.lib.json",
-          "skipTypeCheck": true,
-          "stripLeadingPaths": true
-        }
-      }
-    }
-  },
   "peerDependencies": {
     "class-transformer": "^0.5.1"
   },

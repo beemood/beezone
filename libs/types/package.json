@@ -36,24 +36,6 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "nx": {
-    "sourceRoot": "libs/types/src",
-    "targets": {
-      "build": {
-        "executor": "@nx/js:swc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "libs/types/dist",
-          "main": "libs/types/src/index.ts",
-          "tsConfig": "libs/types/tsconfig.lib.json",
-          "skipTypeCheck": true,
-          "stripLeadingPaths": true
-        }
-      }
-    }
-  },
   "dependencies": {
     "@swc/helpers": "~0.5.11"
   }
