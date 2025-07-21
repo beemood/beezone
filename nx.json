@@ -68,6 +68,9 @@
     {
       "plugin": "@beezone/cli/serve"
     },
+    {
+      "plugin": "@beezone/cli/build"
+    }
   ],
   "targetDefaults": {
     "test": {

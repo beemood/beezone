@@ -1,3 +1,4 @@
+
 {
   "name": "@beezone/dtos",
   "description": "Common dto classes",
@@ -36,24 +37,6 @@
     "dist",
     "!**/*.tsbuildinfo"
   ],
-  "nx": {
-    "sourceRoot": "libs/dtos/src",
-    "targets": {
-      "build": {
-        "executor": "@nx/js:swc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "libs/dtos/dist",
-          "main": "libs/dtos/src/index.ts",
-          "tsConfig": "libs/dtos/tsconfig.lib.json",
-          "skipTypeCheck": true,
-          "stripLeadingPaths": true
-        }
-      }
-    }
-  },
   "dependencies": {
     "@beezone/property": "workspace:*",
     "@beezone/types": "workspace:*",

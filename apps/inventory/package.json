@@ -37,22 +37,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "apps/inventory/src",
-    "targets": {
-      "build": {
-        "executor": "@nx/js:swc",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "options": {
-          "outputPath": "apps/inventory/dist",
-          "main": "apps/inventory/src/index.ts",
-          "tsConfig": "apps/inventory/tsconfig.lib.json",
-          "skipTypeCheck": false,
-          "stripLeadingPaths": true
-        }
-      }
-    }
+    "sourceRoot": "apps/inventory/src"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.5",
