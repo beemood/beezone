@@ -1,6 +1,6 @@
 {
   "name": "@beezone/types",
-  "description": "- [ ] add project description",
+  "description": "Common types",
   "version": "0.0.2",
   "publishConfig": {
     "access": "public",

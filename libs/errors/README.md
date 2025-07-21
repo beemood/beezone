@@ -1,4 +1,4 @@
-- [ ] add project description
+Errors
 
 ## Install
 

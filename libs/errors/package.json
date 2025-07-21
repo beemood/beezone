@@ -1,6 +1,6 @@
 {
   "name": "@beezone/errors",
-  "description": "- [ ] add project description",
+  "description": "Errors",
   "version": "0.0.2",
   "publishConfig": {
     "access": "public",

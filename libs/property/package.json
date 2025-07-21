@@ -1,6 +1,6 @@
 {
   "name": "@beezone/property",
-  "description": "- [ ] add project description",
+  "description": "Composite property decorator for dto properties",
   "version": "0.0.2",
   "publishConfig": {
     "access": "public",

@@ -1,6 +1,6 @@
 {
   "name": "@beezone/utils",
-  "description": "- [ ] add project description",
+  "description": "Common utilities",
   "version": "0.0.2",
   "publishConfig": {
     "access": "public",
