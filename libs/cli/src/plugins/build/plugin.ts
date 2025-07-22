@@ -24,8 +24,9 @@ export const createNodesV2: CreateNodesV2 = [
                     outputPath: '{projectRoot}/dist',
                     main: '{projectRoot}/src/index.ts',
                     tsConfig: '{projectRoot}/tsconfig.lib.json',
-                    skipTypeCheck: true,
+                    skipTypeCheck: false,
                     stripLeadingPaths: true,
+                    cache: false,
                   },
                 },
                 'build-watch': {

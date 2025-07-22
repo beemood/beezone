@@ -7,10 +7,7 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/src/test-setup.[jt]s",
-      "!{projectRoot}/test-setup.[jt]s"
+      "!{projectRoot}/tsconfig.spec.json"
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
@@ -37,12 +34,6 @@
       }
     },
     {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
       "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
@@ -55,28 +46,9 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
-    },
-    {
-      "plugin": "@beezone/cli/doc"
-    },
-    {
-      "plugin": "@beezone/cli/update-version"
-    },
-    {
-      "plugin": "@beezone/cli/update-content"
-    },
-    {
-      "plugin": "@beezone/cli/serve"
-    },
-    {
-      "plugin": "@beezone/cli/build"
     }
   ],
   "targetDefaults": {
-    "doc": {},
-    "update-content": {},
-    "update-version": {},
-    "serve": {},
     "test": {
       "dependsOn": ["^build"]
     },
@@ -89,14 +61,6 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
-    }
-  },
-  "generators": {
-    "@nx/js:library": {
-      "bundler": "swc",
-      "linter": "eslint",
-      "publishable": true,
-      "unitTestRunner": "vitest"
     }
   },
   "release": {
