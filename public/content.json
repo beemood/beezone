@@ -1,1 +1,691 @@
-[]
+[
+  {
+    "name": "@beezone/cli",
+    "description": "Project generators, executors, and plugins",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/cli",
+    "icon": "https://beemood.github.io/beezone/libs/cli/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["generator", "executor", "plugin"],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "./doc": "./dist/plugins/doc/plugin.js",
+      "./update-version": "./dist/plugins/update-version/plugin.js",
+      "./update-content": "./dist/plugins/update-content/plugin.js",
+      "./serve": "./dist/plugins/serve/plugin.js",
+      "./build": "./dist/plugins/build/plugin.js"
+    },
+    "nx": {
+      "targets": {
+        "build": {
+          "executor": "@nx/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "libs/cli/dist",
+            "main": "libs/cli/src/index.ts",
+            "tsConfig": "libs/cli/tsconfig.lib.json",
+            "rootDir": "libs/cli/src",
+            "generatePackageJson": false,
+            "assets": [
+              {
+                "input": "./libs/cli/src",
+                "glob": "**/!(*.ts)",
+                "output": "."
+              },
+              {
+                "input": "./libs/cli/src",
+                "glob": "**/*.d.ts",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "@beezone/errors": "workspace:*",
+      "@beezone/fs": "workspace:*",
+      "@beezone/types": "workspace:*",
+      "@nx/devkit": "21.3.1",
+      "commander": "^14.0.0",
+      "tslib": "^2.3.0"
+    },
+    "bin": {
+      "beezone": "./bin/beezone.mjs"
+    },
+    "files": ["dist", "!**/*.tsbuildinfo", "executors.json", "generators.json"],
+    "executors": "./executors.json",
+    "generators": "./generators.json"
+  },
+  {
+    "name": "@beezone/dtos",
+    "description": "Common dto classes",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/dtos",
+    "icon": "https://beemood.github.io/beezone/libs/dtos/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["dto"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@beezone/property": "workspace:*",
+      "@beezone/types": "workspace:*",
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/dtos/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/errors",
+    "description": "Errors",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/errors",
+    "icon": "https://beemood.github.io/beezone/libs/errors/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["- [ ] add keywords"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/errors/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/fs",
+    "description": "IO library",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/fs",
+    "icon": "https://beemood.github.io/beezone/libs/fs/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["- [ ] add keywords"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/fs/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/inventory",
+    "description": "Inventory module",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/apps/inventory",
+    "icon": "https://beemood.github.io/beezone/apps/inventory/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["inventory"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@nestjs/common": "^11.1.5",
+      "@nestjs/config": "^4.0.2",
+      "@nestjs/core": "^11.1.5",
+      "@nestjs/event-emitter": "^3.0.1",
+      "@nestjs/schedule": "^6.0.0",
+      "@nestjs/swagger": "^11.2.0",
+      "@nestjs/throttler": "^6.4.0",
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "apps/inventory/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "build-watch": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": true,
+            "stripLeadingPaths": true,
+            "watch": true
+          }
+        },
+        "serve-static": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "nodemon dist/main.js",
+            "cwd": "{projectRoot}"
+          }
+        },
+        "serve": {
+          "executor": "nx:run-commands",
+          "dependsOn": ["build-watch", "serve-static"]
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/property",
+    "description": "Composite property decorator for dto properties",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/property",
+    "icon": "https://beemood.github.io/beezone/libs/property/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "keywords": ["- [ ] add keywords"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "peerDependencies": {
+      "class-transformer": "^0.5.1"
+    },
+    "dependencies": {
+      "@beezone/types": "workspace:*",
+      "@beezone/validation": "workspace:*",
+      "@nestjs/swagger": "^11.2.0",
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/property/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/types",
+    "description": "Common types",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/types",
+    "icon": "https://beemood.github.io/beezone/libs/types/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["- [ ] add keywords"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/types/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/utils",
+    "description": "Common utilities",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/utils",
+    "icon": "https://beemood.github.io/beezone/libs/utils/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "name": "Robert Brightline",
+      "url": "https://beemood.github.io"
+    },
+    "funding": ["https://cash.app/$puqlib"],
+    "keywords": ["- [ ] add keywords"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "dependencies": {
+      "@beezone/types": "workspace:*",
+      "@beezone/errors": "workspace:*",
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/utils/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "@beezone/validation",
+    "description": "Composite property decorator for dto property validation",
+    "version": "0.0.5",
+    "publishConfig": {
+      "access": "public",
+      "tag": "latest"
+    },
+    "homepage": "https://beemood.github.io/beezone/libs/validation",
+    "icon": "https://beemood.github.io/beezone/libs/validation/assets/favicon.png",
+    "author": {
+      "email": "robert.brightline@gmail.com",
+      "url": "https://beemood.github.io",
+      "name": "Robert Brightline"
+    },
+    "keywords": ["dto", "validation"],
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "development": "./src/index.ts",
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "files": ["dist", "!**/*.tsbuildinfo"],
+    "peerDependencies": {
+      "class-transformer": "^0.5.1",
+      "class-validator": "^0.14.2"
+    },
+    "dependencies": {
+      "@beezone/utils": "workspace:*",
+      "@beezone/types": "workspace:*",
+      "@swc/helpers": "~0.5.11"
+    },
+    "nx": {
+      "sourceRoot": "libs/validation/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:swc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "{projectRoot}/dist",
+            "main": "{projectRoot}/src/index.ts",
+            "tsConfig": "{projectRoot}/tsconfig.lib.json",
+            "skipTypeCheck": false,
+            "stripLeadingPaths": true
+          }
+        },
+        "doc": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+          }
+        },
+        "update-content": {
+          "executor": "@beezone/cli:update-content",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        },
+        "update-version": {
+          "executor": "@beezone/cli:update-version",
+          "options": {
+            "projectRoot": "{projectRoot}"
+          }
+        }
+      }
+    }
+  }
+]
