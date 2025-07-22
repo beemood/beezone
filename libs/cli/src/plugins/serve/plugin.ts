@@ -7,7 +7,7 @@ import { dirname, join } from 'path';
  * @group plugin
  */
 export const createNodesV2: CreateNodesV2 = [
-  'apps/*/package.json',
+  '**/.env',
   async (configFiles, options, context) => {
     return await createNodesFromFiles(
       (configFile) => {
