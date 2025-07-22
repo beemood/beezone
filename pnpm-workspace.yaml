@@ -3,6 +3,8 @@ packages:
   - libs/*
 
 onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@scarf/scarf'
   - '@swc/core'
   - esbuild
   - nx

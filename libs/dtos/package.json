@@ -1,7 +1,7 @@
 {
   "name": "@beezone/dtos",
   "description": "Common dto classes",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -44,10 +44,35 @@
   "nx": {
     "sourceRoot": "libs/dtos/src",
     "targets": {
-      "whoami": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "{projectRoot}/dist",
+          "main": "{projectRoot}/src/index.ts",
+          "tsConfig": "{projectRoot}/tsconfig.lib.json",
+          "skipTypeCheck": false,
+          "stripLeadingPaths": true
+        }
+      },
+      "doc": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "echo {projectRoot}"
+          "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+        }
+      },
+      "update-content": {
+        "executor": "@beezone/cli:update-content",
+        "options": {
+          "projectRoot": "{projectRoot}"
+        }
+      },
+      "update-version": {
+        "executor": "@beezone/cli:update-version",
+        "options": {
+          "projectRoot": "{projectRoot}"
         }
       }
     }
