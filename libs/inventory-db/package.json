@@ -1,6 +1,6 @@
 {
   "name": "@beezone/inventory-db",
-  "description": "- [ ] add project description",
+  "description": "Inventory database",
   "version": "0.0.5",
   "publishConfig": {
     "access": "public",
@@ -170,6 +170,17 @@
       "default": "./dist/sql.js"
     },
     "./*": "./dist/*"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma generate",
+          "cwd": "{projectRoot}"
+        }
+      }
+    }
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall.mjs"
