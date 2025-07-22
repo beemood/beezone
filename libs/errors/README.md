@@ -6,6 +6,14 @@ Errors
 pnpm add @beezone/errors
 ```
 
+## Tasks
+
+- `npx nx build errors`
+- `npx nx test errors`
+- `npx nx doc errors`
+- `npx nx update-version errors`
+- `npx nx update-content errors`
+
 ## Funding
 
 Thank you for using `@beezone/errors` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

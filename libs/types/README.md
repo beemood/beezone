@@ -6,6 +6,14 @@ Common types
 pnpm add @beezone/types
 ```
 
+## Tasks
+
+- `npx nx build types`
+- `npx nx test types`
+- `npx nx doc types`
+- `npx nx update-version types`
+- `npx nx update-content types`
+
 ## Funding
 
 Thank you for using `@beezone/types` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

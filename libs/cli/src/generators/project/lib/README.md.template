@@ -6,48 +6,13 @@
 pnpm add <%- projectName %>
 ```
 
-## Build project
+## Tasks
 
-```bash
-npx nx build <%- projectName %>
-```
-
-## Build project in watch mode
-
-```bash
-npx nx build-watch <%- projectName %>
-```
-
-## Run unit test
-
-```bash
-npx nx test <%- projectName %>
-```
-
-## Lint code and check errors and warnings
-
-```bash
-npx nx lint <%- projectName %>
-```
-
-## Generate typedoc
-
-```bash
-npx nx doc <%- projectName %>
-```
-
-## Update the project version to the main project version
-
-```bash
-npx nx update-version <%- projectName %>
-```
-
-## Update public/content.json file by appending the project's package.json content for documentation page.
-
-```bash
-npx nx update-content <%- projectName %>
-```
-
+- `npx nx build <%- projectName %>`
+- `npx nx test <%- projectName %>`
+- `npx nx doc <%- projectName %>`
+- `npx nx update-version <%- projectName %>`
+- `npx nx update-content <%- projectName %>`
 
 ## Funding
 

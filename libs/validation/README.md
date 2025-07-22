@@ -6,6 +6,14 @@ Composite property decorator for dto property validation
 pnpm add @beezone/validation
 ```
 
+## Tasks
+
+- `npx nx build validation`
+- `npx nx test validation`
+- `npx nx doc validation`
+- `npx nx update-version validation`
+- `npx nx update-content validation`
+
 ## Funding
 
 Thank you for using `@beezone/validation` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

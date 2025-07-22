@@ -1,4 +1,8 @@
 {
   "favicon": "favicon.png",
-  "externalSymbolLinkMappings": {}
+  "externalSymbolLinkMappings": {
+    "@beezone/types": {
+      "Some": "https://beemood.github.io/beezone/libs/types/types/Some.html"
+    }
+  }
 }

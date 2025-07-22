@@ -6,6 +6,14 @@ Project generators, executors, and plugins
 pnpm add -D @beezone/cli
 ```
 
+## Tasks
+
+- `npx nx build cli`
+- `npx nx test cli`
+- `npx nx doc cli`
+- `npx nx update-version cli`
+- `npx nx update-content cli`
+
 ## Funding
 
 Thank you for using `@beezone/cli` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

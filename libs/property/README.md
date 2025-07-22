@@ -6,6 +6,14 @@ Composite property decorator for dto properties
 pnpm add @beezone/property
 ```
 
+## Tasks
+
+- `npx nx build property`
+- `npx nx test property`
+- `npx nx doc property`
+- `npx nx update-version property`
+- `npx nx update-content property`
+
 ## Funding
 
 Thank you for using `@beezone/property` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

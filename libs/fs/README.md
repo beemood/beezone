@@ -6,6 +6,14 @@ IO library
 pnpm add @beezone/fs
 ```
 
+## Tasks
+
+- `npx nx build fs`
+- `npx nx test fs`
+- `npx nx doc fs`
+- `npx nx update-version fs`
+- `npx nx update-content fs`
+
 ## Funding
 
 Thank you for using `@beezone/fs` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.

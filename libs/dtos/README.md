@@ -6,6 +6,14 @@ Common dto classes
 pnpm add @beezone/dtos
 ```
 
+## Tasks
+
+- `npx nx build dtos`
+- `npx nx test dtos`
+- `npx nx doc dtos`
+- `npx nx update-version dtos`
+- `npx nx update-content dtos`
+
 ## Funding
 
 Thank you for using `@beezone/dtos` It's an open-source project, and maintaining it takes time and effort. If you find this library useful, please consider supporting its ongoing development. Your contributions help ensure that the project stays up-to-date, secure, and well-maintained.
