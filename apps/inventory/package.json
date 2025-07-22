@@ -1,7 +1,7 @@
 {
   "name": "@beezone/inventory",
   "description": "Inventory module",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -47,6 +47,14 @@
     "@swc/helpers": "~0.5.11"
   },
   "nx": {
-    "sourceRoot": "apps/inventory/src"
+    "sourceRoot": "apps/inventory/src",
+    "targets": {
+      "whoami": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "echo {projectRoot}"
+        }
+      }
+    }
   }
 }
