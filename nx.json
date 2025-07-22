@@ -73,10 +73,6 @@
     }
   ],
   "targetDefaults": {
-    "doc": {},
-    "update-version": {},
-    "update-content": {},
-    "build": {},
     "test": {
       "dependsOn": ["^build"]
     },

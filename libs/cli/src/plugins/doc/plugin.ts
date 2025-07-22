@@ -7,15 +7,11 @@ import { dirname } from 'path';
  * @group plugin
  */
 export const createNodesV2: CreateNodesV2 = [
-  '**/package.json',
+  '**/typedoc.json',
   async (configFiles, options, context) => {
     return await createNodesFromFiles(
       (configFile) => {
         const root = dirname(configFile);
-
-        if (root.endsWith('source')) {
-          return { projects: {} };
-        }
 
         return {
           projects: {

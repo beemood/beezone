@@ -40,5 +40,16 @@
     "@beezone/types": "workspace:*",
     "@beezone/errors": "workspace:*",
     "@swc/helpers": "~0.5.11"
+  },
+  "nx": {
+    "sourceRoot": "libs/utils",
+    "targets": {
+      "whoami": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "echo {projectRoot}"
+        }
+      }
+    }
   }
 }

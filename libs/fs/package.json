@@ -38,5 +38,16 @@
   ],
   "dependencies": {
     "@swc/helpers": "~0.5.11"
+  },
+  "nx": {
+    "sourceRoot": "libs/fs",
+    "targets": {
+      "whoami": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "echo {projectRoot}"
+        }
+      }
+    }
   }
 }

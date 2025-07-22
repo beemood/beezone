@@ -40,5 +40,16 @@
     "@beezone/property": "workspace:*",
     "@beezone/types": "workspace:*",
     "@swc/helpers": "~0.5.11"
+  },
+  "nx": {
+    "sourceRoot": "libs/dtos",
+    "targets": {
+      "whoami": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "echo {projectRoot}"
+        }
+      }
+    }
   }
 }
