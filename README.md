@@ -1,5 +1,11 @@
 # Beezone
 
+## Update docs
+
+```bash
+npx nx run-many -t doc
+```
+
 ## Update public content
 
 ```bash
