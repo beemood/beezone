@@ -63,6 +63,24 @@
             }
           ]
         }
+      },
+      "doc": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx typedoc --options {projectRoot}/typedoc.json  --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
+        }
+      },
+      "update-content": {
+        "executor": "@beezone/cli:update-content",
+        "options": {
+          "projectRoot": "{projectRoot}"
+        }
+      },
+      "update-version": {
+        "executor": "@beezone/cli:update-version",
+        "options": {
+          "projectRoot": "{projectRoot}"
+        }
       }
     }
   },
