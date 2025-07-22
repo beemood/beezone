@@ -10,14 +10,6 @@
     "types": ["node"]
   },
   "include": ["src/**/*.ts"],
-  "references": [
-    {
-      "path": "../types/tsconfig.lib.json"
-    },
-    {
-      "path": "../property/tsconfig.lib.json"
-    }
-  ],
   "exclude": [
     "vite.config.ts",
     "vite.config.mts",

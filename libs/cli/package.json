@@ -1,7 +1,7 @@
 {
   "name": "@beezone/cli",
   "description": "Project generators, executors, and plugins",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
