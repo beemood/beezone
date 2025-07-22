@@ -4,6 +4,12 @@
   "include": [],
   "references": [
     {
+      "path": "../errors"
+    },
+    {
+      "path": "../types"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
