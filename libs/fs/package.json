@@ -40,7 +40,7 @@
     "@swc/helpers": "~0.5.11"
   },
   "nx": {
-    "sourceRoot": "libs/fs",
+    "sourceRoot": "libs/fs/src",
     "targets": {
       "whoami": {
         "executor": "nx:run-commands",

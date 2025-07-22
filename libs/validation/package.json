@@ -44,7 +44,7 @@
     "@swc/helpers": "~0.5.11"
   },
   "nx": {
-    "sourceRoot": "libs/validation",
+    "sourceRoot": "libs/validation/src",
     "targets": {
       "whoami": {
         "executor": "nx:run-commands",
