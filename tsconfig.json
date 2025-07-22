@@ -3,15 +3,38 @@
   "compileOnSave": false,
   "files": [],
   "references": [
-    { "path": "./apps/inventory" },
-    { "path": "./libs/cli" },
-    { "path": "./libs/dtos" },
-    { "path": "./libs/errors" },
-    { "path": "./libs/fs" },
-    { "path": "./libs/property" },
-    { "path": "./libs/property" },
-    { "path": "./libs/types" },
-    { "path": "./libs/utils" },
-    { "path": "./libs/validation" }
+    {
+      "path": "./apps/inventory"
+    },
+    {
+      "path": "./libs/cli"
+    },
+    {
+      "path": "./libs/dtos"
+    },
+    {
+      "path": "./libs/errors"
+    },
+    {
+      "path": "./libs/fs"
+    },
+    {
+      "path": "./libs/property"
+    },
+    {
+      "path": "./libs/property"
+    },
+    {
+      "path": "./libs/types"
+    },
+    {
+      "path": "./libs/utils"
+    },
+    {
+      "path": "./libs/validation"
+    },
+    {
+      "path": "./libs/inventory-db"
+    }
   ]
 }

@@ -4,15 +4,6 @@
   "include": [],
   "references": [
     {
-      "path": "../types"
-    },
-    {
-      "path": "../fs"
-    },
-    {
-      "path": "../errors"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {

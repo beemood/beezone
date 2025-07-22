@@ -46,6 +46,10 @@ export async function projectGenerator(
       value.references = [];
     }
     value.references.push({ path: `./${projectRoot}` });
+
+    value.references = value.references.sort((f: any, s: any) =>
+      f.path > s.path ? 1 : -1
+    );
     return value;
   });
 
