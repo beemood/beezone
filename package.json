@@ -1,7 +1,7 @@
 {
   "name": "@beezone/source",
   "description": "Beezone tools and libraries",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "homepage": "https://beemood.github.io/beezone",
   "icon": "https://beemood.github.io/beezone/favicon.png",
