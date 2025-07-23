@@ -30,6 +30,8 @@ export async function projectGenerator(
   const projectRoot =
     options.projectType == 'api'
       ? `apps/${__projectName}`
+      : options.projectType === 'db'
+      ? `databases/${__projectName}`
       : `libs/${__projectName}`;
 
   const source = path.join(__dirname, options.projectType);
