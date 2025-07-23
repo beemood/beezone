@@ -18,5 +18,5 @@ model <%- className %> {
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
-  name        String?
+  name String @unique
 }

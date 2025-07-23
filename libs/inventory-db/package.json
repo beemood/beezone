@@ -193,6 +193,13 @@
           "command": "npx prisma generate",
           "cwd": "{projectRoot}"
         }
+      },
+      "prisma-seed": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "node ./scripts/seed-run.mjs",
+          "cwd": "{projectRoot}"
+        }
       }
     }
   },
