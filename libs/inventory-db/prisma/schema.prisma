@@ -1,15 +1,201 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
-  output   = "../dist"
+  provider        = "prisma-client-js"
+  output          = "../dist"
+  previewFeatures = ["multiSchema"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Department {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name String @unique
+
+  categories Category[]
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name String
+
+  department   Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  departmentId Int
+
+  categories SubCategory[]
+
+  @@unique([name, departmentId])
+}
+
+model SubCategory {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name String
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  products Product[]
+
+  @@unique([name, categoryId])
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name        String  @unique
+  upc         String? @unique
+  description String?
+
+  trackSerialNumber Boolean @default(false)
+
+  category   SubCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  categoryId Int?
+
+  skus Sku[]
+}
+
+model Attribute {
+  key   String
+  value String
+
+  sku   Sku @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  skuId Int
+
+  @@unique([key, skuId])
+}
+
+model Sku {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  sku String @unique
+  upc String @unique
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+
+  attributes    Attribute[]
+  prices        Price[]
+  quantities    Quantity[]
+  images        ProductImage[]
+  serialNumbers SerialNumber[]
+}
+
+model SerialNumber {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  serialNumber String  @unique
+  inStock      Boolean @default(true)
+
+  sku   Sku @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  skuId Int
+
+  store   Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  storeId Int
+}
+
+model Quantity {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  quantity Int @default(0)
+
+  sku   Sku @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  skuId Int
+
+  store   Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  storeId Int
+}
+
+model Price {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  price Decimal
+
+  priceLevel   PriceLevel @relation(fields: [priceLevelId], references: [id], onDelete: Cascade)
+  priceLevelId Int
+
+  sku   Sku @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  skuId Int
+}
+
+model Store {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name String @unique
+
+  priceLevel   PriceLevel? @relation(fields: [priceLevelId], references: [id], onDelete: SetNull)
+  priceLevelId Int?
+
+  quantities   Quantity[]
+  SerialNumber SerialNumber[]
+}
+
+model PriceLevel {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name String @unique
+
+  taxrate Decimal
+
+  stores Store[]
+  prices Price[]
+}
+
+model ProductImage {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  name        String?
+  description String?
+  url         String
+  order       Int     @default(0)
+
+  sku   Sku? @relation(fields: [skuId], references: [id], onDelete: SetNull)
+  skuId Int?
 }

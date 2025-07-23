@@ -1,11 +1,17 @@
-#!/usr/bin/env node
-
-import { execSync } from 'child_process';
 import { existsSync } from 'fs';
+import { rm } from 'fs/promises';
+import { generate } from './generate.mjs';
+import { seed } from './seed.mjs';
 
-(() => {
-  if (existsSync('dist/package.json')) {
-    return;
-  }
-  execSync(`npx prisma generate`);
-})();
+if (!existsSync('dist/package.json')) {
+  (async () => {
+    await generate();
+
+    try {
+      await seed();
+    } catch (err) {
+      await rm('dist', { recursive: true });
+      throw new Error('Could not seed the database!', { cause: err });
+    }
+  })();
+}

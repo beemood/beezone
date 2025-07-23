@@ -176,7 +176,7 @@
       "build": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "npx prisma generate",
+          "command": "prisma migrate reset --force",
           "cwd": "{projectRoot}"
         }
       }
