@@ -1,0 +1,6 @@
+[
+  { "name": "<%- fileName %> 1" },
+  { "name": "<%- fileName %> 2" },
+  { "name": "<%- fileName %> 3" },
+  { "name": "<%- fileName %> 4" }
+]

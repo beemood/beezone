@@ -1,0 +1,7 @@
+export async function seed() {
+  const { PrismaClient } = await import('./../dist/index.js');
+  const { seed<%- className %> } = await import('./seeds/seed-<%- fileName %>.mjs');
+  const client = new PrismaClient();
+  
+  await  seed<%- className %>(client);
+}

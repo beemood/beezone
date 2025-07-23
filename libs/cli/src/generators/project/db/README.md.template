@@ -1,4 +1,4 @@
-- [ ] add project description
+<%- fileName %> prisma orm project
 
 ## Install
 

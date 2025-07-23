@@ -1,0 +1,16 @@
+import { PrismaClient } from '../../dist/index.js';
+import <%- propertyName %>Data from '../data/<%- fileName %>.json' with { type: 'json' };
+
+/**
+ *
+ * @param {PrismaClient} $client
+ */
+export async function seed<%- className %>($client) {
+  await $client.$transaction(async (client) => {
+
+    for (const <%- propertyName %> of <%- propertyName %>Data) {
+      await client.<%- propertyName %>.create({ data: { name: <%- propertyName %>.name } });
+    }
+    
+  });
+}
