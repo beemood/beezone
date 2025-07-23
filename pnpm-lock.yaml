@@ -153,6 +153,9 @@ importers:
       '@beezone/types':
         specifier: workspace:*
         version: link:../types
+      '@beezone/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@nx/devkit':
         specifier: 21.3.1
         version: 21.3.1(nx@21.3.2(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))

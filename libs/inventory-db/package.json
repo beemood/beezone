@@ -173,10 +173,24 @@
   },
   "nx": {
     "targets": {
-      "build": {
+      "prisma-reset": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "prisma migrate reset --force",
+          "command": "npx prisma migrate reset --force",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "prisma-migrate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma migrate dev --name dev",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "prisma-generate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma generate",
           "cwd": "{projectRoot}"
         }
       }

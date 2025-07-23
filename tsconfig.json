@@ -32,9 +32,6 @@
     },
     {
       "path": "./libs/validation"
-    },
-    {
-      "path": "./libs/inventory-db"
     }
   ]
 }

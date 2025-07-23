@@ -88,6 +88,7 @@
     "@beezone/errors": "workspace:*",
     "@beezone/fs": "workspace:*",
     "@beezone/types": "workspace:*",
+    "@beezone/utils": "workspace:*",
     "@nx/devkit": "21.3.1",
     "commander": "^14.0.0",
     "tslib": "^2.3.0"

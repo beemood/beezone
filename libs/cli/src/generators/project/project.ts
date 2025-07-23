@@ -1,12 +1,7 @@
+import { readJsonFile, updateJsonFile } from '@beezone/fs';
+import { definedOrThrow, sortBy } from '@beezone/utils';
 import type { Tree } from '@nx/devkit';
-import {
-  formatFiles,
-  generateFiles,
-  names,
-  readJsonFile,
-  updateJson,
-  workspaceRoot,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, names, workspaceRoot } from '@nx/devkit';
 import * as path from 'path';
 import type { ProjectGeneratorSchema } from './schema';
 
@@ -20,9 +15,13 @@ export async function projectGenerator(
   tree: Tree,
   options: ProjectGeneratorSchema
 ) {
-  const mp = await readJsonFile(path.join(workspaceRoot, 'package.json'));
-  const { name: mainProjectName } = mp;
   const __names = names(options.name);
+
+  const packageJsonFilePath = path.join(workspaceRoot, 'package.json');
+  const mp = await readJsonFile<{ name: string }>(packageJsonFilePath);
+
+  const mainProjectName = definedOrThrow(mp.name);
+
   const __projectName = __names.fileName;
   const orgNamePrefix = mainProjectName.split('/')[0];
   const projectName = `${orgNamePrefix}/${__projectName}`;
@@ -43,17 +42,19 @@ export async function projectGenerator(
     mp,
   });
 
-  await updateJson(tree, 'tsconfig.json', (value) => {
-    if (!value.references) {
-      value.references = [];
-    }
-    value.references.push({ path: `./${projectRoot}` });
+  if (options.projectType != 'db')
+    await updateJsonFile<{ references?: { path: string }[] }>(
+      'tsconfig.json',
+      (value) => {
+        if (!value.references) {
+          value.references = [];
+        }
+        value.references.push({ path: `./${projectRoot}` });
 
-    value.references = value.references.sort((f: any, s: any) =>
-      f.path > s.path ? 1 : -1
+        value.references = value.references.sort(sortBy('path'));
+        return value;
+      }
     );
-    return value;
-  });
 
   await formatFiles(tree);
 }

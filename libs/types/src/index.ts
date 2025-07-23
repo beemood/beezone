@@ -16,4 +16,5 @@ export * from './lib/property/property-options.js'
 export * from './lib/property/property-type.js'
 export * from './lib/property/string-options.js'
 export * from './lib/property/value-options.js'
+export * from './lib/query/sort-dir.js'
 
