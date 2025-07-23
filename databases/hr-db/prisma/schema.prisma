@@ -1,0 +1,200 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../dist"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define custom Enums for fixed-value fields to ensure data consistency
+enum Gender {
+  MALE
+  FEMALE
+  NON_BINARY
+  PREFER_NOT_TO_SAY
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+  SEPARATED
+  DOMESTIC_PARTNERSHIP
+}
+
+enum EmployeeStatus {
+  ACTIVE // Currently working
+  ON_LEAVE // On extended leave (e.g., parental, medical)
+  TERMINATED // Employment ended
+  RETIRED // Retired from the company
+  PENDING_HIRE // Offer accepted, but not yet started
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACTOR
+  INTERN
+  TEMPORARY
+}
+
+enum CompensationType {
+  SALARY
+  HOURLY
+  COMMISSION
+  CONTRACT
+}
+
+model Employee {
+  id Int @id @default(autoincrement())
+
+  employeeId String @unique @default(uuid())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  contact          Contact?
+  personalInfo     PersonalInfo?
+  employmentDetail EmploymentDetail?
+  compensation     Compensation?
+  payroll          Payroll?
+}
+
+model EmploymentDetail {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String   @unique
+
+  hireDate         DateTime
+  originalHireDate DateTime?
+  employmentType   EmploymentType
+  employeeStatus   EmployeeStatus @default(ACTIVE) // Enum for current status
+  jobTitle         String
+  department       String?
+  division         String?
+  location         String?
+}
+
+model Compensation {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String   @unique
+
+  compensationType CompensationType?
+  baseSalary       Decimal?          @db.Decimal(12, 2) // Base annual salary or hourly rate
+  currency         String?
+  payFrequency     String?
+  hourlyRate       Decimal?          @db.Decimal(10, 2)
+  commissionRate   Decimal?          @db.Decimal(5, 4) // e.g., 0.05 for 5%
+}
+
+model Payroll {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String   @unique
+
+  taxIdNumber       String? @unique
+  bankName          String?
+  bankAccountNumber String?
+  bankRoutingNumber String?
+
+  @@unique([employeeId, taxIdNumber, bankAccountNumber, bankRoutingNumber])
+}
+
+model PersonalInfo {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String   @unique
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  firstName          String
+  middleName         String?
+  lastName           String
+  preferredName      String?
+  dateOfBirth        DateTime
+  gender             Gender?
+  maritalStatus      MaritalStatus?
+  nationality        String?
+  otherNationalities String[]
+}
+
+model Contact {
+  id         Int      @id @default(autoincrement())
+  employee   Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String   @unique
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  emails            Email[]
+  phones            Phone[]
+  addresses         Address[]
+  emergencyContacts EmergencyContact[]
+}
+
+model EmergencyContact {
+  id         Int     @id @default(autoincrement())
+  employee   Contact @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade, onUpdate: Cascade)
+  employeeId String
+
+  fullName     String
+  relationship String?
+  phone        String?
+  email        String?
+  notes        String?
+
+  @@unique([employeeId, fullName, phone, email])
+}
+
+model Email {
+  id         Int     @id @default(autoincrement())
+  contact    Contact @relation(fields: [employeeId], references: [employeeId])
+  employeeId String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  email String
+
+  order Int @default(0)
+
+  @@unique([email, employeeId])
+}
+
+model Phone {
+  id         Int     @id @default(autoincrement())
+  contact    Contact @relation(fields: [employeeId], references: [employeeId])
+  employeeId String
+
+  phone String
+
+  order Int @default(0)
+
+  @@unique([phone, employeeId])
+}
+
+model Address {
+  id         Int     @id @default(autoincrement())
+  contact    Contact @relation(fields: [employeeId], references: [employeeId])
+  employeeId String
+
+  street     String
+  city       String
+  state      String
+  country    String
+  postalCode String
+
+  order Int @default(0)
+
+  @@unique([street, city, state, country, employeeId])
+}
