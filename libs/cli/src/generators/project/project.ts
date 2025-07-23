@@ -42,6 +42,8 @@ export async function projectGenerator(
     mp,
   });
 
+
+
   if (options.projectType != 'db')
     await updateJsonFile<{ references?: { path: string }[] }>(
       'tsconfig.json',

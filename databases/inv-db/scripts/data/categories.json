@@ -1,0 +1,443 @@
+[
+  {
+    "name": "Electronics",
+    "subcategories": [
+      {
+        "name": "Computers & Accessories",
+        "subcategories": [
+          { "name": "Laptops" },
+          { "name": "Desktops" },
+          { "name": "Monitors" },
+          { "name": "Keyboards & Mice" },
+          { "name": "Printers & Scanners" },
+          { "name": "Webcams" },
+          { "name": "Networking Devices" }
+        ]
+      },
+      {
+        "name": "Mobile Phones & Smart Devices",
+        "subcategories": [
+          { "name": "Smartphones" },
+          { "name": "Tablets" },
+          { "name": "Smartwatches" },
+          { "name": "Fitness Trackers" },
+          { "name": "E-Readers" }
+        ]
+      },
+      {
+        "name": "TV & Home Theater",
+        "subcategories": [
+          { "name": "Televisions" },
+          { "name": "Soundbars & Home Theater Systems" },
+          { "name": "Projectors" },
+          { "name": "Streaming Devices" },
+          { "name": "DVD & Blu-ray Players" }
+        ]
+      },
+      {
+        "name": "Audio",
+        "subcategories": [
+          { "name": "Headphones" },
+          { "name": "Earbuds" },
+          { "name": "Portable Speakers" },
+          { "name": "Home Audio Systems" },
+          { "name": "Car Audio" }
+        ]
+      },
+      {
+        "name": "Cameras & Photography",
+        "subcategories": [
+          { "name": "DSLR Cameras" },
+          { "name": "Mirrorless Cameras" },
+          { "name": "Action Cameras" },
+          { "name": "Drones" },
+          { "name": "Camera Lenses" },
+          { "name": "Tripods & Accessories" }
+        ]
+      },
+      {
+        "name": "Wearable Technology",
+        "subcategories": [
+          { "name": "Smartwatches" },
+          { "name": "Fitness Trackers" },
+          { "name": "Smart Glasses" }
+        ]
+      },
+      {
+        "name": "Video Games & Consoles",
+        "subcategories": [
+          { "name": "Gaming Consoles" },
+          { "name": "Video Games" },
+          { "name": "Gaming Accessories" }
+        ]
+      },
+      { "name": "Drones" },
+      { "name": "Smart Home Devices" },
+      { "name": "Car Electronics" }
+    ]
+  },
+  {
+    "name": "Clothing & Apparel",
+    "subcategories": [
+      {
+        "name": "Men's Fashion",
+        "subcategories": [
+          { "name": "Shirts" },
+          { "name": "Pants" },
+          { "name": "Jeans" },
+          { "name": "Jackets & Coats" },
+          { "name": "Activewear" },
+          { "name": "Underwear & Socks" },
+          { "name": "Suits & Blazers" },
+          { "name": "Swimwear" }
+        ]
+      },
+      {
+        "name": "Women's Fashion",
+        "subcategories": [
+          { "name": "Dresses" },
+          { "name": "Tops & Blouses" },
+          { "name": "Skirts" },
+          { "name": "Pants & Leggings" },
+          { "name": "Jeans" },
+          { "name": "Jackets & Coats" },
+          { "name": "Activewear" },
+          { "name": "Lingerie & Sleepwear" },
+          { "name": "Swimwear" }
+        ]
+      },
+      {
+        "name": "Kids' Fashion",
+        "subcategories": [
+          { "name": "Baby Clothing" },
+          { "name": "Toddler Clothing" },
+          { "name": "Kids' Clothing (2-12 years)" },
+          { "name": "Teen Clothing" }
+        ]
+      },
+      {
+        "name": "Footwear",
+        "subcategories": [
+          { "name": "Sneakers" },
+          { "name": "Boots" },
+          { "name": "Sandals" },
+          { "name": "Dress Shoes" },
+          { "name": "Athletic Shoes" }
+        ]
+      },
+      {
+        "name": "Accessories",
+        "subcategories": [
+          { "name": "Bags & Wallets" },
+          { "name": "Hats & Caps" },
+          { "name": "Scarves & Gloves" },
+          { "name": "Belts" },
+          { "name": "Ties" },
+          { "name": "Jewelry" },
+          { "name": "Sunglasses" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Home & Kitchen",
+    "subcategories": [
+      {
+        "name": "Kitchen & Dining",
+        "subcategories": [
+          { "name": "Cookware" },
+          { "name": "Bakeware" },
+          { "name": "Kitchen Utensils & Gadgets" },
+          { "name": "Dinnerware & Serveware" },
+          { "name": "Small Appliances (Coffee Makers, Blenders)" },
+          { "name": "Cutlery" },
+          { "name": "Food Storage" }
+        ]
+      },
+      {
+        "name": "Furniture",
+        "subcategories": [
+          { "name": "Living Room Furniture" },
+          { "name": "Bedroom Furniture" },
+          { "name": "Dining Room Furniture" },
+          { "name": "Office Furniture" },
+          { "name": "Outdoor Furniture" }
+        ]
+      },
+      {
+        "name": "Home Decor",
+        "subcategories": [
+          { "name": "Wall Art" },
+          { "name": "Mirrors" },
+          { "name": "Vases & Decorative Bowls" },
+          { "name": "Candles & Holders" },
+          { "name": "Clocks" },
+          { "name": "Picture Frames" }
+        ]
+      },
+      {
+        "name": "Bedding & Bath",
+        "subcategories": [
+          { "name": "Bed Sheets & Pillowcases" },
+          { "name": "Comforters & Duvets" },
+          { "name": "Towels" },
+          { "name": "Bath Mats" },
+          { "name": "Shower Curtains" }
+        ]
+      },
+      {
+        "name": "Appliances",
+        "subcategories": [
+          { "name": "Refrigerators" },
+          { "name": "Ovens & Ranges" },
+          { "name": "Dishwashers" },
+          { "name": "Washers & Dryers" },
+          { "name": "Microwaves" },
+          { "name": "Vacuum Cleaners" }
+        ]
+      },
+      { "name": "Lighting" },
+      { "name": "Cleaning Supplies" },
+      { "name": "Storage & Organization" },
+      { "name": "Patio, Lawn & Garden" }
+    ]
+  },
+  {
+    "name": "Books",
+    "subcategories": [
+      { "name": "Fiction" },
+      { "name": "Non-Fiction" },
+      { "name": "Children's Books" },
+      { "name": "Young Adult" },
+      { "name": "Biographies & Memoirs" },
+      { "name": "History" },
+      { "name": "Science & Nature" },
+      { "name": "Self-Help" },
+      { "name": "Cookbooks" },
+      { "name": "Art & Photography" },
+      { "name": "Comics & Graphic Novels" },
+      { "name": "Audiobooks" },
+      { "name": "E-books" }
+    ]
+  },
+  {
+    "name": "Sports & Outdoors",
+    "subcategories": [
+      {
+        "name": "Exercise & Fitness",
+        "subcategories": [
+          { "name": "Cardio Equipment" },
+          { "name": "Strength Training Equipment" },
+          { "name": "Yoga & Pilates" },
+          { "name": "Fitness Apparel" },
+          { "name": "Supplements" }
+        ]
+      },
+      {
+        "name": "Outdoor Recreation",
+        "subcategories": [
+          { "name": "Camping & Hiking" },
+          { "name": "Cycling" },
+          { "name": "Fishing" },
+          { "name": "Hunting" },
+          { "name": "Water Sports" },
+          { "name": "Winter Sports" }
+        ]
+      },
+      {
+        "name": "Team Sports",
+        "subcategories": [
+          { "name": "Basketball" },
+          { "name": "Football" },
+          { "name": "Soccer" },
+          { "name": "Baseball & Softball" },
+          { "name": "Volleyball" }
+        ]
+      },
+      { "name": "Fan Shop" },
+      { "name": "Golf" },
+      { "name": "Racquet Sports" }
+    ]
+  },
+  {
+    "name": "Health & Beauty",
+    "subcategories": [
+      {
+        "name": "Skincare",
+        "subcategories": [
+          { "name": "Cleansers" },
+          { "name": "Moisturizers" },
+          { "name": "Serums" },
+          { "name": "Sunscreen" },
+          { "name": "Face Masks" }
+        ]
+      },
+      {
+        "name": "Hair Care",
+        "subcategories": [
+          { "name": "Shampoo & Conditioner" },
+          { "name": "Hair Styling Products" },
+          { "name": "Hair Treatments" },
+          { "name": "Hair Tools" }
+        ]
+      },
+      {
+        "name": "Makeup",
+        "subcategories": [
+          { "name": "Face Makeup" },
+          { "name": "Eye Makeup" },
+          { "name": "Lip Makeup" },
+          { "name": "Makeup Brushes & Tools" }
+        ]
+      },
+      {
+        "name": "Personal Care",
+        "subcategories": [
+          { "name": "Deodorants & Antiperspirants" },
+          { "name": "Oral Care" },
+          { "name": "Bath & Body" },
+          { "name": "Shaving & Hair Removal" }
+        ]
+      },
+      {
+        "name": "Fragrances",
+        "subcategories": [
+          { "name": "Perfume" },
+          { "name": "Cologne" },
+          { "name": "Body Sprays" }
+        ]
+      },
+      {
+        "name": "Health & Wellness",
+        "subcategories": [
+          { "name": "Vitamins & Supplements" },
+          { "name": "First Aid" },
+          { "name": "Pain Relief" },
+          { "name": "Sexual Wellness" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Toys & Games",
+    "subcategories": [
+      { "name": "Action Figures & Collectibles" },
+      { "name": "Board Games" },
+      { "name": "Card Games" },
+      { "name": "Puzzles" },
+      { "name": "Building Toys" },
+      { "name": "Dolls & Accessories" },
+      { "name": "Remote Control Toys" },
+      { "name": "Educational Toys" },
+      { "name": "Outdoor Play" },
+      { "name": "Arts & Crafts Kits" }
+    ]
+  },
+  {
+    "name": "Automotive",
+    "subcategories": [
+      {
+        "name": "Car Parts & Accessories",
+        "subcategories": [
+          { "name": "Brakes & Suspension" },
+          { "name": "Engine Parts" },
+          { "name": "Lights & Lighting Accessories" },
+          { "name": "Interior Accessories" },
+          { "name": "Exterior Accessories" },
+          { "name": "Tires & Wheels" }
+        ]
+      },
+      { "name": "Car Care & Detailing" },
+      { "name": "Motorcycle Parts & Accessories" },
+      { "name": "GPS & Navigation" },
+      { "name": "Tools & Equipment" }
+    ]
+  },
+  {
+    "name": "Groceries & Food",
+    "subcategories": [
+      { "name": "Fresh Produce" },
+      { "name": "Meat & Seafood" },
+      { "name": "Dairy & Cheese" },
+      { "name": "Baked Goods" },
+      { "name": "Pantry Staples" },
+      { "name": "Snacks & Candy" },
+      { "name": "Beverages" },
+      { "name": "Frozen Foods" },
+      { "name": "Organic & Natural Foods" }
+    ]
+  },
+  {
+    "name": "Pet Supplies",
+    "subcategories": [
+      { "name": "Dog Supplies" },
+      { "name": "Cat Supplies" },
+      { "name": "Fish Supplies" },
+      { "name": "Bird Supplies" },
+      { "name": "Small Animal Supplies" },
+      { "name": "Pet Food" },
+      { "name": "Pet Grooming" },
+      { "name": "Pet Toys" }
+    ]
+  },
+  {
+    "name": "Arts, Crafts & Sewing",
+    "subcategories": [
+      { "name": "Art Supplies" },
+      { "name": "Craft Supplies" },
+      { "name": "Sewing & Fabric" },
+      { "name": "Knitting & Crochet" },
+      { "name": "Scrapbooking & Paper Crafts" },
+      { "name": "Jewelry Making" },
+      { "name": "Needlework" }
+    ]
+  },
+  {
+    "name": "Software & Digital Goods",
+    "subcategories": [
+      { "name": "Operating Systems" },
+      { "name": "Productivity Software" },
+      { "name": "Antivirus & Security" },
+      { "name": "Graphic Design Software" },
+      { "name": "Video Editing Software" },
+      { "name": "Music Production Software" },
+      { "name": "Digital Games" },
+      { "name": "E-books" },
+      { "name": "Online Courses" }
+    ]
+  },
+  {
+    "name": "Services",
+    "subcategories": [
+      { "name": "Home Services (Cleaning, Repair)" },
+      { "name": "Automotive Services" },
+      { "name": "Personal Services (Hair, Spa)" },
+      { "name": "Professional Services (Legal, Consulting)" },
+      { "name": "Educational Services" },
+      { "name": "Travel Services" }
+    ]
+  },
+  {
+    "name": "Baby Products",
+    "subcategories": [
+      { "name": "Diapers & Wipes" },
+      { "name": "Feeding Supplies" },
+      { "name": "Strollers & Car Seats" },
+      { "name": "Nursery Furniture & Decor" },
+      { "name": "Baby Gear (Bouncers, Swings)" },
+      { "name": "Baby Safety" },
+      { "name": "Baby Toys" }
+    ]
+  },
+  {
+    "name": "Office Supplies",
+    "subcategories": [
+      { "name": "Writing Instruments" },
+      { "name": "Paper & Notebooks" },
+      { "name": "Folders & Binders" },
+      { "name": "Desk Accessories" },
+      { "name": "Printers & Ink" },
+      { "name": "Office Furniture" }
+    ]
+  }
+]
