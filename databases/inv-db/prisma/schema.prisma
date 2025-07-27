@@ -165,8 +165,8 @@ model Store {
   priceLevel   PriceLevel? @relation(fields: [priceLevelId], references: [id], onDelete: SetNull)
   priceLevelId Int?
 
-  quantities   Quantity[]
-  SerialNumber SerialNumber[]
+  quantities    Quantity[]
+  serialNumbers SerialNumber[]
 }
 
 model PriceLevel {

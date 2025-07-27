@@ -9,9 +9,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Operation {
+  READ_ONE
+  WRITE_ONE
+  UPDATE_ONE
+  DELETE_ONE
+  MANAGE_ONE
 
+  READ_MANY
+  WRITE_MANY
+  UPDATE_MANY
+  DELETE_MANY
+  MANAGE_MANY
 
-model AuthDb {
+  READ_ONE_OWN
+  WRITE_ONE_OWN
+  UPDATE_ONE_OWN
+  DELETE_ONE_OWN
+  MANAGE_ONE_OWN
+
+  READ_MANY_OWN
+  WRITE_MANY_OWN
+  UPDATE_MANY_OWN
+  DELETE_MANY_OWN
+  MANAGE_MANY_OWN
+}
+
+model Permission {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  resource  String
+  operation Operation
+
+  roles       RolePermission[]
+  permissions UserPermission[]
+
+  @@unique([resource, operation])
+}
+
+model Role {
   id Int @id @default(autoincrement())
 
   createdAt DateTime  @default(now())
@@ -19,4 +59,87 @@ model AuthDb {
   deletedAt DateTime?
 
   name String @unique
+
+  permissions RolePermission[]
+  users       UserRole[]
+}
+
+model RolePermission {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  role   Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  roleId Int
+
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  permissionId Int
+
+  @@unique([roleId, permissionId])
+}
+
+model UserRole {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  role   Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  roleId Int
+
+  user   User   @relation(fields: [userId], references: [userId])
+  userId String
+
+  @@unique([roleId, userId])
+}
+
+model UserPermission {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  user   User   @relation(fields: [userId], references: [userId])
+  userId String
+
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  permissionId Int
+
+  @@unique([permissionId, userId])
+}
+
+model User {
+  id Int @id @default(autoincrement())
+
+  userId String @unique
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  username String @unique
+  password String
+
+  otp String?
+
+  roles       UserRole[]
+  permissions UserPermission[]
+  sessions    Session[]
+}
+
+model Session {
+  id Int @id @default(autoincrement())
+
+  sessionId String @default(uuid())
+
+  user   User   @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  userId String @unique
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
 }

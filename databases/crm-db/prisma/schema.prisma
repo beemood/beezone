@@ -9,14 +9,114 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-model CrmDb {
-  id Int @id @default(autoincrement())
+model Company {
+  id        Int    @id @default(autoincrement())
+  companyId String @unique @default(uuid())
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
 
   name String @unique
+
+  customers Cumstomer[]
+}
+
+model Cumstomer {
+  id         Int    @id @default(autoincrement())
+  customerId String @unique @default(uuid())
+
+  company   Company @relation(fields: [companyId], references: [companyId])
+  companyId String
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  firstName  String
+  lastName   String
+  middleName String?
+  title      String?
+
+  contact   Contact    @relation(fields: [contactId], references: [id])
+  contactId Int
+  Activity  Activity[]
+}
+
+model Contact {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  emails    Email[]
+  phones    Phone[]
+  addresses Address[]
+  Cumstomer Cumstomer[]
+}
+
+model Email {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  email String
+
+  order Int @default(0)
+
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId Int?
+}
+
+model Phone {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  phone String
+
+  order Int @default(0)
+
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId Int?
+}
+
+model Address {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  street     String
+  city       String
+  state      String
+  country    String
+  postalCode String
+
+  order Int @default(0)
+
+  contact   Contact? @relation(fields: [contactId], references: [id])
+  contactId Int?
+}
+
+model Activity {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  customer    Cumstomer @relation(fields: [cumstomerId], references: [customerId])
+  cumstomerId String
+  employeeId  String
+
+  subject String
+
+  notes String
 }
