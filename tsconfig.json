@@ -10,6 +10,9 @@
       "path": "./libs/cli"
     },
     {
+      "path": "./libs/crypto"
+    },
+    {
       "path": "./libs/dtos"
     },
     {

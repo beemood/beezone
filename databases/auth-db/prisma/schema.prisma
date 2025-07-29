@@ -45,8 +45,8 @@ model Permission {
   resource  String
   operation Operation
 
-  roles       RolePermission[]
-  permissions UserPermission[]
+  roles           RolePermission[]
+  userPermissions UserPermission[]
 
   @@unique([resource, operation])
 }
@@ -115,7 +115,7 @@ model UserPermission {
 model User {
   id Int @id @default(autoincrement())
 
-  userId String @unique
+  userId String @unique @default(uuid())
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -128,10 +128,10 @@ model User {
 
   roles       UserRole[]
   permissions UserPermission[]
-  sessions    Session[]
+  sessions    UserSession[]
 }
 
-model Session {
+model UserSession {
   id Int @id @default(autoincrement())
 
   sessionId String @default(uuid())
@@ -142,4 +142,33 @@ model Session {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
+
+  expiresAt DateTime?
+
+  isRevoked        Boolean?
+  revocationReason String?
+
+  //  Record<resouceName, Record<operationName, boolean>>
+  permissions Json
+}
+
+model AccessToken {
+  id Int @id @default(autoincrement())
+
+  accessTokenId String @unique @default(uuid())
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  expiresAt DateTime?
+
+  isRevoked        Boolean?
+  revocationReason String?
+
+  name  String  @unique
+  token String?
+
+  //  Record<resouceName, Record<operationName, boolean>>
+  permissions Json
 }

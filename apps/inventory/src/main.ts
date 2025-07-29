@@ -24,7 +24,7 @@ export async function main() {
   }
 
   await app.listen(PORT);
-  Logger.log(`App is up and running at ${await app.getUrl()}`);
+  Logger.log(` is up and running at ${await app.getUrl()}`, NAME);
 }
 
 main();
