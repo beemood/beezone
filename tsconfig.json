@@ -4,10 +4,13 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/beezone-e2e"
+      "path": "./libs/cli"
     },
     {
-      "path": "./apps/beezone"
+      "path": "./libs/types"
+    },
+    {
+      "path": "./libs/is"
     }
   ]
 }

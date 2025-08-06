@@ -1,0 +1,76 @@
+{
+  "name": "@beezone/cli",
+  "version": "0.0.1",
+  "icon": "https://beemood.github.io/beezone/libs/cli/asssts/favicon.png",
+  "homepage": "https://beemood.github.io/beezone/libs/cli",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://beemood.github.io"
+  },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/cli/dist",
+          "main": "libs/cli/src/index.ts",
+          "tsConfig": "libs/cli/tsconfig.lib.json",
+          "rootDir": "libs/cli/src",
+          "generatePackageJson": false,
+          "assets": [
+            {
+              "input": "./libs/cli/src",
+              "glob": "**/!(*.ts)",
+              "output": "."
+            },
+            {
+              "input": "./libs/cli/src",
+              "glob": "**/*.d.ts",
+              "output": "."
+            }
+          ]
+        }
+      },
+      "doc": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx typedoc --entryPoints ./{projectRoot}/src/index.ts --out ./public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json --favicon {projectRoot}/favicon.png"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@nx/devkit": "21.3.11",
+    "commander": "^14.0.0",
+    "tslib": "^2.3.0"
+  },
+  "generators": "./generators.json",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "generators.json"
+  ]
+}
