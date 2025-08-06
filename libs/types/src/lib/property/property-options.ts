@@ -1,10 +1,6 @@
-import {
-  IntegerPropertyOptions,
-  NumberPropertyOptions,
-} from "./number-property-options.js";
-import { StringPropertyOptions } from "./string-property-options.js";
+import { ArrayPropertyOptions } from "./array-property-options.js";
+import { PrimitivePropertyOptions } from "./primitive-property-options.js";
 
 export type PropertyOptions =
-  | StringPropertyOptions
-  | NumberPropertyOptions
-  | IntegerPropertyOptions;
+  | PrimitivePropertyOptions
+  | ArrayPropertyOptions<PrimitivePropertyOptions>;

@@ -15,9 +15,9 @@ export type CommonPropertyOptions = {
   readOnly?: boolean;
   writeOnly?: boolean;
 
-  notEqualToProperty?: string;
-  dependsOnProperty?: string;
-  notWithProperty?: string;
+  notEqualToProperties?: string[];
+  dependsOnProperties?: string[];
+  notWithProperties?: string[];
 };
 
 export type DefaultValueOptions<T> = {
