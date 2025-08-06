@@ -11,7 +11,7 @@ export type CommonPropertyOptions = {
   type: PropertyType;
   description?: string;
   hash?: boolean;
-  encript?: boolean;
+  encrypt?: boolean;
   readOnly?: boolean;
   writeOnly?: boolean;
 
