@@ -1,13 +1,16 @@
-import { PropertyOptions } from "./property-options.js";
+import { PropertyOptions } from './property-options.js';
 
-describe("PropertyOptions", () => {
-  it("should create string options", () => {
+describe('PropertyOptions', () => {
+  it('should create string options', () => {
     const options: PropertyOptions = {
-      type: "string",
+      type: 'string',
       minLength: 3,
       maxLength: 30,
-      defaultValue: "",
-      dependsOnProperties: [""],
+      defaultValue: '',
+      dependsOnProperties: [''],
     };
+
+    expect(options).toBeDefined();
+    
   });
 });

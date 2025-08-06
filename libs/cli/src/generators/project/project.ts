@@ -1,14 +1,15 @@
+import type {
+  Tree} from "@nx/devkit";
 import {
   formatFiles,
   generateFiles,
   names,
   readJsonFile,
-  Tree,
   updateJson,
   workspaceRoot,
 } from "@nx/devkit";
 import * as path from "path";
-import { ProjectGeneratorSchema, ProjectType } from "./schema";
+import type { ProjectGeneratorSchema, ProjectType } from "./schema";
 
 function getProjectName(mainProjectName: string, projectName: string): string {
   return [

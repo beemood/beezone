@@ -98,5 +98,7 @@ export default [
   'cron',
   'typedoc',
   'swc',
-  'nodemon'
+  'nodemon',
+  'prisma',
+  'beemood',
 ];
