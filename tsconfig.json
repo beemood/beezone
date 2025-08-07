@@ -17,6 +17,12 @@
     },
     {
       "path": "./libs/errors"
+    },
+    {
+      "path": "./libs/json"
+    },
+    {
+      "path": "./libs/fs"
     }
   ]
 }

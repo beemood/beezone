@@ -10,3 +10,13 @@ export class UndefinedError extends BaseError {
     super(message, ErrorCodes.UNDEFINED);
   }
 }
+export class EmptyError extends BaseError {
+  constructor(message = 'EMPTY: No message') {
+    super(message, ErrorCodes.EMPTY);
+  }
+}
+export class OutOfScopeError extends BaseError {
+  constructor(message = 'OUT_OF_SCOPE: No message') {
+    super(message, ErrorCodes.OUT_OF_SCOPE);
+  }
+}

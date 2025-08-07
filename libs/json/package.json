@@ -1,9 +1,9 @@
 {
-  "name": "@beezone/is",
+  "name": "@beezone/json",
   "version": "0.0.0",
-  "description": "Common utilities",
+  "description": "Json tools",
   "icon": "https://beemood.github.io/beezone/favicon.png",
-  "homepage": "https://beemood.github.io/beezone/libs/is",
+  "homepage": "https://beemood.github.io/beezone/libs/json",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -34,7 +34,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/is/src",
+    "sourceRoot": "libs/json/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -58,7 +58,7 @@
     }
   },
   "dependencies": {
-    "@beezone/errors": "workspace:*",
+    "@beezone/fs": "workspace:*",
     "@beezone/types": "workspace:*",
     "@swc/helpers": "~0.5.11"
   }

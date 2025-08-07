@@ -1,4 +1,7 @@
 export enum ErrorCodes {
-  UNKOWN = 'UNKOWN',
-  UNDEFINED = 'UNDEFINED',
-}
+   UNKOWN='UNKOWN',
+UNDEFINED='UNDEFINED',
+EMPTY='EMPTY',
+OUT_OF_SCOPE='OUT_OF_SCOPE'
+
+  }
