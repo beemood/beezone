@@ -1,10 +1,10 @@
-# @beezone/is
+# @beezone/errors
 
 Common utilities
 
 ## install
 
-`pnpm add @beezone/is`
+`pnpm add @beezone/errors`
 
 ## Funding
 

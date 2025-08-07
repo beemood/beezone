@@ -1,11 +1,12 @@
 import type {
   CommonPropertyOptions,
   DefaultValueOptions,
-} from "./common-property-options.js";
+} from './common-property-options.js';
+import { PrimitivePropertyOptions } from './primitive-property-options.js';
 
-export type ArrayPropertyOptions<S> = {
-  type: "array";
-  items: S;
+export type ArrayPropertyOptions = {
+  type: 'array';
+  items: PrimitivePropertyOptions;
 
   maxSize?: number;
   minSize?: number;

@@ -1,10 +1,10 @@
-# @beezone/is
+# @beezone/property
 
 Common utilities
 
 ## install
 
-`pnpm add @beezone/is`
+`pnpm add @beezone/property`
 
 ## Funding
 

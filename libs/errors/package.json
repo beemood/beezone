@@ -1,9 +1,9 @@
 {
-  "name": "@beezone/is",
+  "name": "@beezone/errors",
   "version": "0.0.0",
   "description": "Common utilities",
   "icon": "https://beemood.github.io/beezone/favicon.png",
-  "homepage": "https://beemood.github.io/beezone/libs/is",
+  "homepage": "https://beemood.github.io/beezone/libs/errors",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -34,8 +34,14 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/is/src",
+    "sourceRoot": "libs/errors/src",
     "targets": {
+      "generate-errors": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "node {projectRoot}/scripts/generate-errors.cjs"
+        }
+      },
       "build": {
         "executor": "@nx/js:swc",
         "outputs": [
@@ -47,7 +53,10 @@
           "tsConfig": "{projectRoot}/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
-        }
+        },
+        "dependsOn": [
+          "generate-errors"
+        ]
       },
       "doc": {
         "executor": "nx:run-commands",
@@ -58,7 +67,7 @@
     }
   },
   "dependencies": {
-    "@beezone/types": "workspace:*",
-    "@swc/helpers": "~0.5.11"
+    "@swc/helpers": "~0.5.11",
+    "@nx/devkit": "21.3.11"
   }
 }

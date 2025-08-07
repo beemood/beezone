@@ -123,6 +123,21 @@ importers:
 
   libs/is:
     dependencies:
+      '@beezone/types':
+        specifier: workspace:*
+        version: link:../types
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.17
+
+  libs/property:
+    dependencies:
+      '@beezone/is':
+        specifier: workspace:*
+        version: link:../is
+      '@beezone/types':
+        specifier: workspace:*
+        version: link:../types
       '@swc/helpers':
         specifier: ~0.5.11
         version: 0.5.17

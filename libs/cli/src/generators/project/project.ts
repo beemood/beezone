@@ -1,5 +1,4 @@
-import type {
-  Tree} from "@nx/devkit";
+import type { Tree } from '@nx/devkit';
 import {
   formatFiles,
   generateFiles,
@@ -7,16 +6,14 @@ import {
   readJsonFile,
   updateJson,
   workspaceRoot,
-} from "@nx/devkit";
-import * as path from "path";
-import type { ProjectGeneratorSchema, ProjectType } from "./schema";
+} from '@nx/devkit';
+import * as path from 'path';
+import type { ProjectGeneratorSchema, ProjectType } from './schema';
 
 function getProjectName(mainProjectName: string, projectName: string): string {
-  return [
-    mainProjectName.split("/").slice(0, 1).join(""),
-    "/",
-    projectName,
-  ].join("/");
+  return [mainProjectName.split('/').slice(0, 1).join(''), projectName].join(
+    '/'
+  );
 }
 
 function normalizeOptions(
@@ -30,10 +27,10 @@ function normalizeOptions(
 
 function getProjectRoot(normalizedOptions: ProjectGeneratorSchema) {
   switch (normalizedOptions.type) {
-    case "prisma":
-    case "lib":
+    case 'prisma':
+    case 'lib':
       return `libs/${normalizedOptions.name}`;
-    case "api":
+    case 'api':
       return `apps/${normalizedOptions.name}`;
   }
 }
@@ -48,7 +45,7 @@ export async function projectGenerator(
 ) {
   const options = normalizeOptions(rawOptions);
   const __names = names(options.name);
-  const mp = await readJsonFile(path.join(workspaceRoot, "package.json"));
+  const mp = await readJsonFile(path.join(workspaceRoot, 'package.json'));
 
   const projectName = getProjectName(mp.name, __names.fileName);
   const projectRoot = getProjectRoot(options);
@@ -61,7 +58,7 @@ export async function projectGenerator(
     mp,
   });
 
-  updateJson(tree, "tsconfig.json", (value) => {
+  updateJson(tree, 'tsconfig.json', (value) => {
     value.references.push({ path: `./${projectRoot}` });
     return value;
   });

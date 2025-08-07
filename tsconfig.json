@@ -11,6 +11,12 @@
     },
     {
       "path": "./libs/is"
+    },
+    {
+      "path": "./libs/property"
+    },
+    {
+      "path": "./libs/errors"
     }
   ]
 }

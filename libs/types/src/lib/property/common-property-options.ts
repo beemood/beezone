@@ -1,11 +1,11 @@
 export type PropertyType =
-  | "string"
-  | "number"
-  | "integer"
-  | "boolean"
-  | "date"
-  | "object"
-  | "array";
+  | 'string'
+  | 'number'
+  | 'integer'
+  | 'boolean'
+  | 'date'
+  | 'object'
+  | 'array';
 
 export type CommonPropertyOptions = {
   type: PropertyType;
@@ -18,6 +18,8 @@ export type CommonPropertyOptions = {
   notEqualToProperties?: string[];
   dependsOnProperties?: string[];
   notWithProperties?: string[];
+
+  transform?: boolean;
 };
 
 export type DefaultValueOptions<T> = {
