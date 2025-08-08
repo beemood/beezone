@@ -26,11 +26,27 @@ function upperCaseFirst(name: string) {
  * @returns string as kebab-case
  */
 function toKebabCase(name: string) {
-  const trimed = trim(name);
-  if (trimed.length == 0) {
+  name = trim(name);
+  if (name.length == 0) {
     throw new EmptyError(`string value is empty`);
   }
-  return trimed.toLowerCase().replace(/[\s\.]/g, '-');
+
+  if (/^[A-Za-z]{1,}$/.test(name)) {
+    name = name
+      .split('')
+      .map((e, index) => {
+        if (index == 0) {
+          return e;
+        }
+        if (/^[A-Z]{1,}$/.test(e)) {
+          return `-${e}`;
+        }
+        return e;
+      })
+      .join('');
+  }
+
+  return name.toLowerCase().replace(/[\s_\.]/g, '-');
 }
 
 /**

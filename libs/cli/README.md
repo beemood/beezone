@@ -1,4 +1,6 @@
-# cli
+# @beezone/cli
+
+Tools and generators
 
 ## install
 

@@ -16,8 +16,9 @@ export async function bundleJsonSchemaCommandHandler(
 
 export function bindBundleJsonSchemaCommand(program: Command) {
   program
-    .command('bundleJsonSchema')
+    .command('bundle-json-schema')
+    .description('bundle json schema into a single json file')
     .requiredOption('-f,--filePath <string>, Main json file path')
-    .requiredOption('-o,--ouputPath <string>, Bundled json file path')
+    .requiredOption('-o,--outputPath <string>, Bundled json file path')
     .action(bundleJsonSchemaCommandHandler);
 }

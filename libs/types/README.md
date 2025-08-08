@@ -22,3 +22,7 @@ Thank you for using the library. It's an open-source project, and maintaining it
 [Contact to the developer:](mailto:robert.brightline@gmail.com?subject=InquiryFromReadme)
 
 [Support the developer](https://cash.app/$puqlib)
+
+> "npx @beezone/cli bundle-json-schema -f ./schemas/model/model.json -o ./schemas/model.schema.json",
+
+> "npx @beezone/cli typify-json-schema -f ./schemas/model.schema.json -o ./src/lib/model/model.ts"

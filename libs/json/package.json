@@ -1,6 +1,6 @@
 {
   "name": "@beezone/json",
-  "version": "0.0.12",
+  "version": "0.0.21",
   "description": "Json tools",
   "icon": "https://beemood.github.io/beezone/favicon.png",
   "homepage": "https://beemood.github.io/beezone/libs/json",

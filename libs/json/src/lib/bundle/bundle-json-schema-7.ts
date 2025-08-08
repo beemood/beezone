@@ -1,8 +1,8 @@
 import { DirectoryStat } from '@beezone/fs';
 import { JSONSchema7Object } from '@beezone/types';
 import { dirname, resolve } from 'path';
-import { readJsonSchema7File } from './read-json-schema-7-file.js';
-import { readJsonSchema7Files } from './read-json-schema-7-files.js';
+import { readJsonSchema7File } from '../common/read-json-schema-7-file.js';
+import { readJsonSchema7Files } from '../common/read-json-schema-7-files.js';
 import { toDefinitionName } from './to-definition-name.js';
 import { transformRefsToDefinitionPaths } from './transform-refs-to-definition-paths.js';
 
@@ -25,11 +25,11 @@ export async function bundleJsonSchema7(filepath: string) {
   transformRefsToDefinitionPaths(mainSchema);
 
   const normalizeSchemaFile = (file: DirectoryStat<JSONSchema7Object>) => {
-    if (file.path === absoluteFilePath) {
-      return;
-    }
     if (file.isFile) {
       if (file.content) {
+        if (file.path == absoluteFilePath) {
+          return;
+        }
         transformRefsToDefinitionPaths(file.content);
 
         mainSchema.definitions = {

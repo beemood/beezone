@@ -1,6 +1,6 @@
 {
   "name": "@beezone/types",
-  "version": "0.0.12",
+  "version": "0.0.21",
   "description": "Common utilities",
   "icon": "https://beemood.github.io/beezone/favicon.png",
   "homepage": "https://beemood.github.io/beezone/libs/types",
@@ -31,6 +31,7 @@
   },
   "files": [
     "dist",
+    "schemas/model.schema.json",
     "!**/*.tsbuildinfo"
   ],
   "nx": {
@@ -47,6 +48,18 @@
           "tsConfig": "{projectRoot}/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
+        },
+        "dependsOn": [
+          "generate-types"
+        ]
+      },
+      "generate-types": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "echo hello"
+          ],
+          "cwd": "{projectRoot}"
         }
       },
       "doc": {

@@ -1,6 +1,7 @@
 {
   "name": "@beezone/cli",
-  "version": "0.0.14",
+  "version": "0.0.21",
+  "description": "Tools and generators",
   "icon": "https://beemood.github.io/beezone/libs/cli/asssts/favicon.png",
   "homepage": "https://beemood.github.io/beezone/libs/cli",
   "author": {
@@ -28,7 +29,8 @@
     }
   },
   "bin": {
-    "beezone": "./bin/beezone.mjs"
+    "beezone": "./bin/beezone.cjs",
+    "@beezone/cli": "./bin/beezone.cjs"
   },
   "nx": {
     "targets": {

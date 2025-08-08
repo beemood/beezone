@@ -3,13 +3,4 @@ export * from './lib/common/any.js';
 export * from './lib/common/class-type.js';
 export * from './lib/common/json-schema-7.js';
 export * from './lib/common/some.js';
-export * from './lib/property/array-property-options.js';
-export * from './lib/property/boolean-property-options.js';
-export * from './lib/property/common-property-options.js';
-export * from './lib/property/date-property-options.js';
-export * from './lib/property/number-property-options.js';
-export * from './lib/property/object-property-options.js';
-export * from './lib/property/primitive-property-options.js';
-export * from './lib/property/property-options.js';
-export * from './lib/property/string-property-options.js';
 
