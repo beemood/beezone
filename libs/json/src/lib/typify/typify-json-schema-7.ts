@@ -13,7 +13,7 @@ function typifyJsonSchema7Options(schema: JSONSchema7Object): string {
     return 'number';
   } else if (schema.type === 'array') {
     if (!schema.items) {
-      return `Any[]`;
+      return 'any[]';
     }
     return `${typifyJsonSchema7Options(schema.items as JSONSchema7Object)}[]`;
   }
