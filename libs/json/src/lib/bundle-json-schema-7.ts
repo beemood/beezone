@@ -1,69 +1,57 @@
-import { mapEachDirectoryStat, readdir, readJsonFile } from '@beezone/fs';
-import { names } from '@beezone/is';
+import { DirectoryStat } from '@beezone/fs';
 import { JSONSchema7Object } from '@beezone/types';
 import { dirname, resolve } from 'path';
+import { readJsonSchema7File } from './read-json-schema-7-file.js';
+import { readJsonSchema7Files } from './read-json-schema-7-files.js';
+import { toDefinitionName } from './to-definition-name.js';
+import { transformRefsToDefinitionPaths } from './transform-refs-to-definition-paths.js';
 
-function __fileName($ref: string) {
-  return $ref.split('/').pop()!.replace('.json', '');
-}
-
-function __definitionName(filename: string) {
-  return names(filename).pascalCase;
-}
-
-function __updateReferencePaths(schema: JSONSchema7Object) {
-  const $ref = schema.$ref;
-  if ($ref) {
-    schema.$ref = __definitionName(__fileName($ref));
-  }
-
-  const entries = Object.entries(schema);
-
-  for (const [key, value] of entries) {
-    if (key == '$ref') continue;
-
-    if (Array.isArray(value)) {
-      for (const v of value) {
-        __updateReferencePaths(v);
-      }
-    } else if (typeof value == 'object') {
-      __updateReferencePaths(value);
-    }
-  }
-
-  return schema;
-}
-
+/**
+ * Bundle multiple {@link JSONSchema7Object}s into a single one and return it.
+ * @param filepath main schema file path
+ * @returns bundle schema value as {@link JSONSchema7Object!}
+ */
 export async function bundleJsonSchema7(filepath: string) {
   const absoluteFilePath = resolve(filepath);
-  const mainSchema = await readJsonFile<JSONSchema7Object>(absoluteFilePath);
   const rootdir = dirname(filepath);
-  const schemaFiles = await readdir<JSONSchema7Object>(rootdir, {
-    mediaType: 'json',
-    jsonParseError: 'ignore',
-  });
 
-  mapEachDirectoryStat<JSONSchema7Object>(schemaFiles, (value) => {
-    if (value.isDirectory) {
-      return value;
+  const mainSchema = await readJsonSchema7File(absoluteFilePath);
+  const schemaFiles = await readJsonSchema7Files(rootdir);
+
+  if (!mainSchema.definitions) {
+    mainSchema.definitions = {};
+  }
+
+  transformRefsToDefinitionPaths(mainSchema);
+
+  const normalizeSchemaFile = (file: DirectoryStat<JSONSchema7Object>) => {
+    if (file.path === absoluteFilePath) {
+      return;
     }
-    if (value.content) {
-      value.content = __updateReferencePaths(value.content);
-    }
-    if (value.path != absoluteFilePath) {
-      const definitionName = __definitionName(__fileName(value.path));
-      if (value.content) {
+    if (file.isFile) {
+      if (file.content) {
+        transformRefsToDefinitionPaths(file.content);
+
         mainSchema.definitions = {
           ...mainSchema.definitions,
-          ...value.content.definitions,
-          [definitionName]: value.content,
+          ...file.content.definitions,
+          [toDefinitionName(file.path)]: file.content,
         };
-        delete value.content.definitions;
+
+        delete file.content.definitions;
+      }
+    } else if (file.isDirectory) {
+      if (file.children) {
+        for (const c of file.children) {
+          normalizeSchemaFile(c);
+        }
       }
     }
+  };
 
-    return value;
-  });
+  for (const file of schemaFiles) {
+    normalizeSchemaFile(file);
+  }
 
   return mainSchema;
 }

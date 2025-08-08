@@ -1,6 +1,7 @@
 import { scope, writeJsonFile } from '@beezone/fs';
 import { JSONSchema7Object } from '@beezone/types';
 import { workspaceRoot } from '@nx/devkit';
+import { rm } from 'fs/promises';
 import { join } from 'path';
 import { bundleJsonSchema7 } from './bundle-json-schema-7.js';
 describe('bundleJSONSchema7', () => {
@@ -35,22 +36,19 @@ describe('bundleJSONSchema7', () => {
   });
 
   afterAll(async () => {
-    // await rm(root, { recursive: true });
+    await rm(root, { recursive: true });
   });
   it('should bundle the schema', async () => {
     const result = await bundleJsonSchema7(propertySchemaFilePath);
 
-    
     expect(result).toEqual({
       properties: {
         name: {
-          $ref: '#/definitions/PropertyNames',
+          $ref: '#/definitions/PropertyNamesSchema',
         },
       },
       definitions: {
-        PropertyName: {
-          enum: ['name'],
-        },
+        PropertyNamesSchema: { enum: ['name'] },
       },
     } as JSONSchema7Object);
   });
