@@ -1,10 +1,10 @@
-# @beezone///types
+# @beezone/types
 
 Common utilities
 
 ## install
 
-`pnpm add @beezone///types`
+`pnpm add @beezone/types`
 
 ## Funding
 
