@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "array property options",
+  "properties": {
+    "type": {
+      "const": "array"
+    },
+    "maxSize": { "type": "integer", "minimum": 0 },
+    "minSize": { "type": "integer", "minimum": 0 },
+    "defaultValue": {
+      "type": "array"
+    },
+    "items": {
+      "$ref": "./property-options.json"
+    }
+  }
+}

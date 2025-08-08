@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=./model.json
+properties:
+  name:
+    type: string
+
+required:
+  - name
+
+unique:
+  - name
+
+relations:
+  category:
+    onDelete: Cascade

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "common property options",
+  "properties": {
+    "name": {
+      "$ref": "../enums/property-names.json"
+    },
+    "description": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "inputType": {
+      "$ref": "../enums/input-types.json"
+    },
+    "prefixIcon": {
+      "$ref": "../enums/material-icons.json"
+    },
+    "suffixIcon": {
+      "$ref": "../enums/material-icons.json"
+    },
+    "prefixText": {
+      "type": "string"
+    },
+    "suffixText": {
+      "type": "string"
+    },
+    "hints": {
+      "type": "string"
+    },
+    "notEqualToProperties": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "isEqualToProperties": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "dependsOnProperties": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "notWithProperties": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "transform": { "type": "boolean" }
+  }
+}

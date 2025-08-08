@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "number property options",
+  "allOf": [
+    {
+      "properties": {
+        "type": {
+          "const": "number"
+        }
+      }
+    },
+    {
+      "$ref": "./common-number-property-options.json"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "relation property options",
+  "properties": {
+    "type": {
+      "const": "relation"
+    },
+    "target": {
+      "$ref": "../enums/model-names.json"
+    },
+    "targetColumnName": {
+      "$ref": "../enums/property-names.json"
+    },
+    "relationColumnName": {
+      "$ref": "../enums/property-names.json"
+    },
+    "onDelete": {
+      "enum": ["Cascade", "Set Null"]
+    },
+    "onUpdate": {
+      "enum": ["Cascade"]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Model",
+  "properties": {
+    "name": {
+      "$ref": "./enums/model-names.json"
+    },
+    "extends": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/model-names.json"
+      },
+      "uniqueItems": true
+    },
+    "abstract": {
+      "type": "boolean"
+    },
+
+    "properties": {
+      "patternProperties": {
+        "[a-z-]": {
+          "$ref": "./properties/property-options.json"
+        }
+      },
+      "propertyNames": {
+        "$ref": "./enums/property-names.json"
+      }
+    },
+    "relations": {
+      "patternProperties": {
+        "[a-z-]": {
+          "$ref": "./properties/relation-property-options.json"
+        }
+      },
+      "propertyNames": {
+        "$ref": "./enums/property-names.json"
+      }
+    },
+    "required": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      }
+    },
+    "unique": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "hash": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "encrypt": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "readOnly": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "writeOnly": {
+      "type": "array",
+      "items": {
+        "$ref": "./enums/property-names.json"
+      },
+      "uniqueItems": true
+    },
+    "internal": {
+      "type": "boolean"
+    }
+  }
+}
