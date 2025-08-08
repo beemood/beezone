@@ -30,7 +30,7 @@ function toKebabCase(name: string) {
   if (trimed.length == 0) {
     throw new EmptyError(`string value is empty`);
   }
-  return trimed.toLowerCase().replace(/\s/g, '-');
+  return trimed.toLowerCase().replace(/[\s\.]/g, '-');
 }
 
 /**

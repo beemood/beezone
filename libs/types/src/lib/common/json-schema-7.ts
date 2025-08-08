@@ -101,17 +101,17 @@ export interface JSONSchema7Object {
   format?: string;
   contentMediaType?: string;
   contentEncoding?: string;
+  definitions?: Record<string, JSONSchema7Object>;
 }
 
 /**
  * A union of all valid JSON Schema type names.
  */
 export type JSONSchema7TypeName =
-  | "string"
-  | "number"
-  | "integer"
-  | "boolean"
-  | "object"
-  | "array"
-  | "null";
-
+  | 'string'
+  | 'number'
+  | 'integer'
+  | 'boolean'
+  | 'object'
+  | 'array'
+  | 'null';

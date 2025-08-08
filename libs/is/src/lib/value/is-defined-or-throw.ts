@@ -7,9 +7,13 @@ import { isDefined } from './is-defined.js';
  * @returns T
  * @throw
  */
-export function isDefinedOrThrow<T>(value: Some<T>): T {
+export function isDefinedOrThrow<T>(value: Some<T>, defaultValue?: Some<T>): T {
   if (isDefined(value)) {
     return value;
+  }
+
+  if (isDefined(defaultValue)) {
+    return defaultValue;
   }
 
   throw new UndefinedError(`Value is undefined`);

@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@beezone/fs": "workspace:*",
+    "@beezone/is": "workspace:*",
     "@beezone/types": "workspace:*",
     "@swc/helpers": "~0.5.11"
   }
