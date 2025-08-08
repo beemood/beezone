@@ -1,8 +1,10 @@
-import { program } from "commander";
-import { bindHelloCommand } from "./commands/hello.command";
+import { program } from 'commander';
+import { bindBundleJsonSchemaCommand } from './commands/bunle-json-schema';
+import { bindHelloCommand } from './commands/hello.command';
 
-program.name("@beemood/cli").description("Beemood cli");
+program.name('@beemood/cli').description('Beemood cli');
 
 bindHelloCommand(program);
+bindBundleJsonSchemaCommand(program);
 
 program.parse();
