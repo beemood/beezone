@@ -1,6 +1,6 @@
 {
   "name": "@beezone/errors",
-  "version": "0.0.0",
+  "version": "0.0.12",
   "description": "Common utilities",
   "icon": "https://beemood.github.io/beezone/favicon.png",
   "homepage": "https://beemood.github.io/beezone/libs/errors",
