@@ -1,13 +1,16 @@
 import { inferResourceName, names } from '@beezone/is';
 import { ClassType } from '@beezone/types';
-import { Get } from '@nestjs/common';
+import { Get as __Get } from '@nestjs/common';
 import {
-    ApiNotFoundResponse,
-    ApiOkResponse,
-    ApiOperation,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiOperation,
 } from '@nestjs/swagger';
 
-export function FindAll(responseType?: () => ClassType): MethodDecorator {
+export function Get(
+  path?: string,
+  responseType?: () => ClassType
+): MethodDecorator {
   return (...args) => {
     let [, methodName] = args;
 
@@ -19,6 +22,6 @@ export function FindAll(responseType?: () => ClassType): MethodDecorator {
     ApiOperation({ summary: `${methodName} ${resourceName}` })(...args);
     ApiOkResponse({ type: responseType?.(), description: 'success' })(...args);
     ApiNotFoundResponse({ description: `` })(...args);
-    Get()(...args);
+    __Get(path)(...args);
   };
 }

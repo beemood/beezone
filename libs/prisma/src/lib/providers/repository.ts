@@ -32,7 +32,7 @@ export function InjectRepository(
   datasourceName?: string
 ): ParameterDecorator {
   return (...args) => {
-    resourceName = resourceName ?? inferResourceName(args[0].constructor.name);
+    resourceName = resourceName ?? inferResourceName((args[0] as any).name);
     Inject(getRepositoryToken(resourceName, datasourceName))(...args);
   };
 }
