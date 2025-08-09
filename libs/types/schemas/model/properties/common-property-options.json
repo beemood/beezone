@@ -5,6 +5,9 @@
     "name": {
       "$ref": "../enums/property-names.json"
     },
+    "required": {
+      "type": "boolean"
+    },
     "description": {
       "type": "string"
     },

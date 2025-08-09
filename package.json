@@ -17,7 +17,6 @@
     "axios": "^1.6.0"
   },
   "devDependencies": {
-    "@beezone/cli": "workspace:*",
     "@eslint/js": "^9.8.0",
     "@nx/esbuild": "21.3.11",
     "@nx/eslint": "21.3.11",
