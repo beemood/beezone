@@ -1,5 +1,5 @@
 import { readdir } from '@beezone/fs';
-import { JSONSchema7Object } from '@beezone/types';
+import type { JSONSchema7Object } from '@beezone/types';
 
 /**
  * Find all json schema files and read content

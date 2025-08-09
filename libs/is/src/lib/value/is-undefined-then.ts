@@ -1,4 +1,4 @@
-import { Some } from '@beezone/types';
+import type { Some } from '@beezone/types';
 import { isUndefined } from './is-undefined.js';
 
 export async function isUndefinedThen<T>(

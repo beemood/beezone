@@ -1,5 +1,5 @@
-import { DirectoryStat } from '@beezone/fs';
-import { JSONSchema7Object } from '@beezone/types';
+import type { DirectoryStat } from '@beezone/fs';
+import type { JSONSchema7Object } from '@beezone/types';
 import { dirname, resolve } from 'path';
 import { readJsonSchema7File } from '../common/read-json-schema-7-file.js';
 import { readJsonSchema7Files } from '../common/read-json-schema-7-files.js';

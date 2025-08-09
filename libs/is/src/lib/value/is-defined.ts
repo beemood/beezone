@@ -1,4 +1,4 @@
-import { Some } from '@beezone/types';
+import type { Some } from '@beezone/types';
 
 export function isDefined<T>(value: Some<T>): value is T {
   if (value == undefined) {

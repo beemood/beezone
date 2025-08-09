@@ -1,4 +1,4 @@
-import { IntegerPropertyOptions } from '@beezone/types';
+import type { IntegerPropertyOptions } from '@beezone/types';
 
 export function IntegerProp(
   options: IntegerPropertyOptions

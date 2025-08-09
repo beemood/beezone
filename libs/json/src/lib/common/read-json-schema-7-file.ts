@@ -1,5 +1,5 @@
 import { readJsonFile } from '@beezone/fs';
-import { JSONSchema7Object } from '@beezone/types';
+import type { JSONSchema7Object } from '@beezone/types';
 
 /**
  * Read {@link JSONSchema7Object} file

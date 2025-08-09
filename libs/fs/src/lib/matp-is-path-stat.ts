@@ -1,4 +1,4 @@
-import { DirectoryStat } from './readdir.js';
+import type { DirectoryStat } from './readdir.js';
 
 /**
  *

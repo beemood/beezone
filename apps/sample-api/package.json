@@ -1,0 +1,122 @@
+{
+  "name": "@beezone/sample-api",
+  "version": "0.0.0",
+  "description": "Common utilities",
+  "icon": "https://beemood.github.io/beezone/favicon.png",
+  "homepage": "https://beemood.github.io/beezone/apps/sample-api",
+  "author": {
+    "email": "robert.brightline@gmail.com",
+    "name": "Robert Brightline",
+    "url": "https://beemood.github.io"
+  },
+  "funding": [
+    "https://cash.app/$puqlib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "nx": {
+    "sourceRoot": "apps/sample-api/src",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "{projectRoot}/dist",
+          "main": "{projectRoot}/src/index.ts",
+          "tsConfig": "{projectRoot}/tsconfig.lib.json",
+          "skipTypeCheck": false,
+          "stripLeadingPaths": true
+        },
+        "dependsOn": [
+          "prisma-migrate"
+        ]
+      },
+      "build-watch": {
+        "executor": "@nx/js:swc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "{projectRoot}/dist",
+          "main": "{projectRoot}/src/index.ts",
+          "tsConfig": "{projectRoot}/tsconfig.lib.json",
+          "skipTypeCheck": false,
+          "stripLeadingPaths": true,
+          "watch": true
+        }
+      },
+      "serve-static": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "nodemon ./dist/main.js ",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "serve": {
+        "dependsOn": [
+          "build-watch",
+          "serve-static"
+        ]
+      },
+      "prisma-generate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma generate",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "prisma-migrate": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx prisma migrate dev --name updated",
+          "cwd": "{projectRoot}"
+        }
+      },
+      "doc": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "npx typedoc --entryPoints ./{projectRoot}/src/index.ts --out ./public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json --favicon {projectRoot}/favicon.png"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@beezone/prisma": "workspace:*",
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/event-emitter": "^3.0.1",
+    "@nestjs/platform-express": "^11.1.6",
+    "@nestjs/schedule": "^6.0.0",
+    "@nestjs/swagger": "^11.2.0",
+    "@prisma/client": "6.13.0",
+    "@swc/helpers": "~0.5.11",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "prisma": "6.13.0"
+  }
+}

@@ -1,4 +1,4 @@
-import { JSONSchema7Object } from '@beezone/types';
+import type { JSONSchema7Object } from '@beezone/types';
 import { $REF } from './constants.js';
 import { isDefinitionPath } from './is-definition-path.js';
 import { toDefinitionPath } from './to-definition-path.js';

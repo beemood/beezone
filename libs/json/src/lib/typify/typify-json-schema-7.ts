@@ -1,5 +1,5 @@
 import { names } from '@beezone/is';
-import { JSONSchema7Object } from '@beezone/types';
+import type { JSONSchema7Object } from '@beezone/types';
 import { readJsonSchema7File } from '../common/read-json-schema-7-file.js';
 
 function typifyJsonSchema7Options(schema: JSONSchema7Object): string {

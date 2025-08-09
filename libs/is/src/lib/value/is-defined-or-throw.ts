@@ -1,5 +1,5 @@
 import { UndefinedError } from '@beezone/errors';
-import { Some } from '@beezone/types';
+import type { Some } from '@beezone/types';
 import { isDefined } from './is-defined.js';
 /**
  *

@@ -48,10 +48,7 @@
           "tsConfig": "{projectRoot}/tsconfig.lib.json",
           "skipTypeCheck": true,
           "stripLeadingPaths": true
-        },
-        "dependsOn": [
-          "generate-types"
-        ]
+        }
       },
       "generate-types": {
         "executor": "nx:run-commands",

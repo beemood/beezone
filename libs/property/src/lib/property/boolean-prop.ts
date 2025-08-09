@@ -1,4 +1,4 @@
-import { BooleanPropertyOptions } from '@beezone/types';
+import type { BooleanPropertyOptions } from '@beezone/types';
 
 export function BooleanProp(
   options: BooleanPropertyOptions

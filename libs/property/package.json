@@ -58,7 +58,6 @@
     }
   },
   "dependencies": {
-    "@beezone/is": "workspace:*",
     "@beezone/types": "workspace:*",
     "@swc/helpers": "~0.5.11"
   }

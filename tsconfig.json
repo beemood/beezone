@@ -23,6 +23,12 @@
     },
     {
       "path": "./libs/fs"
+    },
+    {
+      "path": "./apps/sample-api"
+    },
+    {
+      "path": "./libs/prisma"
     }
   ]
 }
