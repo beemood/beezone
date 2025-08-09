@@ -1,9 +1,9 @@
 {
-  "name": "@beezone/prisma",
+  "name": "@beezone/nest",
   "version": "0.0.0",
   "description": "Common utilities",
   "icon": "https://beemood.github.io/beezone/favicon.png",
-  "homepage": "https://beemood.github.io/beezone/libs/prisma",
+  "homepage": "https://beemood.github.io/beezone/libs/nest",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -34,7 +34,7 @@
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/prisma/src",
+    "sourceRoot": "libs/nest/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -57,12 +57,14 @@
       }
     }
   },
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/swagger": "^11.2.0"
+  },
   "dependencies": {
+    "@beezone/errors": "workspace:*",
     "@beezone/is": "workspace:*",
     "@beezone/types": "workspace:*",
-    "@nestjs/common": "11.1.6",
-    "@nestjs/config": "^4.0.2",
-    "@prisma/client": "6.13.0",
     "@swc/helpers": "~0.5.11"
   }
 }

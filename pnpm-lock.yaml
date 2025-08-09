@@ -123,6 +123,9 @@ importers:
 
   apps/sample-api:
     dependencies:
+      '@beezone/nest':
+        specifier: workspace:*
+        version: link:../../libs/nest
       '@beezone/prisma':
         specifier: workspace:*
         version: link:../../libs/prisma
@@ -230,8 +233,32 @@ importers:
         specifier: ~0.5.11
         version: 0.5.17
 
+  libs/nest:
+    dependencies:
+      '@beezone/errors':
+        specifier: workspace:*
+        version: link:../errors
+      '@beezone/is':
+        specifier: workspace:*
+        version: link:../is
+      '@beezone/types':
+        specifier: workspace:*
+        version: link:../types
+      '@nestjs/common':
+        specifier: ^11.1.6
+        version: 11.1.6(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/swagger':
+        specifier: ^11.2.0
+        version: 11.2.0(@nestjs/common@11.1.6(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6)(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.17
+
   libs/prisma:
     dependencies:
+      '@beezone/is':
+        specifier: workspace:*
+        version: link:../is
       '@beezone/types':
         specifier: workspace:*
         version: link:../types

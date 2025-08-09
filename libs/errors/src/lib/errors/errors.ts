@@ -20,3 +20,8 @@ export class OutOfScopeError extends BaseError {
     super(message, ErrorCodes.OUT_OF_SCOPE);
   }
 }
+export class InvalidNameError extends BaseError {
+  constructor(message = 'INVALID_NAME: No message') {
+    super(message, ErrorCodes.INVALID_NAME);
+  }
+}

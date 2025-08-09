@@ -27,7 +27,7 @@ export class PrismaModule {
     return {
       global: true,
       module: PrismaModule,
-      providers: [provideClient(options.datasourceName, options.clientClass)],
+      providers: [provideClient(options.clientClass, options.datasourceName)],
       exports: [getClientToken(options.datasourceName)],
     };
   }
@@ -43,6 +43,7 @@ export class PrismaModule {
 
     return {
       module: PrismaModule,
+
       providers: [...repositoryProviders],
       exports: [...repositoryTokens],
     };

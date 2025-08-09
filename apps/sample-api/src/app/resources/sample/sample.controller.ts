@@ -1,25 +1,19 @@
 import { InjectRepository } from '@beezone/prisma';
-import type { Prisma } from '@beezone/sample-db';
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from '@nestjs/common';
+import { Prisma } from '@beezone/sample-db';
+import { ResourceController } from '@beezone/nest';
+import { Body, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import type { UpdateSampleDto } from './dto/update-sample.dto.js';
+import { FindAll } from '@beezone/nest';
 
-@Controller('sample')
+@ResourceController()
 export class SampleController {
   constructor(
-    @InjectRepository('sample') protected readonly repo: Prisma.SampleDelegate
+    @InjectRepository()
+    protected readonly repo: Prisma.SampleDelegate
   ) {}
 
-  @ApiOperation({ summary: 'find many samples' })
-  @ApiOkResponse({})
-  @Get()
+  @FindAll()
   findAll() {
     return this.repo.findMany();
   }

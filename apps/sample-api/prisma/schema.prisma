@@ -19,3 +19,9 @@ model Sample {
 
   name String @unique
 }
+
+model PriceLevel {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+}

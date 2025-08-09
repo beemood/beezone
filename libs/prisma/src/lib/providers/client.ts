@@ -1,15 +1,19 @@
+import { names } from '@beezone/is';
 import type { ClassType } from '@beezone/types';
-import type { Provider } from '@nestjs/common';
+import { Inject, type Provider } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { PrismaClient } from '@prisma/client/extension.js';
 import { DEFAULT_DATASOURCE_NAME } from './constants.js';
+
 export function getClientToken(datasourceName = DEFAULT_DATASOURCE_NAME) {
-  return `${datasourceName}_PRISMA_CLIENT`;
+  return `${
+    names(datasourceName).screamingSnakeCase
+  }_PRISMA_CLIENT`.toUpperCase();
 }
 
 export function provideClient(
-  datasourceName = DEFAULT_DATASOURCE_NAME,
-  clientClass: ClassType<PrismaClient>
+  clientClass: ClassType<PrismaClient>,
+  datasourceName = DEFAULT_DATASOURCE_NAME
 ): Provider {
   return {
     inject: [ConfigService],
@@ -22,5 +26,11 @@ export function provideClient(
         datasourceUrl: DATABASE_URL,
       });
     },
+  };
+}
+
+export function InjectClient(datasourceName?: string): ParameterDecorator {
+  return (...args) => {
+    Inject(getClientToken(datasourceName))(...args);
   };
 }

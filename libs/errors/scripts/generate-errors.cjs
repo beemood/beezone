@@ -2,7 +2,7 @@ const { names } = require('@nx/devkit');
 const { writeFile } = require('fs/promises');
 const { join } = require('path');
 
-const errors = ['Unkown', 'Undefined', 'Empty', 'OutOfScope'];
+const errors = ['Unkown', 'Undefined', 'Empty', 'OutOfScope', 'InvalidName'];
 
 function createErrorClass(code) {
   const { className, constantName } = names(code);

@@ -102,6 +102,7 @@
     }
   },
   "dependencies": {
+    "@beezone/nest": "workspace:*",
     "@beezone/prisma": "workspace:*",
     "@nestjs/common": "^11.1.6",
     "@nestjs/config": "^4.0.2",
