@@ -5,7 +5,7 @@
     "id",
     "timestamp",
     "createdAt",
-    "udpatedAt",
+    "updatedAt",
     "createdBy",
     "updatedBy",
     "deletedBy",
