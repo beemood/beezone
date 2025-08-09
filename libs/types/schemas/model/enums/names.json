@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "model and property names",
+  "enum": [
+    "id",
+    "timestamp",
+    "createdAt",
+    "udpatedAt",
+    "createdBy",
+    "updatedBy",
+    "deletedBy",
+
+    "name",
+    "description",
+
+    "category",
+    "department",
+    "subCategory",
+
+    "product",
+    "price",
+    "quantity",
+
+    "attribute",
+    "upc",
+    "serialNumber",
+    "supplier",
+    "manufacturer",
+    "make",
+    "model",
+
+    "sample",
+    "user",
+    "firstName",
+    "lastName",
+    "middleName",
+
+    "contact",
+    "email",
+    "phone",
+
+    "address",
+    "street",
+    "city",
+    "state",
+    "country",
+    "province"
+  ]
+}

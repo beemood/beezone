@@ -6,7 +6,7 @@
       "const": "object"
     },
     "target": {
-      "$ref": "../enums/model-names.json"
+      "$ref": "../enums/names.json"
     }
   }
 }

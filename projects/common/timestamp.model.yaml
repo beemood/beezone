@@ -1,0 +1,14 @@
+name: timestamp
+abstract: true
+properties:
+  createdAt:
+    type: date
+    generated: created-at
+
+  updatedAt:
+    type: date
+    generated: updated-at
+
+  deletedAt:
+    type: date
+    generated: deleted-at

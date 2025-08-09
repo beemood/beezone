@@ -16,7 +16,7 @@
       "uniqueItems": true
     },
     "generated": {
-      "$ref": "../enums/generated-types.json"
+      "enum": ["increment"]
     }
   }
 }

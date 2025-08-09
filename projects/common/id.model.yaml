@@ -1,0 +1,8 @@
+name: id
+properties:
+  id:
+    type: integer
+    generated: increment
+
+unique:
+  - id

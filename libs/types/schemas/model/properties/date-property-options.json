@@ -6,6 +6,9 @@
       "const": "date"
     },
     "minDate": { "type": "string" },
-    "maxDate": { "type": "string" }
+    "maxDate": { "type": "string" },
+    "generated": {
+      "enum": ["created-at", "updated-at", "deleted-at"]
+    }
   }
 }

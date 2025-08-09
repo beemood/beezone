@@ -3,7 +3,7 @@
   "title": "common property options",
   "properties": {
     "name": {
-      "$ref": "../enums/property-names.json"
+      "$ref": "../enums/names.json"
     },
     "required": {
       "type": "boolean"
@@ -35,28 +35,28 @@
     "notEqualToProperties": {
       "type": "array",
       "items": {
-        "$ref": "../enums/property-names.json"
+        "$ref": "../enums/names.json"
       },
       "uniqueItems": true
     },
     "isEqualToProperties": {
       "type": "array",
       "items": {
-        "$ref": "../enums/property-names.json"
+        "$ref": "../enums/names.json"
       },
       "uniqueItems": true
     },
     "dependsOnProperties": {
       "type": "array",
       "items": {
-        "$ref": "../enums/property-names.json"
+        "$ref": "../enums/names.json"
       },
       "uniqueItems": true
     },
     "notWithProperties": {
       "type": "array",
       "items": {
-        "$ref": "../enums/property-names.json"
+        "$ref": "../enums/names.json"
       },
       "uniqueItems": true
     },

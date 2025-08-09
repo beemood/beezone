@@ -15,13 +15,59 @@ datasource db {
 }
 
 model Sample {
-  id Int @id @default(autoincrement())
-
+  id   Int    @id @default(autoincrement())
   name String @unique
 }
 
-model PriceLevel {
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  subCategories SubCategory[]
+}
+
+model SubCategory {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  products Product[]
+}
+
+model Product {
+  id        Int    @id @default(autoincrement())
+  productId String @unique @default(uuid())
+
+  name         String  @unique
+  desccription String  @default("No description")
+  upc          String  @unique
+  make         String?
+  model        String?
+
+  category   SubCategory @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  attributes ProductAttribute[]
+}
+
+model ProductVariant {
+  id Int @id @default(autoincrement())
+}
+
+model ProductAttribute {
   id Int @id @default(autoincrement())
 
+  key   String
+  value String
+
+  product   Product @relation(fields: [productId], references: [productId], onDelete: Cascade, onUpdate: Cascade)
+  productId String
+
+  @@unique([key, productId])
+}
+
+model PriceLevel {
+  id   Int    @id @default(autoincrement())
   name String @unique
 }

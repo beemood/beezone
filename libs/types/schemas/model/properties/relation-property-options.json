@@ -3,22 +3,38 @@
   "title": "relation property options",
   "properties": {
     "type": {
-      "const": "relation"
+      "$ref": "../enum/relation-types.json"
     },
     "target": {
       "$ref": "../enums/model-names.json"
     },
-    "targetColumnName": {
-      "$ref": "../enums/property-names.json"
+    "required": {
+      "type": "boolean"
     },
-    "relationColumnName": {
-      "$ref": "../enums/property-names.json"
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/names.json"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "../enums/names.json"
+      }
     },
     "onDelete": {
-      "enum": ["Cascade", "Set Null"]
+      "$ref": "#/definitions/OnDeleteOption",
+      "default": "SetNull"
     },
     "onUpdate": {
-      "enum": ["Cascade"]
+      "$ref": "#/definitions/OnDeleteOption",
+      "default": "NoAction"
+    }
+  },
+  "definitions": {
+    "OnDeleteOption": {
+      "enum": ["Cascade", "NoAction", "Restrict", "SetNull", "SetDefault"]
     }
   }
 }

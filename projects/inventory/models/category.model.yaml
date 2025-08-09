@@ -1,0 +1,10 @@
+name: category
+extends:
+  - id
+properties:
+  name:
+    type: string
+    required: true
+
+unique:
+  - name

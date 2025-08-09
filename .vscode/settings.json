@@ -13,5 +13,8 @@
     "source.fixAll.ts": "always",
     "source.organizeImports": "always",
     "source.removeUnusedImports": "always"
+  },
+  "yaml.schemas": {
+    "libs/types/schemas/model.schema.json": "projects/**/*.model.yaml"
   }
 }

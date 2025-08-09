@@ -1,0 +1,21 @@
+name: subCategory
+extends:
+  - id
+properties:
+  id:
+    type: string
+    required: true
+
+relations:
+  category:
+    type: many-to-one
+    target: category
+    required: true
+    onDelete: SetNull
+    onUpdate: Cascade
+    fields:
+      - id
+    references:
+      - id
+unique:
+  - id

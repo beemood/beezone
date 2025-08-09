@@ -3,12 +3,12 @@
   "title": "Model",
   "properties": {
     "name": {
-      "$ref": "./enums/model-names.json"
+      "$ref": "./enums/names.json"
     },
     "extends": {
       "type": "array",
       "items": {
-        "$ref": "./enums/model-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },
@@ -23,7 +23,7 @@
         }
       },
       "propertyNames": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       }
     },
     "relations": {
@@ -33,47 +33,47 @@
         }
       },
       "propertyNames": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       }
     },
     "required": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       }
     },
     "unique": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },
     "hash": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },
     "encrypt": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },
     "readOnly": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },
     "writeOnly": {
       "type": "array",
       "items": {
-        "$ref": "./enums/property-names.json"
+        "$ref": "./enums/names.json"
       },
       "uniqueItems": true
     },

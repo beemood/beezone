@@ -54,8 +54,8 @@
         "executor": "nx:run-commands",
         "options": {
           "commands": [
-            "npx @beezone/cli bundle-json-schema -f ./schemas/model/model.json -o ./schemas/model.schema.json",
-            "npx @beezone/cli typify-json-schema -f ./schemas/model.schema.json -o ./src/lib/model/model.ts"
+            "npx @beezone/cli@latest bundle-json-schema -f ./schemas/model/model.json -o ./schemas/model.schema.json",
+            "npx @beezone/cli@latest typify-json-schema -f ./schemas/model.schema.json -o ./src/lib/model/model.ts"
           ],
           "cwd": "{projectRoot}",
           "parallel": false

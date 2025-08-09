@@ -45,7 +45,7 @@
       "type": "boolean"
     },
     "generated": {
-      "$ref": "../enums/generated-types.json"
+      "enum": ["uuid", "barcode"]
     }
   }
 }
