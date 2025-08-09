@@ -58,6 +58,7 @@
     }
   },
   "dependencies": {
+    "@beezone/errors": "workspace:*",
     "@beezone/fs": "workspace:*",
     "@beezone/is": "workspace:*",
     "@beezone/types": "workspace:*",

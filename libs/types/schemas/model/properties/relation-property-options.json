@@ -3,6 +3,9 @@
   "title": "relation property options",
 
   "properties": {
+    "name": {
+      "$ref": "../enums/names.json"
+    },
     "type": {
       "$ref": "../enum/relation-types.json"
     },

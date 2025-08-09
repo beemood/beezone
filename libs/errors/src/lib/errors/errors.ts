@@ -25,3 +25,8 @@ export class InvalidNameError extends BaseError {
     super(message, ErrorCodes.INVALID_NAME);
   }
 }
+export class InvalidParameterError extends BaseError {
+  constructor(message = 'INVALID_PARAMETER: No message') {
+    super(message, ErrorCodes.INVALID_PARAMETER);
+  }
+}

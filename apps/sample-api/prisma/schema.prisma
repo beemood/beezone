@@ -9,7 +9,8 @@ datasource db {
 }
 
 model Sample {
-  id   Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
   name String @unique
 }
 
@@ -130,6 +131,5 @@ model Store {
   email      String
   website    String
 
-  
   quantities Quantity[]
 }

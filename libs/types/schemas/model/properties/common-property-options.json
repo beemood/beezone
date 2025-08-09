@@ -8,6 +8,9 @@
     "required": {
       "type": "boolean"
     },
+    "unique": {
+      "type": "boolean"
+    },
     "description": {
       "type": "string"
     },

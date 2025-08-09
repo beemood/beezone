@@ -220,6 +220,9 @@ importers:
 
   libs/json:
     dependencies:
+      '@beezone/errors':
+        specifier: workspace:*
+        version: link:../errors
       '@beezone/fs':
         specifier: workspace:*
         version: link:../fs

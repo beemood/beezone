@@ -1,3 +1,5 @@
-import type { ModelSchema } from './model.js';
+import type { PropertyOptions } from './model.js';
 
-const sampleModel: ModelSchema = {};
+const sampleModel: PropertyOptions = {
+  type: 'string',
+};

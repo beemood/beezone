@@ -16,7 +16,7 @@
       "uniqueItems": true
     },
     "generated": {
-      "enum": ["increment"]
+      "enum": ["increment", "id"]
     }
   }
 }
