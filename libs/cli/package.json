@@ -1,6 +1,6 @@
 {
   "name": "@beezone/cli",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Tools and generators",
   "icon": "https://beemood.github.io/beezone/libs/cli/asssts/favicon.png",
   "homepage": "https://beemood.github.io/beezone/libs/cli",

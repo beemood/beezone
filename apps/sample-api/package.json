@@ -1,6 +1,6 @@
 {
   "name": "@beezone/sample-api",
-  "version": "0.0.0",
+  "version": "0.0.23",
   "description": "Common utilities",
   "icon": "https://beemood.github.io/beezone/favicon.png",
   "homepage": "https://beemood.github.io/beezone/apps/sample-api",
