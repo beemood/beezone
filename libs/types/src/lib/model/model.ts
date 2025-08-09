@@ -1,4 +1,4 @@
-/* eslint-disable spellcheck/spell-checker */
+
 export type ModelSchema = {
   name?: Names;
   extends?: Names[];
@@ -3831,7 +3831,7 @@ export type OnDeleteOption =
   | 'SetDefault';
 export type RelationPropertyOptions = {
   type?: RelationTypes;
-  target?: ModelNames;
+  target?: Names;
   required?: boolean;
   fields?: Names[];
   references?: Names[];

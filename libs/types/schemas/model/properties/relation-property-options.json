@@ -1,12 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "title": "relation property options",
+
   "properties": {
     "type": {
       "$ref": "../enum/relation-types.json"
     },
     "target": {
-      "$ref": "../enums/model-names.json"
+      "$ref": "../enums/names.json"
     },
     "required": {
       "type": "boolean"
@@ -36,5 +37,6 @@
     "OnDeleteOption": {
       "enum": ["Cascade", "NoAction", "Restrict", "SetNull", "SetDefault"]
     }
-  }
+  },
+  "required": ["type", "target"]
 }

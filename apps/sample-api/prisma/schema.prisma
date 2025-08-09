@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../node_modules/@beezone/sample-db"
@@ -19,9 +13,17 @@ model Sample {
   name String @unique
 }
 
+model Tag {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  productVariants ProductVariant[]
+}
+
 model Category {
-  id            Int           @id @default(autoincrement())
-  name          String        @unique
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
   subCategories SubCategory[]
 }
 
@@ -35,39 +37,99 @@ model SubCategory {
   products Product[]
 }
 
-model Product {
-  id        Int    @id @default(autoincrement())
-  productId String @unique @default(uuid())
-
-  name         String  @unique
-  desccription String  @default("No description")
-  upc          String  @unique
-  make         String?
-  model        String?
-
-  category   SubCategory @relation(fields: [categoryId], references: [id])
-  categoryId Int
-
-  attributes ProductAttribute[]
-}
-
-model ProductVariant {
-  id Int @id @default(autoincrement())
-}
-
-model ProductAttribute {
-  id Int @id @default(autoincrement())
-
+model Attrbute {
+  id    Int    @id @default(autoincrement())
   key   String
   value String
 
-  product   Product @relation(fields: [productId], references: [productId], onDelete: Cascade, onUpdate: Cascade)
-  productId String
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [productVariantId])
+  productVariantId String
 
-  @@unique([key, productId])
+  @@unique([key, productVariantId])
+}
+
+model Product {
+  id         Int         @id @default(autoincrement())
+  productId  String      @unique @default(uuid())
+  category   SubCategory @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  upc          String  @unique
+  name         String  @unique
+  desccription String?
+  make         String?
+  model        String?
+
+  variants ProductVariant[]
+}
+
+model ProductVariant {
+  id               Int     @id @default(autoincrement())
+  productVariantId String  @unique @default(uuid())
+  product          Product @relation(fields: [productId], references: [productId])
+  productId        String
+  tag              Tag     @relation(fields: [tagId], references: [id])
+  tagId            Int
+
+  sku     String @unique()
+  barcode String @unique()
+
+  attributes Attrbute[]
+  prices     Price[]
+  quantities Quantity[]
+}
+
+model Price {
+  id               Int            @id @default(autoincrement())
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [productVariantId], onDelete: Cascade, onUpdate: Cascade)
+  productVariantId String
+  priceLevel       PriceLevel     @relation(fields: [priceLevelId], references: [priceLevelId], onDelete: Cascade, onUpdate: Cascade)
+  priceLevelId     String
+
+  price Decimal
+  cost  Decimal
+}
+
+model Quantity {
+  id               Int            @unique @default(autoincrement())
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [productVariantId], onDelete: Cascade, onUpdate: Cascade)
+  productVariantId String
+  store            Store          @relation(fields: [storeId], references: [storeId], onDelete: Cascade, onUpdate: Cascade)
+  storeId          String
+
+  quantity      Int
+  alertQuantity Int
 }
 
 model PriceLevel {
-  id   Int    @id @default(autoincrement())
+  id           Int    @id @default(autoincrement())
+  priceLevelId String @unique @default(uuid())
+
+  name        String  @unique
+  description String?
+  taxrate     Decimal
+  currency    String
+
+  prices Price[]
+  stores Store[]
+}
+
+model Store {
+  id           Int        @unique @default(autoincrement())
+  storeId      String     @unique() @default(uuid())
+  priceLevel   PriceLevel @relation(fields: [priceLevelId], references: [priceLevelId])
+  priceLevelId String
+
   name String @unique
+
+  street     String
+  city       String
+  state      String
+  postalCode String
+  phone      String
+  email      String
+  website    String
+
+  
+  quantities Quantity[]
 }

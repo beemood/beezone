@@ -3787,7 +3787,7 @@
         "id",
         "timestamp",
         "createdAt",
-        "udpatedAt",
+        "updatedAt",
         "createdBy",
         "updatedBy",
         "deletedBy",
@@ -3827,7 +3827,7 @@
       "title": "number formats",
       "enum": [
         "percentage",
-        "firaction",
+        "fraction",
         "positive",
         "negative"
       ]
@@ -4136,7 +4136,7 @@
           "$ref": "#/definitions/RelationTypes"
         },
         "target": {
-          "$ref": "#/definitions/ModelNames"
+          "$ref": "#/definitions/Names"
         },
         "required": {
           "type": "boolean"
