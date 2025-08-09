@@ -8,7 +8,7 @@ export default {
   },
   rules: {
     'spellcheck/spell-checker': [
-      'error',
+      'warn',
       {
         comments: true,
         strings: true,

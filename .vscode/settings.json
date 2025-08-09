@@ -1,5 +1,11 @@
 {
-  "eslint.validate": ["json"],
+  "eslint.validate": [
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "editor.codeActionsOnSave": {
     "source.sortImports": "always",
     "source.addMissingImports.ts": "always",

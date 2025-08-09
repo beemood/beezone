@@ -1,5 +1,5 @@
 import { InjectRepository } from '@beezone/prisma';
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import {
   Body,
   Controller,
@@ -9,7 +9,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { UpdateSampleDto } from './dto/update-sample.dto.js';
+import type { UpdateSampleDto } from './dto/update-sample.dto.js';
 
 @Controller('sample')
 export class SampleController {
