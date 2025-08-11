@@ -44,6 +44,111 @@ export class PrismaModelRelationPrinter implements ToString {
       }
     }
   }
+
+  protected onDelete() {
+    if (this.options.onDelete) {
+      return this.options.onDelete;
+    }
+    switch (this.options.type) {
+      case 'many-to-many':
+      case 'one-to-many':
+      case 'one-to-one':
+      case 'many-to-one':
+      case 'group': {
+        return 'SetNull';
+      }
+      case 'owner': {
+        return 'Cascade';
+      }
+    }
+  }
+
+  protected onUpdate() {
+    if (this.options.onDelete) {
+      return this.options.onDelete;
+    }
+    switch (this.options.type) {
+      case 'many-to-many':
+      case 'one-to-many':
+      case 'one-to-one':
+      case 'many-to-one':
+      case 'group': {
+        return 'SetNull';
+      }
+      case 'owner': {
+        return 'Cascade';
+      }
+    }
+  }
+  protected fieldIds() {
+    switch (this.options.type) {
+      case 'many-to-many':
+      case 'one-to-many':
+        return '';
+      case 'many-to-one':
+      case 'group':
+      case 'owner':
+      case 'one-to-one': {
+        if (this.options.fields) {
+          return this.options.fields.join(',');
+        }
+        return names(this.targetName()).camelCase + 'Id';
+      }
+    }
+  }
+
+  protected fieldIdDefinitions() {
+    switch (this.options.type) {
+      case 'many-to-many':
+      case 'one-to-many':
+        return '';
+      case 'many-to-one':
+      case 'group':
+      case 'one-to-one': {
+        if (this.options.fields) {
+          return this.options.fields
+            .map((e) => {
+              return `${e} Int`;
+            })
+            .join('\n');
+        }
+        return names(this.targetName()).camelCase + 'Id' + ' Int';
+      }
+      case 'owner': {
+        if (this.options.fields) {
+          return this.options.fields
+            .map((e) => {
+              return `${e} String`;
+            })
+            .join('\n');
+        }
+        return names(this.targetName()).camelCase + 'Id' + ' String';
+      }
+    }
+  }
+
+  protected referenceId() {
+    switch (this.options.type) {
+      case 'many-to-many':
+      case 'one-to-many': {
+        return '';
+      }
+      case 'one-to-one':
+      case 'group':
+      case 'many-to-one': {
+        if (this.options.references) {
+          return this.options.references.join(', ');
+        }
+        return 'id';
+      }
+      case 'owner': {
+        if (this.options.references) {
+          return this.options.references.join(',');
+        }
+        return names(this.propertyName()).camelCase + 'Id';
+      }
+    }
+  }
   protected relationOptions() {
     switch (this.options.type) {
       case 'many-to-many':
@@ -51,31 +156,18 @@ export class PrismaModelRelationPrinter implements ToString {
         return '';
       }
       case 'one-to-one':
-      case 'many-to-one': {
-        return `@relation(fields: [${
-          this.options.fields?.join(',') ?? this.targetName() + 'Id'
-        }], references: [${
-          this.options.references?.join(',') ?? 'id'
-        }], onDelete: ${this.options.onDelete ?? 'SetNull'}, onUpdate: ${
-          this.options.onUpdate ?? 'NoAction'
-        })
-        ${this.targetName()}Id Int 
-        `;
-      }
-      case 'group': {
-        return `@relation(fields: [${this.targetName()}Id], references: [id], onDelete: SetNull)
-        ${this.targetName()}Id Int 
-        `;
-      }
+      case 'many-to-one':
+      case 'group':
       case 'owner': {
-        return `@relation(fields: [${this.targetName()}Id], references: [${this.targetName()}Id], onDelete: Cascade, onUpdate: Cascade)
-        ${this.targetName()}Id String 
-        `;
+        return [
+          `@relation(fields: [${this.fieldIds()}], references: [${this.referenceId()}], onDelete: ${this.onDelete()}, onUpdate: ${this.onUpdate()})`,
+          `${this.fieldIdDefinitions()}`,
+        ].join('\n\b');
       }
     }
   }
 
   toString(): string {
-    return `${this.propertyName()} ${this.relationType()}${this.isRequired()}`;
+    return `${this.propertyName()} ${this.relationType()} ${this.relationOptions()}`.trim();
   }
 }

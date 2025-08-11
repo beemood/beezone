@@ -9,6 +9,24 @@ export class PrismaModelPropertyPrinter implements ToString {
     if (this.options.type === 'array') {
       return '';
     }
+
+    if (this.options.type === 'integer') {
+      if (this.options.generated == 'id') {
+        return '';
+      }
+    }
+    if (this.options.type === 'string') {
+      if (this.options.generated === 'uuid') {
+        return '';
+      }
+    }
+
+    if (this.options.type === 'date') {
+      if (this.options.generated === 'created-at') {
+        return '';
+      }
+    }
+
     return this.options.required == true ? '' : '?';
   }
 
@@ -85,10 +103,10 @@ export class PrismaModelPropertyPrinter implements ToString {
   }
 
   protected propertyName() {
-    return names(isDefinedOrThrow(this.options.name));
+    return names(isDefinedOrThrow(this.options.name)).camelCase;
   }
 
   toString(): string {
-    return `${this.propertyName()} ${this.propertyType()}${this.isRequired()} ${this.isGenerated()}`;
+    return `${this.propertyName()} ${this.propertyType()}${this.isRequired()} ${this.isGenerated()}`.trim();
   }
 }
