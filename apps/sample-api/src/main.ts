@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { AppModule } from './app/app.module.js';
+
 async function boot() {
   const app = await NestFactory.create(AppModule);
   const config = app.get(ConfigService);

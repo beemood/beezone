@@ -1,6 +1,7 @@
 import { readYamlFile, writeJsonFile } from '@beezone/fs';
 import { isDefinedOrThrow, names } from '@beezone/is';
 import { generatePrismaSchema } from '@beezone/json';
+import type { ModelSchema, Names } from '@beezone/types';
 import type { Command } from 'commander';
 import { readdir } from 'fs/promises';
 
@@ -15,14 +16,19 @@ function modelNameFromFileName(filepath: string) {
   return names(filename.replace('.model.yaml', '')).kebabCase;
 }
 
-async function readModels(rootDir: string) {
+async function readModels(rootDir: string): Promise<ModelSchema[]> {
   const dirs = await readdir(rootDir);
 
   const filteredDirs = dirs.filter((e) => e.endsWith('.model.json'));
 
   return await Promise.all(
     filteredDirs.map(async (e) => {
-      return await readYamlFile(e);
+      const content = await readYamlFile<ModelSchema>(e);
+
+      return {
+        name: modelNameFromFileName(e) as Names,
+        ...content,
+      };
     })
   );
 }

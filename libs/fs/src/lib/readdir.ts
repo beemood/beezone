@@ -4,6 +4,7 @@ import { isDirectory } from './is-directory.js';
 import { isFile } from './is-file.js';
 import { readJsonFile } from './read-json-file.js';
 import { readTextFile } from './read-text-file.js';
+import { readYamlFile } from './read-yaml-file.js';
 
 export type DirectoryStat<T = string> = {
   path: string;
@@ -13,11 +14,13 @@ export type DirectoryStat<T = string> = {
   content?: T;
 };
 
+export type MediaType = 'text' | 'json' | 'yaml';
+
 export type ReaddirOptions = {
   /**
    * If provided, the file will be read and stored into the content property.
    */
-  mediaType?: 'text' | 'json';
+  mediaType?: MediaType;
 
   /**
    * If {@link mediaType} is set `json` and this property is not set `ignore`, then json errors are thrown else return undefined.
@@ -26,16 +29,16 @@ export type ReaddirOptions = {
 };
 
 export async function readdir<T>(
-  rootdir: string,
+  rootDir: string,
   options?: ReaddirOptions
 ): Promise<DirectoryStat<T>[]> {
-  const resolvedRootdir = resolve(rootdir);
+  const resolvedRoot = resolve(rootDir);
 
-  const foundPaths = await __readdir(resolvedRootdir, { encoding: 'utf-8' });
+  const foundPaths = await __readdir(resolvedRoot, { encoding: 'utf-8' });
 
   return await Promise.all(
     foundPaths.map(async (filepath: string) => {
-      const absoluteFilepath = resolve(rootdir, filepath);
+      const absoluteFilepath = resolve(rootDir, filepath);
       const __isDirectory = await isDirectory(absoluteFilepath);
       const __isFile = await isFile(absoluteFilepath);
 
@@ -53,6 +56,15 @@ export async function readdir<T>(
         } else if (options?.mediaType === 'json') {
           try {
             return await readJsonFile(absoluteFilepath);
+          } catch (err) {
+            if (options.jsonParseError == 'ignore') {
+              return undefined;
+            }
+            throw err;
+          }
+        } else if (options?.mediaType == 'yaml') {
+          try {
+            return await readYamlFile(absoluteFilepath);
           } catch (err) {
             if (options.jsonParseError == 'ignore') {
               return undefined;

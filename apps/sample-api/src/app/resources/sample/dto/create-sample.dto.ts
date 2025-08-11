@@ -1,4 +1,4 @@
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose } from 'class-transformer';
 

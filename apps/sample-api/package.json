@@ -47,10 +47,7 @@
           "tsConfig": "{projectRoot}/tsconfig.lib.json",
           "skipTypeCheck": false,
           "stripLeadingPaths": true
-        },
-        "dependsOn": [
-          "prisma-migrate"
-        ]
+        }
       },
       "build-watch": {
         "executor": "@nx/js:swc",
@@ -108,13 +105,10 @@
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.1.6",
     "@nestjs/event-emitter": "^3.0.1",
-    "@nestjs/platform-express": "^11.1.6",
     "@nestjs/schedule": "^6.0.0",
     "@nestjs/swagger": "^11.2.0",
-    "@prisma/client": "6.13.0",
     "@swc/helpers": "~0.5.11",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.2",
     "helmet": "^8.1.0"
   },
   "devDependencies": {

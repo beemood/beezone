@@ -1,6 +1,6 @@
 import { Delete, Get, Post, Put, ResourceController } from '@beezone/nest';
 import { InjectRepository } from '@beezone/prisma';
-import { Prisma } from '@beezone/sample-db';
+import type { Prisma } from '@beezone/sample-db';
 import { Body, Param, ParseIntPipe } from '@nestjs/common';
 import type { UpdateSampleDto } from './dto/update-sample.dto.js';
 
