@@ -3,7 +3,7 @@ const { writeFile } = require('fs/promises');
 const { join } = require('path');
 
 const errors = [
-  'Unkown',
+  'Unknown',
   'Undefined',
   'Empty',
   'OutOfScope',

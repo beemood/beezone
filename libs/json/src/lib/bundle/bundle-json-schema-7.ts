@@ -13,10 +13,10 @@ import { transformRefsToDefinitionPaths } from './transform-refs-to-definition-p
  */
 export async function bundleJsonSchema7(filepath: string) {
   const absoluteFilePath = resolve(filepath);
-  const rootdir = dirname(filepath);
+  const root = dirname(filepath);
 
   const mainSchema = await readJsonSchema7File(absoluteFilePath);
-  const schemaFiles = await readJsonSchema7Files(rootdir);
+  const schemaFiles = await readJsonSchema7Files(root);
 
   if (!mainSchema.definitions) {
     mainSchema.definitions = {};

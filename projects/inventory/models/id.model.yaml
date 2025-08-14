@@ -1,0 +1,5 @@
+abstract: true
+properties:
+  id:
+    type: integer
+    generated: id

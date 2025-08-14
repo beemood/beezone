@@ -1,9 +1,9 @@
 {
-  "name": "@beezone/types",
-  "version": "0.0.23",
-  "description": "Common utilities",
+  "name": "@beezone/prisma-schema",
+  "version": "0.0.0",
+  "description": "Prisma schema generator from model definitions",
   "icon": "https://beemood.github.io/beezone/favicon.png",
-  "homepage": "https://beemood.github.io/beezone/libs/types",
+  "homepage": "https://beemood.github.io/beezone/libs/prisma-schema",
   "author": {
     "email": "robert.brightline@gmail.com",
     "name": "Robert Brightline",
@@ -31,11 +31,10 @@
   },
   "files": [
     "dist",
-    "schemas/model.schema.json",
     "!**/*.tsbuildinfo"
   ],
   "nx": {
-    "sourceRoot": "libs/types/src",
+    "sourceRoot": "libs/prisma-schema/src",
     "targets": {
       "build": {
         "executor": "@nx/js:swc",
@@ -50,27 +49,6 @@
           "stripLeadingPaths": true
         }
       },
-      "bundle-json-schema": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "npx @beezone/cli@latest bundle-json-schema -f ./schemas/model/model.json -o ./schemas/model.schema.json"
-        }
-      },
-      "typify-json-schema": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "npx @beezone/cli@latest typify-json-schema -f ./schemas/model.schema.json -o ./src/lib/model/model.ts"
-        }
-      },
-      "generate-types": {
-        "executor": "nx:run-commands",
-        "options": {
-          "commands": [
-            "npx nx bundle-json-schema {projectName}",
-            "npx nx typify-json-schema {projectName}"
-          ]
-        }
-      },
       "doc": {
         "executor": "nx:run-commands",
         "options": {
@@ -80,6 +58,9 @@
     }
   },
   "dependencies": {
+    "@beezone/errors": "workspace:*",
+    "@beezone/is": "workspace:*",
+    "@beezone/types": "workspace:*",
     "@swc/helpers": "~0.5.11"
   }
 }

@@ -1,11 +1,5 @@
-name: subCategory
 extends:
-  - id
-properties:
-  id:
-    type: string
-    required: true
-
+  - category
 relations:
   category:
     type: many-to-one
@@ -17,5 +11,3 @@ relations:
       - id
     references:
       - id
-unique:
-  - id

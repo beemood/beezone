@@ -6,6 +6,7 @@
     "timestamp",
     "createdAt",
     "updatedAt",
+    "deletedAt",
     "createdBy",
     "updatedBy",
     "deletedBy",

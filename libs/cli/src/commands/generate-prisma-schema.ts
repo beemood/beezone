@@ -1,4 +1,4 @@
-import { readYamlFile, writeJsonFile } from '@beezone/fs';
+import { readYamlFile, writeTextFile } from '@beezone/fs';
 import { isDefinedOrThrow, names } from '@beezone/is';
 import { generatePrismaSchema } from '@beezone/json';
 import type { ModelSchema, Names } from '@beezone/types';
@@ -38,7 +38,7 @@ export async function generatePrismaSchemaCommandHandler(
 ) {
   const models = await readModels(options.modelsRoot);
   const schema = await generatePrismaSchema(options.projectName, models);
-  await writeJsonFile(options.outputPath, schema);
+  await writeTextFile(options.outputPath, schema);
 }
 
 export function bindGeneratePrismaSchemaCommand(program: Command) {

@@ -8,8 +8,6 @@ import { toDefinitionPath } from './to-definition-path.js';
  * @param schema
  */
 export function transformRefsToDefinitionPaths(schema: JSONSchema7Object) {
-  schema.$ref;
-
   if (schema.$ref && !isDefinitionPath(schema.$ref)) {
     schema.$ref = toDefinitionPath(schema.$ref);
   }

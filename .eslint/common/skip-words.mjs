@@ -101,4 +101,7 @@ export default [
   'nodemon',
   'prisma',
   'beemood',
+  'datasource',
+  'postgresql',
+  'barcode'
 ];

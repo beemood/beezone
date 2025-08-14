@@ -1,8 +1,8 @@
 import { BaseError } from '../common/base-error.js';
 import { ErrorCodes } from '../common/error-codes.js';
-export class UnkownError extends BaseError {
-  constructor(message = 'UNKOWN: No message') {
-    super(message, ErrorCodes.UNKOWN);
+export class UnknownError extends BaseError {
+  constructor(message = 'UNKNOWN: No message') {
+    super(message, ErrorCodes.UNKNOWN);
   }
 }
 export class UndefinedError extends BaseError {

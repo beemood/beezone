@@ -1,5 +1,7 @@
 /* eslint-disable spellcheck/spell-checker */
+import { isDefinedOrThrow } from '@beezone/is';
 import type { ModelSchema } from '@beezone/types';
+import { prismaDatabaseConfiguration } from './prisma-database-configuration.js';
 import { PrismaModelPrinter } from './prisma-model-printer.js';
 
 export function generatePrismaSchema(
@@ -7,20 +9,7 @@ export function generatePrismaSchema(
   models: ModelSchema[]
 ) {
   return [
-    `
-generator client {
-  provider = "prisma-client-js"
-  output   = "../node_modules/${generatedProjectName}"
-}
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}`.trim(),
-    models
-      .map((e) => {
-        return new PrismaModelPrinter(e).toString();
-      })
-      .join('\n\n'),
-  ];
+    prismaDatabaseConfiguration(generatedProjectName),
+    printModels(models),
+  ].join('\n\b');
 }

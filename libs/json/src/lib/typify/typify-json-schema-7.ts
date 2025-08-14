@@ -1,5 +1,6 @@
-import { names } from '@beezone/is';
+import { isDefinedOrThrow, names } from '@beezone/is';
 import type { JSONSchema7Object } from '@beezone/types';
+import { modelName } from '../common/model-name.js';
 import { readJsonSchema7File } from '../common/read-json-schema-7-file.js';
 
 function typifyJsonSchema7Options(schema: JSONSchema7Object): string {
@@ -19,7 +20,7 @@ function typifyJsonSchema7Options(schema: JSONSchema7Object): string {
   }
 
   if (schema.$ref) {
-    return schema.$ref.split('/').pop()!;
+    return isDefinedOrThrow(schema.$ref.split('/').pop());
   }
 
   if (schema.allOf) {
@@ -78,7 +79,7 @@ function typifyJsonSchema7Options(schema: JSONSchema7Object): string {
       : 'string';
 
     return `Partial<Record<${propertyName}, ${typifyJsonSchema7Options(
-      Object.values(schema.patternProperties!)[0] as JSONSchema7Object
+      Object.values(schema.patternProperties)[0] as JSONSchema7Object
     )}>>`;
   }
 
@@ -93,14 +94,8 @@ export async function typifyJsonSchema7(filepath: string): Promise<string> {
   const schema = await readJsonSchema7File(filepath);
   const types: string[] = [];
 
-  const filename = filepath
-    .split(/[\/\\]/)
-    .pop()!
-    .replace('.json', '');
-
   {
-    const typeName = names(filename).pascalCase;
-
+    const typeName = names(modelName(filepath)).pascalCase;
     types.push(printType(typeName, schema));
   }
   {
