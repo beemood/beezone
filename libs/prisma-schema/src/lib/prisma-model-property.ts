@@ -102,7 +102,7 @@ export class PrismaModelProperty {
 
     if (
       this.propertyOptions.type === 'array' ||
-      this.propertyOptions.required != true
+      this.propertyOptions.required == true
     ) {
       return '';
     }

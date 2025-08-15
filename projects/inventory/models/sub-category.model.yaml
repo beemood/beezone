@@ -2,12 +2,5 @@ extends:
   - category
 relations:
   category:
-    type: many-to-one
+    type: group
     target: category
-    required: true
-    onDelete: SetNull
-    onUpdate: Cascade
-    fields:
-      - id
-    references:
-      - id

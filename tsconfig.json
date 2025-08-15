@@ -35,6 +35,9 @@
     },
     {
       "path": "./libs/prisma-schema"
+    },
+    {
+      "path": "./libs/read-models"
     }
   ]
 }

@@ -5,13 +5,13 @@ import { prismaModels } from './prisma-models.js';
 
 export type PrismaSchemaOptions = {
   models: ModelSchema[];
-  output: string;
+  generatedClientPath: string;
 };
 
 export function prismaSchema(options: PrismaSchemaOptions): string {
   return [
-    prismaClient({ output: options.output }),
+    prismaClient({ generatedClientPath: options.generatedClientPath }),
     prismaDatasource(),
     prismaModels(options.models),
-  ].join('\n');
+  ].join('\n\n');
 }

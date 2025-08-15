@@ -71,6 +71,8 @@
     "@beezone/fs": "workspace:*",
     "@beezone/is": "workspace:*",
     "@beezone/json": "workspace:*",
+    "@beezone/prisma-schema": "workspace:*",
+    "@beezone/read-models": "workspace:*",
     "@beezone/types": "workspace:*",
     "@nx/devkit": "21.3.11",
     "commander": "^14.0.0",

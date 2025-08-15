@@ -29,6 +29,9 @@ export class PrismaModel {
       .map((e) => {
         return new PrismaModelProperty(e).toString();
       })
+      .map((e) => {
+        return e.padStart(e.length + 2, ' ');
+      })
       .join('\n');
   }
 

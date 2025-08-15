@@ -172,6 +172,12 @@ importers:
       '@beezone/json':
         specifier: workspace:*
         version: link:../json
+      '@beezone/prisma-schema':
+        specifier: workspace:*
+        version: link:../prisma-schema
+      '@beezone/read-models':
+        specifier: workspace:*
+        version: link:../read-models
       '@beezone/types':
         specifier: workspace:*
         version: link:../types
@@ -299,6 +305,21 @@ importers:
 
   libs/property:
     dependencies:
+      '@beezone/types':
+        specifier: workspace:*
+        version: link:../types
+      '@swc/helpers':
+        specifier: ~0.5.11
+        version: 0.5.17
+
+  libs/read-models:
+    dependencies:
+      '@beezone/fs':
+        specifier: workspace:*
+        version: link:../fs
+      '@beezone/is':
+        specifier: workspace:*
+        version: link:../is
       '@beezone/types':
         specifier: workspace:*
         version: link:../types

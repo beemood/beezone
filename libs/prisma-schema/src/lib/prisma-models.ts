@@ -3,6 +3,7 @@ import { PrismaModel } from './prisma-model.js';
 
 export function prismaModels(models: ModelSchema[]): string {
   return models
+    .filter((e) => e.abstract != true)
     .map((e) => {
       return new PrismaModel(e).toString();
     })
